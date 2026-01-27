@@ -1,0 +1,174 @@
+name: Benchmarks
+
+on:
+  # Run on schedule - weekly benchmarks
+  schedule:
+    - cron: '0 2 * * 0'  # Every Sunday at 2 AM UTC
+
+  # Manual trigger with options
+  workflow_dispatch:
+    inputs:
+      use_hetzner:
+        description: 'Use Hetzner Cloud for benchmarks'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      server_type:
+        description: 'Hetzner server type'
+        required: false
+        default: 'cx42'
+        type: choice
+        options:
+          - 'cx22'   # 2 vCPU, 4GB RAM
+          - 'cx42'   # 8 vCPU, 16GB RAM
+      commit_range:
+        description: 'Commit range to benchmark (e.g., HEAD~5..HEAD)'
+        required: false
+        default: 'HEAD^!'
+
+  # Run on pushes to main (for tracking performance over time)
+  push:
+    branches:
+      - main
+    paths:
+      - 'csp_benchmarks/benchmarks/**'
+      - 'csp_benchmarks/asv.conf.json'
+
+concurrency:
+  group: benchmarks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  # Quick local benchmarks for PRs
+  benchmark-local:
+    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && github.event.inputs.use_hetzner == 'false')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake ninja-build libboost-all-dev
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[develop]"
+
+      - name: Configure ASV machine
+        run: cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
+
+      - name: Run quick benchmarks
+        run: |
+          python -m asv run --config csp_benchmarks/asv.conf.json --machine github-actions --python=same --quick --verbose
+
+      - name: Compare with main
+        if: github.event_name == 'pull_request'
+        run: |
+          python -m asv continuous --config csp_benchmarks/asv.conf.json --verbose main HEAD || true
+
+      - name: Generate HTML report
+        run: python -m asv publish --config csp_benchmarks/asv.conf.json
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            csp_benchmarks/results/
+            .asv/html/
+
+  # Full benchmarks on Hetzner Cloud
+  benchmark-hetzner:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.use_hetzner == 'true') || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[develop,hetzner]"
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HETZNER_SSH_PRIVATE_KEY }}" > ~/.ssh/hetzner_key
+          chmod 600 ~/.ssh/hetzner_key
+
+      - name: Run benchmarks on Hetzner
+        env:
+          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m csp_benchmarks.hetzner.cli run \
+            --server-type ${{ github.event.inputs.server_type || 'cx32' }} \
+            --ssh-key ~/.ssh/hetzner_key \
+            --commits "${{ github.event.inputs.commit_range || 'HEAD^!' }}" \
+            --push
+
+      - name: Cleanup on failure
+        if: failure()
+        env:
+          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+        run: |
+          python -m csp_benchmarks.hetzner.cli cleanup || true
+
+  # Publish results to GitHub Pages
+  publish-results:
+    needs: [benchmark-hetzner]
+    if: always() && (needs.benchmark-hetzner.result == 'success' || needs.benchmark-local.result == 'success')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install asv
+
+      - name: Pull latest results
+        run: |
+          git pull origin main || true
+
+      - name: Generate HTML report
+        run: python -m asv publish --config csp_benchmarks/asv.conf.json
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .asv/html
+          destination_dir: benchmarks

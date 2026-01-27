@@ -1,0 +1,9 @@
+{
+    "arch": "x86_64",
+    "cpu": "Intel Xeon (4 vCPU)",
+    "machine": "hetzner-cx32",
+    "num_cpu": "4",
+    "os": "Ubuntu 24.04",
+    "ram": "8GB",
+    "version": 1
+}

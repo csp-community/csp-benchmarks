@@ -54,6 +54,12 @@ jobs:
     - name: Test
       run: make coverage
 
+    - name: Run benchmarks
+      run: |
+        pip install csp asv
+        cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
+        python -m asv run --config ${{ github.workspace }}/csp_benchmarks/asv.conf.json --machine github-actions --python=same --quick
+
     - name: Upload test results (Python)
       uses: actions/upload-artifact@v6
       with:

@@ -1,0 +1,51 @@
+{
+    "github-actions": {
+        "arch": "x86_64",
+        "cpu": "GitHub Actions Runner (2 vCPU)",
+        "machine": "github-actions",
+        "num_cpu": "2",
+        "os": "Ubuntu 24.04",
+        "ram": "7GB"
+    },
+    "hetzner-cx22": {
+        "arch": "x86_64",
+        "cpu": "Intel Xeon (2 vCPU)",
+        "machine": "hetzner-cx22",
+        "num_cpu": "2",
+        "os": "Ubuntu 24.04",
+        "ram": "4GB"
+    },
+    "hetzner-cx42": {
+        "arch": "x86_64",
+        "cpu": "Intel Xeon (8 vCPU)",
+        "machine": "hetzner-cx42",
+        "num_cpu": "8",
+        "os": "Ubuntu 24.04",
+        "ram": "16GB"
+    },
+    "timkpaine-mbp-m2": {
+        "arch": "arm64",
+        "cpu": "Apple M2 (8 cores)",
+        "machine": "timkpaine-mbp-m2",
+        "num_cpu": "8",
+        "os": "macOS",
+        "ram": "16GB"
+    },
+    "timkpaine-mbp-m1": {
+        "arch": "arm64",
+        "cpu": "Apple M1 Pro (10 cores)",
+        "machine": "timkpaine-mbp-m1",
+        "num_cpu": "10",
+        "os": "macOS",
+        "ram": "16GB"
+    },
+    "timkpaine-framework-13": {
+        "arch": "x86_64",
+        "cpu": "AMD Ryzen AI 9 HX 370 (24 cores)",
+        "machine": "timkpaine-framework-13",
+        "num_cpu": "24",
+        "os": "Ubuntu 24.04",
+        "ram": "64GB"
+    },
+    "version": 1
+}

@@ -102,6 +102,35 @@ dist: clean dist-build dist-check  ## build all dists
 
 publish: dist  ## publish python assets
 
+##############
+# BENCHMARKS #
+##############
+.PHONY: benchmark benchmarks benchmark-quick benchmark-local benchmark-view benchmark-compare
+
+ASV_CONFIG := $(CURDIR)/csp_benchmarks/asv.conf.json
+
+benchmark:  ## run benchmarks for current commit
+	python -m asv run --config $(ASV_CONFIG) --verbose HEAD^!
+
+benchmark-quick:  ## run quick benchmark
+	python -m asv run --config $(ASV_CONFIG) --quick --verbose HEAD^!
+
+benchmark-local:  ## run benchmark using local environment
+	python -m asv run --config $(ASV_CONFIG) --python=same --verbose
+
+benchmark-compare:  ## compare benchmarks between commits
+	python -m asv compare --config $(ASV_CONFIG) HEAD~1 HEAD
+
+benchmark-view:  ## generate and view benchmark results
+	python -m asv publish --config $(ASV_CONFIG)
+	python -m asv preview --config $(ASV_CONFIG)
+
+benchmark-continuous:  ## run benchmarks comparing HEAD to main
+	python -m asv continuous --config $(ASV_CONFIG) main HEAD --verbose
+
+# Alias
+benchmarks: benchmark
+
 #########
 # CLEAN #
 #########

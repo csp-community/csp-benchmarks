@@ -1,0 +1,9 @@
+{
+    "arch": "x86_64",
+    "cpu": "AMD Ryzen AI 9 HX 370 (24 cores)",
+    "machine": "timkpaine-framework-13",
+    "num_cpu": "24",
+    "os": "Ubuntu 24.04",
+    "ram": "64GB",
+    "version": 1
+}

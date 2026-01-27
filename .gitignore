@@ -157,3 +157,7 @@ csp_benchmarks/labextension
 
 # Rust
 target
+# ASV (airspeed velocity) benchmarks
+.asv/
+csp_benchmarks/csp-benchmarks
+csp_benchmarks/csp

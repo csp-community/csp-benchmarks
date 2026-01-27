@@ -1,0 +1,9 @@
+{
+    "arch": "arm64",
+    "cpu": "Apple M2 (8 cores)",
+    "machine": "timkpaine-mbp-m2",
+    "num_cpu": "8",
+    "os": "macOS",
+    "ram": "16GB",
+    "version": 1
+}

@@ -25,7 +25,11 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 
-dependencies = []
+dependencies = [
+    "csp",
+    "asv>=0.6",
+    "numpy",
+]
 
 [project.optional-dependencies]
 develop = [
@@ -44,7 +48,13 @@ develop = [
     "wheel",
 ]
 
+hetzner = [
+    "hcloud>=2.0",
+    "paramiko>=3.0",
+]
+
 [project.scripts]
+csp-benchmarks = "csp_benchmarks.cli:main"
 
 [project.urls]
 Repository = "https://github.com/csp-benchmarks/csp-benchmarks"
@@ -76,7 +86,8 @@ ignore = [
 [tool.coverage.run]
 branch = true
 omit = [
-    "csp_benchmarks/tests/integration/",
+    "csp_benchmarks/tests/integration/*",
+    "csp_benchmarks/benchmarks/*",  # ASV benchmarks, not unit-testable
 ]
 [tool.coverage.report]
 exclude_also = [

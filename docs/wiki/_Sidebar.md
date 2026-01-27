@@ -14,3 +14,8 @@ Notes for editors:
 - [Contributing](Contribute)
 - [Development Setup](Local-Development-Setup)
 - [Build from Source](Build-from-Source)
+
+**Benchmarks**
+
+- [Running Benchmarks](Benchmarks)
+- [Hetzner Cloud](Hetzner-Cloud)

@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "project": "csp-benchmarks",
+    "project_url": "https://github.com/csp-community/csp-benchmarks",
+    "repo": "https://github.com/csp-community/csp-benchmarks.git",
+    "branches": ["main"],
+    "dvcs": "git",
+
+    "environment_type": "virtualenv",
+    "install_timeout": 600,
+
+    "pythons": ["3.11", "3.12", "3.13"],
+
+    "matrix": {
+        "csp": ["0.14.0", "0.13.2", "0.13.1", "0.13.0", "0.12.0"]
+    },
+
+    "benchmark_dir": "benchmarks",
+    "env_dir": "../.asv/env",
+    "results_dir": "results",
+    "html_dir": "../.asv/html",
+
+    "hash_length": 8
+}
