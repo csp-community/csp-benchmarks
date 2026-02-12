@@ -117,7 +117,7 @@ def main() -> int:
     run_parser = subparsers.add_parser("run", help="Run benchmarks on Hetzner Cloud")
     run_parser.add_argument("--token", help="Hetzner Cloud API token")
     run_parser.add_argument("--server-name", default="csp-benchmark-runner", help="Server name")
-    run_parser.add_argument("--server-type", default="cpx21", help="Hetzner server type (cpx21, cpx41, cpx51)")
+    run_parser.add_argument("--server-type", default="cx23", help="Hetzner server type (cx23, cx43)")
     run_parser.add_argument("--ssh-key", help="Path to SSH private key")
     run_parser.add_argument("--ssh-key-name", help="Name of SSH key in Hetzner")
     run_parser.add_argument("--branches", default="main", help="Comma-separated list of branches")

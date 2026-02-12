@@ -19,11 +19,11 @@ on:
       server_type:
         description: 'Hetzner server type'
         required: false
-        default: 'cpx21'
+        default: 'cx23'
         type: choice
         options:
-          - 'cpx21'  # 3 vCPU, 4GB RAM (AMD)
-          - 'cpx41'  # 8 vCPU, 16GB RAM (AMD)
+          - 'cx23'  # 2 vCPU, 4GB RAM
+          - 'cx43'  # 8 vCPU, 16GB RAM
       commit_range:
         description: 'Commit range to benchmark (e.g., HEAD~5..HEAD)'
         required: false
@@ -126,7 +126,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m csp_benchmarks.hetzner.cli run \
-            --server-type ${{ github.event.inputs.server_type || 'cpx21' }} \
+            --server-type ${{ github.event.inputs.server_type || 'cx23' }} \
             --ssh-key ~/.ssh/hetzner_key \
             --commits "${{ github.event.inputs.commit_range || 'HEAD^!' }}" \
             --push

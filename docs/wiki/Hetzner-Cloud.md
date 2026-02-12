@@ -45,7 +45,7 @@ python -m csp_benchmarks.hetzner.cli run
 
 # With options
 python -m csp_benchmarks.hetzner.cli run \
-    --server-type cpx41 \
+    --server-type cx43 \
     --commits "HEAD~5..HEAD" \
     --push
 ```
@@ -56,7 +56,7 @@ python -m csp_benchmarks.hetzner.cli run \
 | ---------------- | ----------------------- | ---------------------- |
 | `--token`        | Hetzner API token       | `$HCLOUD_TOKEN`        |
 | `--server-name`  | Server name             | `csp-benchmark-runner` |
-| `--server-type`  | Server size             | `cpx21`                |
+| `--server-type`  | Server size             | `cx23`                 |
 | `--ssh-key`      | Path to SSH private key | None                   |
 | `--ssh-key-name` | Hetzner SSH key name    | None                   |
 | `--branches`     | Branches to benchmark   | `main`                 |
@@ -75,11 +75,10 @@ python -m csp_benchmarks.hetzner.cli cleanup
 
 ## Server Types
 
-| Type  | vCPU | RAM  | Use Case              |
-| ----- | ---- | ---- | --------------------- |
-| cpx21 | 3    | 4GB  | Quick tests (default) |
-| cpx41 | 8    | 16GB | Standard benchmarks   |
-| cpx51 | 16   | 32GB | Large benchmarks      |
+| Type | vCPU | RAM  | Use Case              |
+| ---- | ---- | ---- | --------------------- |
+| cx23 | 2    | 4GB  | Quick tests (default) |
+| cx43 | 8    | 16GB | Standard benchmarks   |
 
 ## GitHub Actions
 
@@ -145,11 +144,11 @@ The benchmarks workflow automatically uses Hetzner Cloud:
 
 ## Cost Estimation
 
-Approximate costs (as of 2024):
+Approximate costs (as of 2026):
 
 | Server | Hourly | Monthly |
 | ------ | ------ | ------- |
-| cpx21  | €0.008 | €5.18   |
-| cpx41  | €0.027 | €17.49  |
+| cx23   | €0.006 | €3.49   |
+| cx43   | €0.015 | €9.49   |
 
 Servers are automatically deleted after benchmarks complete.

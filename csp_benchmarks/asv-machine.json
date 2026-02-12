@@ -7,18 +7,18 @@
         "os": "Ubuntu 24.04",
         "ram": "7GB"
     },
-    "hetzner-cpx21": {
+    "hetzner-cx23": {
         "arch": "x86_64",
-        "cpu": "AMD EPYC (3 vCPU)",
-        "machine": "hetzner-cpx21",
-        "num_cpu": "3",
+        "cpu": "Intel/AMD (2 vCPU)",
+        "machine": "hetzner-cx23",
+        "num_cpu": "2",
         "os": "Ubuntu 24.04",
         "ram": "4GB"
     },
-    "hetzner-cpx41": {
+    "hetzner-cx43": {
         "arch": "x86_64",
-        "cpu": "AMD EPYC (8 vCPU)",
-        "machine": "hetzner-cpx41",
+        "cpu": "Intel/AMD (8 vCPU)",
+        "machine": "hetzner-cx43",
         "num_cpu": "8",
         "os": "Ubuntu 24.04",
         "ram": "16GB"
