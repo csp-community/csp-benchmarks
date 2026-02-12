@@ -22,7 +22,7 @@ class ServerConfig:
     name: str = "csp-benchmark-runner"
     server_type: str = "cpx21"  # 3 vCPU, 4GB RAM (AMD)
     image: str = "ubuntu-24.04"
-    location: str = "fsn1"  # Falkenstein, Germany
+    location: str = "nbg1"  # Nuremberg, Germany (supports AMD cpx series)
     ssh_key_name: str | None = None
 
 

@@ -20,7 +20,7 @@ class TestServerConfig:
         assert config.name == "csp-benchmark-runner"
         assert config.server_type == "cpx21"
         assert config.image == "ubuntu-24.04"
-        assert config.location == "fsn1"
+        assert config.location == "nbg1"
         assert config.ssh_key_name is None
 
     def test_custom_config(self):
