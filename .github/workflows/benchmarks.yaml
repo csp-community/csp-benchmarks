@@ -126,7 +126,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m csp_benchmarks.hetzner.cli run \
-            --server-type ${{ github.event.inputs.server_type || 'cx32' }} \
+            --server-type ${{ github.event.inputs.server_type || 'cx22' }} \
             --ssh-key ~/.ssh/hetzner_key \
             --commits "${{ github.event.inputs.commit_range || 'HEAD^!' }}" \
             --push

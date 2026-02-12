@@ -45,7 +45,7 @@ python -m csp_benchmarks.hetzner.cli run
 
 # With options
 python -m csp_benchmarks.hetzner.cli run \
-    --server-type cx32 \
+    --server-type cx42 \
     --commits "HEAD~5..HEAD" \
     --push
 ```
@@ -56,7 +56,7 @@ python -m csp_benchmarks.hetzner.cli run \
 | ---------------- | ----------------------- | ---------------------- |
 | `--token`        | Hetzner API token       | `$HCLOUD_TOKEN`        |
 | `--server-name`  | Server name             | `csp-benchmark-runner` |
-| `--server-type`  | Server size             | `cx32`                 |
+| `--server-type`  | Server size             | `cx22`                 |
 | `--ssh-key`      | Path to SSH private key | None                   |
 | `--ssh-key-name` | Hetzner SSH key name    | None                   |
 | `--branches`     | Branches to benchmark   | `main`                 |
@@ -75,12 +75,11 @@ python -m csp_benchmarks.hetzner.cli cleanup
 
 ## Server Types
 
-| Type | vCPU | RAM  | Use Case                      |
-| ---- | ---- | ---- | ----------------------------- |
-| cx22 | 2    | 4GB  | Quick tests                   |
-| cx32 | 4    | 8GB  | Standard benchmarks (default) |
-| cx42 | 8    | 16GB | Large benchmarks              |
-| cx52 | 16   | 32GB | Full suite                    |
+| Type | vCPU | RAM  | Use Case              |
+| ---- | ---- | ---- | --------------------- |
+| cx22 | 2    | 4GB  | Quick tests (default) |
+| cx42 | 8    | 16GB | Standard benchmarks   |
+| cx52 | 16   | 32GB | Large benchmarks      |
 
 ## GitHub Actions
 
@@ -151,7 +150,6 @@ Approximate costs (as of 2024):
 | Server | Hourly | Monthly |
 | ------ | ------ | ------- |
 | cx22   | €0.006 | €4.35   |
-| cx32   | €0.011 | €7.68   |
 | cx42   | €0.021 | €15.03  |
 | cx52   | €0.040 | €28.73  |
 

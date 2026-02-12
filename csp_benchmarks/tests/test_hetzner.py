@@ -18,7 +18,7 @@ class TestServerConfig:
 
         config = ServerConfig()
         assert config.name == "csp-benchmark-runner"
-        assert config.server_type == "cx32"
+        assert config.server_type == "cx22"
         assert config.image == "ubuntu-24.04"
         assert config.location == "fsn1"
         assert config.ssh_key_name is None
