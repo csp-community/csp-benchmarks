@@ -18,7 +18,7 @@ class TestServerConfig:
 
         config = ServerConfig()
         assert config.name == "csp-benchmark-runner"
-        assert config.server_type == "cx22"
+        assert config.server_type == "cpx21"
         assert config.image == "ubuntu-24.04"
         assert config.location == "fsn1"
         assert config.ssh_key_name is None
@@ -29,13 +29,13 @@ class TestServerConfig:
 
         config = ServerConfig(
             name="custom-runner",
-            server_type="cx52",
+            server_type="cpx51",
             image="ubuntu-22.04",
             location="nbg1",
             ssh_key_name="my-key",
         )
         assert config.name == "custom-runner"
-        assert config.server_type == "cx52"
+        assert config.server_type == "cpx51"
         assert config.image == "ubuntu-22.04"
         assert config.location == "nbg1"
         assert config.ssh_key_name == "my-key"
@@ -156,7 +156,7 @@ class TestHetznerCLI:
         args = MagicMock()
         args.token = None
         args.server_name = "test"
-        args.server_type = "cx32"
+        args.server_type = "cpx21"
         args.ssh_key_name = None
         args.branches = "main"
         args.commits = None

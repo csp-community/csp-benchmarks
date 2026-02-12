@@ -20,7 +20,7 @@ class ServerConfig:
     """Configuration for a Hetzner benchmark server."""
 
     name: str = "csp-benchmark-runner"
-    server_type: str = "cx22"  # 2 vCPU, 4GB RAM - entry-level for benchmarks
+    server_type: str = "cpx21"  # 3 vCPU, 4GB RAM (AMD)
     image: str = "ubuntu-24.04"
     location: str = "fsn1"  # Falkenstein, Germany
     ssh_key_name: str | None = None
