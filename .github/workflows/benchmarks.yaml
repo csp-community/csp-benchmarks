@@ -131,8 +131,8 @@ jobs:
             --commits "${{ github.event.inputs.commit_range || 'HEAD^!' }}" \
             --push
 
-      - name: Cleanup on failure
-        if: failure()
+      - name: Cleanup servers
+        if: always()
         env:
           HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
         run: |

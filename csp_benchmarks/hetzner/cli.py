@@ -45,6 +45,7 @@ def run_benchmarks(args: argparse.Namespace) -> int:
     )
 
     manager = HetznerServerManager(token=token, config=server_config)
+    server = None
 
     try:
         # Check if server already exists
@@ -77,9 +78,12 @@ def run_benchmarks(args: argparse.Namespace) -> int:
         return 1
 
     finally:
-        if not args.keep_server and server:
+        if not args.keep_server and server is not None:
             logger.info("Cleaning up server...")
-            manager.delete_server(server)
+            try:
+                manager.delete_server(server)
+            except Exception as cleanup_error:
+                logger.error(f"Failed to cleanup server: {cleanup_error}")
 
 
 def cleanup_servers(args: argparse.Namespace) -> int:

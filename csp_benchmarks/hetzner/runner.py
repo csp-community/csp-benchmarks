@@ -136,9 +136,33 @@ class HetznerBenchmarkRunner:
 
         subprocess.run(scp_args, check=True)
 
+    def _wait_for_ssh(self, timeout: int = 120, interval: int = 10) -> None:
+        """Wait for SSH to become available on the server."""
+        import time
+
+        logger.info("Waiting for SSH to become available...")
+        start_time = time.time()
+
+        while time.time() - start_time < timeout:
+            try:
+                result = self._run_ssh_command("echo 'SSH ready'", check=False)
+                if result.returncode == 0:
+                    logger.info("SSH connection established")
+                    return
+            except Exception:
+                pass
+
+            logger.debug(f"SSH not ready, retrying in {interval}s...")
+            time.sleep(interval)
+
+        raise TimeoutError(f"SSH not available after {timeout} seconds")
+
     def _setup_environment(self) -> None:
         """Set up the benchmark environment on the remote server."""
         logger.info("Setting up benchmark environment...")
+
+        # Wait for SSH to become available
+        self._wait_for_ssh()
 
         # Determine machine name based on server type
         server_type = self.server.server_type.name

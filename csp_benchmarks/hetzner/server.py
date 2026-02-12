@@ -88,11 +88,8 @@ class HetznerServerManager:
         )
 
         server = response.server
-        root_password = response.root_password
 
         logger.info(f"Server created: {server.name} (ID: {server.id})")
-        if root_password:
-            logger.info(f"Root password: {root_password}")
 
         if wait_for_ready:
             self._wait_for_server_ready(server)
