@@ -119,6 +119,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.HETZNER_SSH_PRIVATE_KEY }}" > ~/.ssh/hetzner_key
           chmod 600 ~/.ssh/hetzner_key
+          # Generate public key from private key for Hetzner registration
+          ssh-keygen -y -f ~/.ssh/hetzner_key > ~/.ssh/hetzner_key.pub
 
       - name: Run benchmarks on Hetzner
         env:

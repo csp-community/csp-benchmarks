@@ -31,11 +31,16 @@ def run_benchmarks(args: argparse.Namespace) -> int:
         logger.error("Hetzner Cloud token required. Set HCLOUD_TOKEN or use --token")
         return 1
 
+    # Determine SSH key name - either explicit or derive from key file
+    ssh_key_name = args.ssh_key_name
+    if not ssh_key_name and args.ssh_key:
+        ssh_key_name = "csp-benchmarks"
+
     # Configure server
     server_config = ServerConfig(
         name=args.server_name,
         server_type=args.server_type,
-        ssh_key_name=args.ssh_key_name,
+        ssh_key_name=ssh_key_name,
     )
 
     # Configure benchmarks
@@ -48,6 +53,24 @@ def run_benchmarks(args: argparse.Namespace) -> int:
     server = None
 
     try:
+        # Upload SSH public key to Hetzner if we have a private key
+        if args.ssh_key and ssh_key_name:
+            pub_key_path = args.ssh_key + ".pub"
+            if os.path.exists(pub_key_path):
+                with open(pub_key_path) as f:
+                    public_key = f.read().strip()
+                manager.ensure_ssh_key(public_key, ssh_key_name)
+            else:
+                # Try to generate public key from private key
+                import subprocess
+
+                result = subprocess.run(["ssh-keygen", "-y", "-f", args.ssh_key], capture_output=True, text=True)
+                if result.returncode == 0:
+                    public_key = result.stdout.strip()
+                    manager.ensure_ssh_key(public_key, ssh_key_name)
+                else:
+                    logger.warning(f"Could not extract public key from {args.ssh_key}")
+
         # Check if server already exists
         server = manager.get_server()
         if server and not args.reuse:

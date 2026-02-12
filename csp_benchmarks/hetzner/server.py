@@ -140,6 +140,24 @@ class HetznerServerManager:
 
         raise TimeoutError(f"Server did not become ready within {timeout} seconds")
 
+    def ensure_ssh_key(self, public_key: str, key_name: str = "csp-benchmarks") -> None:
+        """
+        Ensure an SSH public key exists in Hetzner Cloud.
+
+        Args:
+            public_key: The SSH public key content
+            key_name: Name for the key in Hetzner Cloud
+        """
+        # Check if key already exists
+        existing = self.client.ssh_keys.get_by_name(key_name)
+        if existing:
+            logger.info(f"SSH key '{key_name}' already exists in Hetzner Cloud")
+            return
+
+        # Create the key
+        logger.info(f"Creating SSH key '{key_name}' in Hetzner Cloud")
+        self.client.ssh_keys.create(name=key_name, public_key=public_key)
+
     def _get_cloud_init_script(self) -> str:
         """Get the cloud-init script for server setup."""
         return """#cloud-config
