@@ -3,7 +3,7 @@
     "project": "csp",
     "project_url": "https://github.com/Point72/csp",
     "repo": "https://github.com/Point72/csp.git",
-    "branches": ["main"],
+    "branches": ["HEAD"],
     "dvcs": "git",
 
     "environment_type": "virtualenv",

@@ -108,6 +108,7 @@ publish: dist  ## publish python assets
 .PHONY: benchmark benchmarks benchmark-quick benchmark-local benchmark-view benchmark-compare
 
 ASV_CONFIG := $(CURDIR)/csp_benchmarks/asv.conf.json
+ASV_PUBLISH_CONFIG := $(CURDIR)/csp_benchmarks/asv.publish.conf.json
 
 benchmark:  ## run benchmarks for current commit
 	python -m asv run --config $(ASV_CONFIG) --verbose HEAD^!
@@ -122,8 +123,8 @@ benchmark-compare:  ## compare benchmarks between commits
 	python -m asv compare --config $(ASV_CONFIG) HEAD~1 HEAD
 
 benchmark-view:  ## generate and view benchmark results
-	python -m asv publish --config $(ASV_CONFIG)
-	python -m asv preview --config $(ASV_CONFIG)
+	python -m asv publish --config $(ASV_PUBLISH_CONFIG)
+	python -m asv preview --config $(ASV_PUBLISH_CONFIG)
 
 benchmark-continuous:  ## run benchmarks comparing HEAD to main
 	python -m asv continuous --config $(ASV_CONFIG) main HEAD --verbose
