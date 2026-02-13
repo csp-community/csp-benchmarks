@@ -28,10 +28,6 @@ on:
           - 'ccx43'  # 16 vCPU, 64GB RAM (dedicated AMD EPYC)
           - 'ccx53'  # 32 vCPU, 128GB RAM (dedicated AMD EPYC)
           - 'ccx63'  # 48 vCPU, 192GB RAM (dedicated AMD EPYC)
-      commit_range:
-        description: 'Commit range to benchmark (e.g., HEAD~5..HEAD)'
-        required: false
-        default: 'HEAD^!'
 
   # Run on pushes to main (for tracking performance over time)
   push:
@@ -141,7 +137,7 @@ jobs:
             --server-type ${{ github.event.inputs.server_type || 'cx23' }} \
             --ssh-key ~/.ssh/hetzner_key \
             --ssh-key-name benchmarks \
-            --commits "${{ github.event.inputs.commit_range || 'HEAD^!' }}" \
+            --commits 'HEAD^!' \
             --push
 
       - name: Cleanup servers
