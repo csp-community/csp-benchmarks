@@ -109,10 +109,11 @@ def transform_results_for_asv(results_dir: Path | str, output_dir: Path | str | 
 
             # Extract csp version
             requirements = result_data.get("requirements", {})
-            csp_version = requirements.get("csp", "unknown")
+            csp_version = requirements.get("csp")
 
-            if csp_version == "unknown":
-                # Skip files without csp version
+            if csp_version is None or csp_version == "":
+                # Already transformed (no csp in requirements) - copy as-is
+                shutil.copy(result_file, out_machine_dir / result_file.name)
                 continue
 
             # Create new commit hash based on csp version
