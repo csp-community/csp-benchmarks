@@ -146,7 +146,6 @@ python -m csp_benchmarks.hetzner.cli cleanup
 
 Benchmarks run automatically:
 
-- **Weekly**: Full benchmarks on Hetzner Cloud (Sunday 2 AM UTC)
 - **On push to main**: Benchmarks for the new commit
 - **Manual trigger**: Via workflow_dispatch with custom options
 
@@ -158,7 +157,75 @@ View the latest results at: <https://csp-community.github.io/csp-benchmarks/>
 
 ## Contributing
 
+### Adding New Benchmarks
+
 1. Add new benchmarks to the `benchmarks/` directory
 1. Follow ASV naming conventions (`bench_*.py`, class names ending in `Suite`)
 1. Use parameterized benchmarks for testing across different configurations
 1. Run `make benchmark-local` to test your benchmarks before submitting
+
+### Contributing Machine Results
+
+You can contribute benchmark results from your own machine to help the community understand csp performance across different hardware configurations.
+
+#### Step 1: Register Your Machine
+
+Add your machine to `csp_benchmarks/asv-machine.json`. Use a unique, descriptive name:
+
+```json
+{
+    "timkpaine-framework-13": {
+        "arch": "x86_64",
+        "cpu": "AMD Ryzen AI 9 HX 370 (24 cores)",
+        "machine": "timkpaine-framework-13",
+        "num_cpu": "24",
+        "os": "Ubuntu 24.04",
+        "ram": "64GB"
+    }
+}
+```
+
+Machine naming convention: `username-device-model` (e.g., `timkpaine-framework-13`, `johndoe-mbp-m3`)
+
+#### Step 2: Run Benchmarks
+
+```bash
+# Install dependencies
+pip install -e ".[develop]"
+
+# Copy machine config to ASV location
+cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
+
+# Run benchmarks with your machine name
+python -m asv run --config csp_benchmarks/asv.conf.json --machine your-machine-name
+
+# Or use make (runs with local Python)
+make benchmark-local
+```
+
+#### Step 3: Verify Results
+
+```bash
+# Check that results were created
+ls csp_benchmarks/results/your-machine-name/
+
+# Preview the results locally
+make benchmark-view
+```
+
+#### Step 4: Submit a Pull Request
+
+1. Fork the repository
+1. Create a branch: `git checkout -b add-machine-results`
+1. Commit your changes:
+   - `csp_benchmarks/asv-machine.json` (your machine entry)
+   - `csp_benchmarks/results/your-machine-name/` (your result files)
+1. Open a PR with a description of your hardware
+
+#### Tips for Consistent Results
+
+- Close other applications during benchmarking
+- Run on AC power (not battery) for laptops
+- Ensure stable CPU frequency (disable turbo boost for more consistent results)
+- Run multiple times and verify results are stable
+- Include your OS version and Python version in the PR description

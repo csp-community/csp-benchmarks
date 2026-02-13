@@ -1,10 +1,6 @@
 name: Benchmarks
 
 on:
-  # Run on schedule - weekly benchmarks
-  schedule:
-    - cron: '0 2 * * 0'  # Every Sunday at 2 AM UTC
-
   # Manual trigger with options
   workflow_dispatch:
     inputs:
@@ -22,8 +18,16 @@ on:
         default: 'cx23'
         type: choice
         options:
-          - 'cx23'  # 2 vCPU, 4GB RAM
-          - 'cx43'  # 8 vCPU, 16GB RAM
+          - 'cx23'   # 2 vCPU, 4GB RAM (shared)
+          - 'cx33'   # 4 vCPU, 8GB RAM (shared)
+          - 'cx43'   # 8 vCPU, 16GB RAM (shared)
+          - 'cx53'   # 16 vCPU, 32GB RAM (shared)
+          - 'ccx13'  # 2 vCPU, 8GB RAM (dedicated AMD EPYC)
+          - 'ccx23'  # 4 vCPU, 16GB RAM (dedicated AMD EPYC)
+          - 'ccx33'  # 8 vCPU, 32GB RAM (dedicated AMD EPYC)
+          - 'ccx43'  # 16 vCPU, 64GB RAM (dedicated AMD EPYC)
+          - 'ccx53'  # 32 vCPU, 128GB RAM (dedicated AMD EPYC)
+          - 'ccx63'  # 48 vCPU, 192GB RAM (dedicated AMD EPYC)
       commit_range:
         description: 'Commit range to benchmark (e.g., HEAD~5..HEAD)'
         required: false
@@ -96,7 +100,7 @@ jobs:
 
   # Full benchmarks on Hetzner Cloud
   benchmark-hetzner:
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.use_hetzner == 'true') || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: (github.event_name == 'workflow_dispatch' && github.event.inputs.use_hetzner == 'true') || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
 
     steps:
