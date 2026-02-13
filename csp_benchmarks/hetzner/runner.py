@@ -305,6 +305,8 @@ class HetznerBenchmarkRunner:
         commands = [
             "cd /root/csp-benchmarks && git config user.email 'benchmark-bot@example.com'",
             "cd /root/csp-benchmarks && git config user.name 'Benchmark Bot'",
+            # Transform results to use real CSP tag commit hashes (for proper x-axis display)
+            "cd /root/csp-benchmarks && .venv/bin/python csp_benchmarks/transform_results.py",
             # Use -A to ensure all new/modified files are staged
             "cd /root/csp-benchmarks && git add -A csp_benchmarks/results/",
             "cd /root/csp-benchmarks && git status --short csp_benchmarks/results/",

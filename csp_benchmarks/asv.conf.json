@@ -1,8 +1,8 @@
 {
     "version": 1,
-    "project": "csp-benchmarks",
-    "project_url": "https://github.com/csp-community/csp-benchmarks",
-    "repo": "https://github.com/csp-community/csp-benchmarks.git",
+    "project": "csp",
+    "project_url": "https://github.com/Point72/csp",
+    "repo": "https://github.com/Point72/csp.git",
     "branches": ["main"],
     "dvcs": "git",
 
