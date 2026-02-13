@@ -1,9 +1,0 @@
-{
-    "arch": "arm64",
-    "cpu": "Apple M2",
-    "machine": "TP11251-M2",
-    "num_cpu": "8",
-    "os": "Darwin 24.6.0",
-    "ram": "17179869184",
-    "version": 1
-}

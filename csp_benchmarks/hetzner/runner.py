@@ -285,7 +285,7 @@ class HetznerBenchmarkRunner:
         commands = [
             "cd /root/csp-benchmarks && git config user.email 'benchmark-bot@example.com'",
             "cd /root/csp-benchmarks && git config user.name 'Benchmark Bot'",
-            "cd /root/csp-benchmarks && git add results/",
+            "cd /root/csp-benchmarks && git add csp_benchmarks/results/",
             "cd /root/csp-benchmarks && git commit -m 'Add benchmark results' || true",
         ]
 
