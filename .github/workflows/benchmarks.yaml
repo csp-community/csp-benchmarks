@@ -115,10 +115,15 @@ jobs:
           python -m pip install -e ".[develop,hetzner]"
 
       - name: Set up SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.HETZNER_SSH_PRIVATE_KEY }}" > ~/.ssh/hetzner_key
+          # Write key preserving newlines and ensure trailing newline
+          printf "%s\n" "$SSH_PRIVATE_KEY" > ~/.ssh/hetzner_key
           chmod 600 ~/.ssh/hetzner_key
+          # Verify key is valid before proceeding
+          ssh-keygen -l -f ~/.ssh/hetzner_key
           # Generate public key from private key for Hetzner registration
           ssh-keygen -y -f ~/.ssh/hetzner_key > ~/.ssh/hetzner_key.pub
 
