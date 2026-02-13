@@ -84,7 +84,7 @@ jobs:
           python -m asv continuous --config csp_benchmarks/asv.conf.json --verbose main HEAD || true
 
       - name: Generate HTML report
-        run: python -m asv publish --config csp_benchmarks/asv.conf.json
+        run: python -m asv publish --config csp_benchmarks/asv.publish.conf.json
 
       - name: Upload benchmark results
         uses: actions/upload-artifact@v4
