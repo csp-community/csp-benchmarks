@@ -155,15 +155,13 @@ csp_benchmarks/labextension
 
 # Rust
 target
-<<<<<<< before updating
+
+# Hydra
+outputs/
+multirun/
+
 # ASV (airspeed velocity) benchmarks
 .asv/
 csp_benchmarks/csp-benchmarks
 csp_benchmarks/csp
 results_backup
-=======
-
-# Hydra
-outputs/
-multirun/
->>>>>>> after updating
