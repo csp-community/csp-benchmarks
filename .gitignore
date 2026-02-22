@@ -141,14 +141,12 @@ js/node_modules
 js/test-results
 js/playwright-report
 js/*.tgz
-csp_benchmarks/extension
 
 # Jupyter
 .ipynb_checkpoints
 .autoversion
 Untitled*.ipynb
-!csp_benchmarks/extension/csp_benchmarks.json
-!csp_benchmarks/extension/install.json
+csp_benchmarks/extension
 csp_benchmarks/nbextension
 csp_benchmarks/labextension
 
@@ -157,6 +155,11 @@ csp_benchmarks/labextension
 
 # Rust
 target
+
+# Hydra
+outputs/
+multirun/
+
 # ASV (airspeed velocity) benchmarks
 .asv/
 csp_benchmarks/csp-benchmarks
