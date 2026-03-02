@@ -87,6 +87,7 @@ omit = [
     "csp_benchmarks/tests/integration/*",
     "csp_benchmarks/benchmarks/*",  # ASV benchmarks, not unit-testable
 ]
+
 [tool.coverage.report]
 exclude_also = [
     "raise NotImplementedError",
