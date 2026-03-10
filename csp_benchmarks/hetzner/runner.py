@@ -187,7 +187,6 @@ class HetznerBenchmarkRunner:
             f"cd /root/csp-benchmarks && git checkout {self.branch}",
             # Set up Python environment using uv and Makefile
             f"cd /root/csp-benchmarks && $HOME/.local/bin/uv venv .venv --python {self.config.python_version}",
-            "cd /root/csp-benchmarks && .venv/bin/python -m pip install --upgrade pip",
             "cd /root/csp-benchmarks && PATH=$HOME/.local/bin:$PATH make develop",
             # Initialize ASV machine config
             "cp /root/csp-benchmarks/csp_benchmarks/asv-machine.json ~/.asv-machine.json",
