@@ -40,8 +40,7 @@ def run_benchmarks(args: argparse.Namespace) -> int:
 
     # Configure benchmarks
     benchmark_config = BenchmarkConfig(
-        branches=args.branches.split(",") if args.branches else ["main"],
-        commit_range=args.commits,
+        python_version=args.python_version,
     )
 
     manager = HetznerServerManager(token=token, config=server_config)
@@ -61,6 +60,7 @@ def run_benchmarks(args: argparse.Namespace) -> int:
             server=server,
             config=benchmark_config,
             ssh_key_path=args.ssh_key,
+            branch=args.branch,
         )
 
         results = runner.run_benchmarks()
@@ -124,8 +124,8 @@ def main() -> int:
     run_parser.add_argument("--server-type", default="cx23", help="Hetzner server type (cx23, cx43)")
     run_parser.add_argument("--ssh-key", help="Path to SSH private key")
     run_parser.add_argument("--ssh-key-name", help="Name of SSH key in Hetzner")
-    run_parser.add_argument("--branches", default="main", help="Comma-separated list of branches")
-    run_parser.add_argument("--commits", help="Commit range to benchmark (e.g., HEAD~5..HEAD)")
+    run_parser.add_argument("--branch", default="main", help="Branch to checkout before running benchmarks")
+    run_parser.add_argument("--python-version", default="3.11", help="Python version to use for benchmarks")
     run_parser.add_argument("--reuse", action="store_true", help="Reuse existing server")
     run_parser.add_argument("--keep-server", action="store_true", help="Keep server after benchmarks")
     run_parser.add_argument("--push", action="store_true", help="Push results to repository")

@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import subprocess
 import tempfile
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -23,9 +23,7 @@ class BenchmarkConfig:
 
     csp_repo: str = "https://github.com/Point72/csp.git"
     benchmark_repo: str = "https://github.com/csp-community/csp-benchmarks.git"
-    branches: list[str] = field(default_factory=lambda: ["main"])
     python_version: str = "3.11"
-    commit_range: str | None = None  # e.g., "HEAD~5..HEAD"
 
 
 class HetznerBenchmarkRunner:
@@ -44,6 +42,7 @@ class HetznerBenchmarkRunner:
         server: BoundServer,
         config: BenchmarkConfig | None = None,
         ssh_key_path: str | None = None,
+        branch: str = "main",
     ):
         """
         Initialize the benchmark runner.
@@ -52,10 +51,12 @@ class HetznerBenchmarkRunner:
             server: The Hetzner server to run benchmarks on
             config: Benchmark configuration
             ssh_key_path: Path to SSH private key for authentication
+            branch: Branch to checkout before running benchmarks
         """
         self.server = server
         self.config = config or BenchmarkConfig()
         self.ssh_key_path = ssh_key_path
+        self.branch = branch
         self.server_ip = server.public_net.ipv4.ip
 
     def run_benchmarks(self) -> dict:
@@ -179,15 +180,18 @@ class HetznerBenchmarkRunner:
             # Add uv to PATH for this session
             "export PATH=$HOME/.local/bin:$PATH",
             # Install Python versions with uv
-            "$HOME/.local/bin/uv python install 3.11 3.12 3.13",
+            f"$HOME/.local/bin/uv python install {self.config.python_version}",
             # Clone the benchmark repository
             f"git clone {self.config.benchmark_repo} /root/csp-benchmarks",
-            # Set up Python environment using uv
-            "cd /root/csp-benchmarks && $HOME/.local/bin/uv venv .venv --python 3.11",
-            "cd /root/csp-benchmarks && $HOME/.local/bin/uv pip install --upgrade pip",
-            "cd /root/csp-benchmarks && $HOME/.local/bin/uv pip install -e '.[develop]'",
-            # Copy machine file to ~/.asv-machine.json
+            # Checkout the specified branch
+            f"cd /root/csp-benchmarks && git checkout {self.branch}",
+            # Set up Python environment using uv and Makefile
+            f"cd /root/csp-benchmarks && $HOME/.local/bin/uv venv .venv --python {self.config.python_version}",
+            "cd /root/csp-benchmarks && .venv/bin/python -m pip install --upgrade pip",
+            "cd /root/csp-benchmarks && PATH=$HOME/.local/bin:$PATH make develop",
+            # Initialize ASV machine config
             "cp /root/csp-benchmarks/csp_benchmarks/asv-machine.json ~/.asv-machine.json",
+            "cd /root/csp-benchmarks && make benchmark-init",
         ]
 
         for cmd in commands:
@@ -201,19 +205,11 @@ class HetznerBenchmarkRunner:
         """Run ASV benchmarks and return the output."""
         logger.info("Running ASV benchmarks...")
 
-        # Determine which commits to benchmark
-        if self.config.commit_range:
-            commit_spec = self.config.commit_range
-        else:
-            # Just benchmark the latest commit on each branch
-            commit_spec = " ".join(f"{branch}^!" for branch in self.config.branches)
-
         # Use the machine name determined during setup
-        machine_arg = f"--machine {self._machine_name}" if hasattr(self, "_machine_name") else ""
+        machine_arg = f"MACHINE={self._machine_name}" if hasattr(self, "_machine_name") else ""
 
-        # Use absolute path for ASV config (like Makefile uses CURDIR)
-        asv_config = "/root/csp-benchmarks/csp_benchmarks/asv.conf.json"
-        cmd = f"cd /root/csp-benchmarks && .venv/bin/python -m asv run --config {asv_config} {machine_arg} --verbose {commit_spec}"
+        # Use Makefile target which handles config paths and commit hash
+        cmd = f"cd /root/csp-benchmarks && make benchmark {machine_arg}"
         result = self._run_ssh_command(cmd, check=False)
 
         asv_output = result.stdout + result.stderr
@@ -306,7 +302,7 @@ class HetznerBenchmarkRunner:
             "cd /root/csp-benchmarks && git config user.email 'benchmark-bot@example.com'",
             "cd /root/csp-benchmarks && git config user.name 'Benchmark Bot'",
             # Transform results to use real CSP tag commit hashes (for proper x-axis display)
-            "cd /root/csp-benchmarks && .venv/bin/python csp_benchmarks/transform_results.py",
+            "cd /root/csp-benchmarks && make benchmark-transform",
             # Use -A to ensure all new/modified files are staged
             "cd /root/csp-benchmarks && git add -A csp_benchmarks/results/",
             "cd /root/csp-benchmarks && git status --short csp_benchmarks/results/",

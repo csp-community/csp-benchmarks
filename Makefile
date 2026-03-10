@@ -105,32 +105,32 @@ publish: dist  ## publish python assets
 ##############
 # BENCHMARKS #
 ##############
-.PHONY: benchmark benchmarks benchmark-quick benchmark-local benchmark-view benchmark-compare
+.PHONY: benchmark benchmark-quick benchmark-local benchmark-debug benchmark-publish benchmark-view benchmark-transform
 
 ASV_CONFIG := $(CURDIR)/csp_benchmarks/asv.conf.json
 ASV_PUBLISH_CONFIG := $(CURDIR)/csp_benchmarks/asv.publish.conf.json
+ASV_MACHINE_ARG := $(if $(MACHINE),--machine $(MACHINE),)
 
-benchmark:  ## run benchmarks for current commit
-	python -m asv run --config $(ASV_CONFIG) --verbose HEAD^!
+benchmark-init: ## Initialize ASV
+	python -m asv machine --config $(ASV_CONFIG) --verbose --yes
 
-benchmark-quick:  ## run quick benchmark
-	python -m asv run --config $(ASV_CONFIG) --quick --verbose HEAD^!
+benchmark: ## run benchmark
+	python -m asv run --python=same --config $(ASV_CONFIG) --verbose --set-commit-hash HEAD $(ASV_MACHINE_ARG)
 
-benchmark-local:  ## run benchmark using local environment
-	python -m asv run --config $(ASV_CONFIG) --python=same --verbose
+benchmark-quick: ## run quick benchmark
+	python -m asv run --quick --python=same --config $(ASV_CONFIG) --verbose --set-commit-hash HEAD $(ASV_MACHINE_ARG)
 
-benchmark-compare:  ## compare benchmarks between commits
-	python -m asv compare --config $(ASV_CONFIG) HEAD~1 HEAD
+benchmark-local: benchmark
+	python -m pdb -m asv.benchmark run csp_benchmarks/benchmarks ${BENCHMARK_NAME} "{}" debug_profile.txt debug_results.txt; \
 
-benchmark-view:  ## generate and view benchmark results
+benchmark-transform: ## transform results to use real CSP tag commit hashes
+	python csp_benchmarks/transform_results.py
+
+benchmark-publish:  ## generate viewable website of benchmark results
 	python -m asv publish --config $(ASV_PUBLISH_CONFIG)
+
+benchmark-view: benchmark-publish  ## view the website of benchmark results
 	python -m asv preview --config $(ASV_PUBLISH_CONFIG)
-
-benchmark-continuous:  ## run benchmarks comparing HEAD to main
-	python -m asv continuous --config $(ASV_CONFIG) main HEAD --verbose
-
-# Alias
-benchmarks: benchmark
 
 #########
 # CLEAN #

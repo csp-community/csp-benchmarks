@@ -51,20 +51,16 @@ class TestBenchmarkConfig:
         config = BenchmarkConfig()
         assert config.csp_repo == "https://github.com/Point72/csp.git"
         assert config.benchmark_repo == "https://github.com/csp-community/csp-benchmarks.git"
-        assert config.branches == ["main"]
         assert config.python_version == "3.11"
-        assert config.commit_range is None
 
     def test_custom_config(self):
         """Test custom benchmark configuration."""
         from csp_benchmarks.hetzner.runner import BenchmarkConfig
 
         config = BenchmarkConfig(
-            branches=["main", "develop"],
-            commit_range="HEAD~5..HEAD",
+            python_version="3.12",
         )
-        assert config.branches == ["main", "develop"]
-        assert config.commit_range == "HEAD~5..HEAD"
+        assert config.python_version == "3.12"
 
 
 @pytest.mark.skipif(not HAS_HCLOUD, reason="hcloud not installed")
@@ -115,7 +111,7 @@ class TestHetznerBenchmarkRunner:
 
         assert runner.server == mock_server
         assert runner.server_ip == "1.2.3.4"
-        assert runner.config.branches == ["main"]
+        assert runner.branch == "main"
 
     def test_init_with_config(self):
         """Test benchmark runner with custom config."""
@@ -124,14 +120,15 @@ class TestHetznerBenchmarkRunner:
         mock_server = MagicMock()
         mock_server.public_net.ipv4.ip = "1.2.3.4"
 
-        config = BenchmarkConfig(commit_range="HEAD~3..HEAD")
+        config = BenchmarkConfig()
         runner = HetznerBenchmarkRunner(
             server=mock_server,
             config=config,
             ssh_key_path="/path/to/key",
+            branch="develop",
         )
 
-        assert runner.config.commit_range == "HEAD~3..HEAD"
+        assert runner.branch == "develop"
         assert runner.ssh_key_path == "/path/to/key"
 
 
@@ -158,8 +155,8 @@ class TestHetznerCLI:
         args.server_name = "test"
         args.server_type = "cx23"
         args.ssh_key_name = None
-        args.branches = "main"
-        args.commits = None
+        args.branch = "main"
+        args.python_version = "3.11"
         args.reuse = False
         args.keep_server = False
         args.push = False

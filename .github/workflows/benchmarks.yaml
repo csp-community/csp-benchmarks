@@ -12,6 +12,20 @@ on:
         options:
           - 'true'
           - 'false'
+      branch:
+        description: 'Branch to checkout before running benchmarks'
+        required: false
+        default: 'main'
+        type: string
+      python_version:
+        description: 'Python version to use for benchmarks'
+        required: false
+        default: '3.11'
+        type: choice
+        options:
+          - '3.11'
+          - '3.12'
+          - '3.13'
       server_type:
         description: 'Hetzner server type'
         required: false
@@ -55,11 +69,12 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.branch || github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: ${{ github.event.inputs.python_version || '3.11' }}
 
       - name: Install system dependencies
         run: |
@@ -72,11 +87,12 @@ jobs:
           python -m pip install -e ".[develop]"
 
       - name: Configure ASV machine
-        run: cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
+        run: |
+          cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
+          make benchmark-init
 
       - name: Run quick benchmarks
-        run: |
-          python -m asv run --config csp_benchmarks/asv.conf.json --machine github-actions --python=same --quick --verbose
+        run: make benchmark-quick MACHINE=github-actions
 
       - name: Compare with main
         if: github.event_name == 'pull_request'
@@ -84,7 +100,7 @@ jobs:
           python -m asv continuous --config csp_benchmarks/asv.conf.json --verbose main HEAD || true
 
       - name: Generate HTML report
-        run: python -m asv publish --config csp_benchmarks/asv.publish.conf.json
+        run: make benchmark-publish
 
       - name: Upload benchmark results
         uses: actions/upload-artifact@v6
@@ -103,11 +119,12 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.branch || github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: ${{ github.event.inputs.python_version || '3.11' }}
 
       - name: Install dependencies
         run: |
@@ -137,7 +154,8 @@ jobs:
             --server-type ${{ github.event.inputs.server_type || 'cx23' }} \
             --ssh-key ~/.ssh/hetzner_key \
             --ssh-key-name benchmarks \
-            --commits 'HEAD^!' \
+            --branch ${{ github.event.inputs.branch || 'main' }} \
+            --python-version ${{ github.event.inputs.python_version || '3.11' }} \
             --push
 
       - name: Cleanup servers
@@ -186,8 +204,7 @@ jobs:
       - name: Generate HTML report
         run: |
           if [ -f "csp_benchmarks/asv.conf.json" ] && [ -d "csp_benchmarks/results" ]; then
-            # Use publish config which points to CSP repo for commit validation
-            python -m asv publish --config ${{ github.workspace }}/csp_benchmarks/asv.publish.conf.json
+            make benchmark-publish
           else
             echo "Skipping publish - no config or results found"
           fi
