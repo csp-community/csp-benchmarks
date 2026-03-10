@@ -190,7 +190,7 @@ class HetznerBenchmarkRunner:
             "cd /root/csp-benchmarks && PATH=$HOME/.local/bin:$PATH make develop",
             # Initialize ASV machine config
             "cp /root/csp-benchmarks/csp_benchmarks/asv-machine.json ~/.asv-machine.json",
-            "cd /root/csp-benchmarks && make benchmark-init",
+            "cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark-init",
         ]
 
         for cmd in commands:
@@ -208,7 +208,7 @@ class HetznerBenchmarkRunner:
         machine_arg = f"MACHINE={self._machine_name}" if hasattr(self, "_machine_name") else ""
 
         # Use Makefile target which handles config paths and commit hash
-        cmd = f"cd /root/csp-benchmarks && make benchmark {machine_arg}"
+        cmd = f"cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark {machine_arg}"
         result = self._run_ssh_command(cmd, check=False)
 
         asv_output = result.stdout + result.stderr
@@ -301,7 +301,7 @@ class HetznerBenchmarkRunner:
             "cd /root/csp-benchmarks && git config user.email 'benchmark-bot@example.com'",
             "cd /root/csp-benchmarks && git config user.name 'Benchmark Bot'",
             # Transform results to use real CSP tag commit hashes (for proper x-axis display)
-            "cd /root/csp-benchmarks && make benchmark-transform",
+            "cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark-transform",
             # Use -A to ensure all new/modified files are staged
             "cd /root/csp-benchmarks && git add -A csp_benchmarks/results/",
             "cd /root/csp-benchmarks && git status --short csp_benchmarks/results/",
