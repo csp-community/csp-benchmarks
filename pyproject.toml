@@ -54,7 +54,7 @@ develop = [
 ]
 
 hetzner = [
-    "hcloud>=2.0",
+    "hcloud>=2.19.0",
     "paramiko>=3.0",
 ]
 
