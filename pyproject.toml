@@ -31,7 +31,7 @@ classifiers = [
 
 dependencies = [
     "csp",
-    "asv>=0.6",
+    "asv>=0.6.5",
     "numpy",
 ]
 
