@@ -30,7 +30,7 @@ class TestDiscoverBenchmarks:
         from csp_benchmarks.cli import discover_benchmarks
 
         result = discover_benchmarks()
-        for name, info in result.items():
+        for info in result.values():
             assert "class" in info
             assert "module" in info
             assert "methods" in info

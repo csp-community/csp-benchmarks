@@ -2,9 +2,12 @@
 Core CSP benchmarks - testing graph execution performance.
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from typing import ClassVar
 
 import csp
+
+UTC = timezone(timedelta(0))
 
 
 class GraphExecutionSuite:
@@ -15,11 +18,11 @@ class GraphExecutionSuite:
     numbers of nodes and ticks.
     """
 
-    params = ([10, 100, 1000], [100, 1000, 10000])
-    param_names = ["num_nodes", "num_ticks"]
+    params: ClassVar[tuple[list[int], list[int]]] = ([10, 100, 1000], [100, 1000, 10000])
+    param_names: ClassVar[list[str]] = ["num_nodes", "num_ticks"]
 
     def setup(self, num_nodes, num_ticks):
-        self.start_time = datetime(2020, 1, 1)
+        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
         self.end_time = self.start_time + timedelta(seconds=num_ticks)
 
     def time_linear_graph(self, num_nodes, num_ticks):
@@ -79,11 +82,11 @@ class NodeOverheadSuite:
     Benchmarks for measuring node invocation overhead.
     """
 
-    params = [100, 1000, 10000, 100000]
-    param_names = ["num_ticks"]
+    params: ClassVar[list[int]] = [100, 1000, 10000, 100000]
+    param_names: ClassVar[list[str]] = ["num_ticks"]
 
     def setup(self, num_ticks):
-        self.start_time = datetime(2020, 1, 1)
+        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
         self.end_time = self.start_time + timedelta(seconds=num_ticks)
 
     def time_empty_node(self, num_ticks):
