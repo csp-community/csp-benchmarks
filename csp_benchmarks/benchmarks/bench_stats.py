@@ -2,10 +2,13 @@
 Stats module benchmarks - ported from csp/benchmarks/stats.
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from typing import ClassVar
 
 import csp
 import numpy as np
+
+UTC = timezone(timedelta(0))
 
 
 class StatsBenchmarkSuite:
@@ -16,14 +19,14 @@ class StatsBenchmarkSuite:
     operating on time series of numpy arrays.
     """
 
-    params = (["median", "quantile", "rank"], [100, 500, 1000])
-    param_names = ["function", "interval"]
+    params: ClassVar[tuple[list[str], list[int]]] = (["median", "quantile", "rank"], [100, 500, 1000])
+    param_names: ClassVar[list[str]] = ["function", "interval"]
 
     # Additional args for specific functions
-    function_args = {"quantile": {"quant": 0.95}}
+    function_args: ClassVar[dict[str, dict[str, float]]] = {"quantile": {"quant": 0.95}}
 
     def setup(self, function, interval):
-        self.start_date = datetime(2020, 1, 1)
+        self.start_date = datetime(2020, 1, 1, tzinfo=UTC)
         self.num_rows = 1_000
         self.array_size = 100
         self.test_times = [self.start_date + timedelta(seconds=i) for i in range(self.num_rows)]
@@ -47,11 +50,11 @@ class StatsScalingSuite:
     Benchmarks for testing how stats functions scale with data size.
     """
 
-    params = [10, 50, 100, 500]
-    param_names = ["array_size"]
+    params: ClassVar[list[int]] = [10, 50, 100, 500]
+    param_names: ClassVar[list[str]] = ["array_size"]
 
     def setup(self, array_size):
-        self.start_date = datetime(2020, 1, 1)
+        self.start_date = datetime(2020, 1, 1, tzinfo=UTC)
         self.num_rows = 500
         self.test_times = [self.start_date + timedelta(seconds=i) for i in range(self.num_rows)]
         self.random_values = [np.random.normal(size=(array_size,)) for i in range(self.num_rows)]

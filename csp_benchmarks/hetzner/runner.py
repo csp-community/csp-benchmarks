@@ -152,7 +152,7 @@ class HetznerBenchmarkRunner:
                     logger.info("SSH connection established")
                     return
                 last_error = f"exit code {result.returncode}: {result.stderr}"
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 last_error = str(e)
 
             elapsed = int(time.time() - start_time)

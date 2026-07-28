@@ -8,6 +8,7 @@ rather than separate series with vertical dots.
 
 import json
 import re
+import sys
 from pathlib import Path
 
 # Real commit hashes from CSP repo tags (git rev-parse v0.X.Y^{commit})
@@ -140,4 +141,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

@@ -136,7 +136,7 @@ def run_benchmark_method(instance: Any, method_name: str, params: dict, num_runs
     # Warmup run
     try:
         method(*param_values)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         return {"error": str(e)}
 
     # Timed runs
@@ -145,7 +145,7 @@ def run_benchmark_method(instance: Any, method_name: str, params: dict, num_runs
         start = time.perf_counter()
         try:
             method(*param_values)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             return {"error": str(e)}
         elapsed = time.perf_counter() - start
         times.append(elapsed)
@@ -222,7 +222,7 @@ def run_benchmarks(
                 try:
                     param_values = tuple(params.values()) if params else ()
                     instance.setup(*param_values)
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     print(f"  Setup failed for params {params}: {e}")
                     total_failed += 1
                     continue

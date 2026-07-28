@@ -73,8 +73,8 @@ def run_benchmarks(args: argparse.Namespace) -> int:
 
         return 0
 
-    except Exception as e:
-        logger.exception(f"Benchmark run failed: {e}")
+    except Exception:
+        logger.exception("Benchmark run failed")
         return 1
 
     finally:
@@ -82,7 +82,7 @@ def run_benchmarks(args: argparse.Namespace) -> int:
             logger.info("Cleaning up server...")
             try:
                 manager.delete_server(server)
-            except Exception as cleanup_error:
+            except Exception as cleanup_error:  # noqa: BLE001
                 logger.error(f"Failed to cleanup server: {cleanup_error}")
 
 
