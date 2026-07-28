@@ -2,9 +2,12 @@
 Baselib benchmarks - testing built-in csp operations.
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from typing import ClassVar
 
 import csp
+
+UTC = timezone(timedelta(0))
 
 
 class BaselibSuite:
@@ -12,11 +15,11 @@ class BaselibSuite:
     Benchmarks for csp.baselib operations.
     """
 
-    params = [1000, 10000, 100000]
-    param_names = ["num_ticks"]
+    params: ClassVar[list[int]] = [1000, 10000, 100000]
+    param_names: ClassVar[list[str]] = ["num_ticks"]
 
     def setup(self, num_ticks):
-        self.start_time = datetime(2020, 1, 1)
+        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
         self.end_time = self.start_time + timedelta(seconds=num_ticks)
 
     def time_filter(self, num_ticks):
@@ -88,11 +91,11 @@ class CurveSuite:
     Benchmarks for csp.curve - loading historical data.
     """
 
-    params = [100, 1000, 10000]
-    param_names = ["num_points"]
+    params: ClassVar[list[int]] = [100, 1000, 10000]
+    param_names: ClassVar[list[str]] = ["num_points"]
 
     def setup(self, num_points):
-        self.start_time = datetime(2020, 1, 1)
+        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
         self.end_time = self.start_time + timedelta(seconds=num_points)
         # Pre-generate the curve data
         self.data = [(self.start_time + timedelta(seconds=i), float(i)) for i in range(num_points)]
