@@ -72,7 +72,7 @@ jobs:
           ref: ${{ github.event.inputs.branch || github.ref }}
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ github.event.inputs.python_version || '3.11' }}
 
@@ -122,7 +122,7 @@ jobs:
           ref: ${{ github.event.inputs.branch || github.ref }}
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ github.event.inputs.python_version || '3.11' }}
 
@@ -177,7 +177,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
