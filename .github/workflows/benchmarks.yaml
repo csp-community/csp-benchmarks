@@ -43,13 +43,17 @@ on:
           - 'ccx53'  # 32 vCPU, 128GB RAM (dedicated AMD EPYC)
           - 'ccx63'  # 48 vCPU, 192GB RAM (dedicated AMD EPYC)
 
+  pull_request:
+    branches:
+      - main
+
   # Run on pushes to main (for tracking performance over time)
   push:
     branches:
       - main
     paths:
       - 'csp_benchmarks/benchmarks/**'
-      - 'csp_benchmarks/asv.conf.json'
+      - 'pyproject.toml'
 
 concurrency:
   group: benchmarks-${{ github.ref }}
@@ -86,18 +90,12 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e ".[develop]"
 
-      - name: Configure ASV machine
-        run: |
-          cp csp_benchmarks/asv-machine.json ~/.asv-machine.json
-          make benchmark-init
-
       - name: Run quick benchmarks
         run: make benchmark-quick MACHINE=github-actions
 
-      - name: Compare with main
+      - name: Compare with previous result
         if: github.event_name == 'pull_request'
-        run: |
-          python -m asv continuous --config csp_benchmarks/asv.conf.json --verbose main HEAD || true
+        run: python -m benched compare previous latest --fail-if median:10% || true
 
       - name: Generate HTML report
         run: make benchmark-publish
@@ -107,8 +105,8 @@ jobs:
         with:
           name: benchmark-results
           path: |
-            csp_benchmarks/results/
-            .asv/html/
+            csp_benchmarks/benched-results/
+            build/benchmarks/
 
   # Full benchmarks on Hetzner Cloud
   benchmark-hetzner:
@@ -168,13 +166,20 @@ jobs:
   # Publish results to GitHub Pages
   publish-results:
     needs: [benchmark-hetzner, benchmark-local]
-    if: always() && (needs.benchmark-hetzner.result == 'success' || needs.benchmark-local.result == 'success')
+    if: github.event_name != 'pull_request' && always() && (needs.benchmark-hetzner.result == 'success' || needs.benchmark-local.result == 'success')
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+
+      - name: Download local benchmark results
+        if: needs.benchmark-local.result == 'success'
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131  # v7
+        with:
+          name: benchmark-results
+          path: .
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -184,7 +189,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install asv
+          python -m pip install "benched>=0.2.0"
 
       - name: Pull latest results
         run: |
@@ -194,23 +199,21 @@ jobs:
         run: |
           echo "Current directory:"
           pwd
-          echo "Looking for asv.conf.json:"
-          ls -la csp_benchmarks/asv.conf.json || echo "Config not found"
-          echo "Looking for results (relative to config file):"
-          ls -la csp_benchmarks/results/ || echo "No results directory"
+          echo "Looking for results:"
+          ls -la csp_benchmarks/benched-results/ || echo "No results directory"
           echo "Sample result files:"
-          ls csp_benchmarks/results/*/*.json 2>/dev/null | head -5 || echo "No result files found"
+          ls csp_benchmarks/benched-results/*/*.json 2>/dev/null | head -5 || echo "No result files found"
 
       - name: Generate HTML report
         run: |
-          if [ -f "csp_benchmarks/asv.conf.json" ] && [ -d "csp_benchmarks/results" ]; then
+          if [ -d "csp_benchmarks/benched-results" ]; then
             make benchmark-publish
           else
-            echo "Skipping publish - no config or results found"
+            echo "Skipping publish - no results found"
           fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .asv/html
+          publish_dir: build/benchmarks

@@ -54,24 +54,24 @@ python -m csp_benchmarks.hetzner.cli run --ssh-key-name benchmarks
 # With options
 python -m csp_benchmarks.hetzner.cli run \
     --server-type cx43 \
-    --commits "HEAD~5..HEAD" \
+    --branch main \
     --push
 ```
 
 ### Options
 
-| Option           | Description             | Default                |
-| ---------------- | ----------------------- | ---------------------- |
-| `--token`        | Hetzner API token       | `$HCLOUD_TOKEN`        |
-| `--server-name`  | Server name             | `csp-benchmark-runner` |
-| `--server-type`  | Server size             | `cx23`                 |
-| `--ssh-key`      | Path to SSH private key | None                   |
-| `--ssh-key-name` | Hetzner SSH key name    | None                   |
-| `--branches`     | Branches to benchmark   | `main`                 |
-| `--commits`      | Commit range            | None                   |
-| `--reuse`        | Reuse existing server   | False                  |
-| `--keep-server`  | Keep server after run   | False                  |
-| `--push`         | Push results to repo    | False                  |
+| Option             | Description               | Default                |
+| ------------------ | ------------------------- | ---------------------- |
+| `--token`          | Hetzner API token         | `$HCLOUD_TOKEN`        |
+| `--server-name`    | Server name               | `csp-benchmark-runner` |
+| `--server-type`    | Server size               | `cx23`                 |
+| `--ssh-key`        | Path to SSH private key   | None                   |
+| `--ssh-key-name`   | Hetzner SSH key name      | None                   |
+| `--branch`         | Suite branch to benchmark | `main`                 |
+| `--python-version` | Python version            | `3.11`                 |
+| `--reuse`          | Reuse existing server     | False                  |
+| `--keep-server`    | Keep server after run     | False                  |
+| `--push`           | Push results to repo      | False                  |
 
 ### Cleanup
 
@@ -125,7 +125,7 @@ The benchmarks workflow automatically uses Hetzner Cloud:
 ┌─────────────────┐
 │  Ubuntu Server  │
 │  - Clone repo   │
-│  - Run ASV      │
+│  - Run Benched  │
 │  - Push results │
 └─────────────────┘
 ```

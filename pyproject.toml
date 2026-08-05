@@ -29,8 +29,8 @@ classifiers = [
 ]
 
 dependencies = [
+    "benched>=0.2.0",
     "csp",
-    "asv>=0.6.5",
     "numpy",
 ]
 
@@ -84,7 +84,7 @@ replace = 'version = "{new_version}"'
 branch = true
 omit = [
     "csp_benchmarks/tests/integration/*",
-    "csp_benchmarks/benchmarks/*",  # ASV benchmarks, not unit-testable
+    "csp_benchmarks/benchmarks/*",  # benchmark workloads are exercised separately
 ]
 
 [tool.coverage.report]
@@ -119,7 +119,24 @@ addopts = [
     "-vvv",
     "--junitxml=junit.xml",
 ]
+python_files = [
+    "test_*.py",
+    "bench_*.py",
+]
 testpaths = "csp_benchmarks/tests"
+
+[tool.benched]
+benchmark_paths = ["csp_benchmarks/benchmarks"]
+results_dir = "csp_benchmarks/benched-results"
+
+[tool.benched.suite]
+name = "csp-benchmarks"
+repository = "https://github.com/csp-community/csp-benchmarks"
+
+[tool.benched.subject]
+name = "csp"
+distribution = "csp"
+repository = "https://github.com/Point72/csp"
 
 [tool.ruff]
 line-length = 150

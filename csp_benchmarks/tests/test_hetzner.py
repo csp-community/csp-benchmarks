@@ -131,6 +131,53 @@ class TestHetznerBenchmarkRunner:
         assert runner.branch == "develop"
         assert runner.ssh_key_path == "/path/to/key"
 
+    def test_setup_installs_project_without_asv_initialization(self):
+        from csp_benchmarks.hetzner.runner import HetznerBenchmarkRunner
+
+        mock_server = MagicMock()
+        mock_server.public_net.ipv4.ip = "1.2.3.4"
+        mock_server.server_type.name = "cx23"
+        runner = HetznerBenchmarkRunner(server=mock_server)
+
+        with patch.object(runner, "_wait_for_ssh"), patch.object(runner, "_run_ssh_command") as mock_run:
+            runner._setup_environment()
+
+        commands = [call.args[0] for call in mock_run.call_args_list]
+        assert any("make develop" in command for command in commands)
+        assert not any("asv" in command.lower() for command in commands)
+
+    def test_runs_benched_make_target_with_machine(self):
+        from csp_benchmarks.hetzner.runner import HetznerBenchmarkRunner
+
+        mock_server = MagicMock()
+        mock_server.public_net.ipv4.ip = "1.2.3.4"
+        runner = HetznerBenchmarkRunner(server=mock_server)
+        runner._machine_name = "hetzner-cx23"
+
+        completed = MagicMock(returncode=0, stdout="done", stderr="")
+        with patch.object(runner, "_run_ssh_command", return_value=completed) as mock_run:
+            assert runner._run_benched() == "done"
+
+        command = mock_run.call_args_list[0].args[0]
+        assert "make benchmark MACHINE=hetzner-cx23" in command
+        assert "asv" not in command.lower()
+
+    def test_pushes_results_to_selected_branch(self):
+        from csp_benchmarks.hetzner.runner import HetznerBenchmarkRunner
+
+        mock_server = MagicMock()
+        mock_server.public_net.ipv4.ip = "1.2.3.4"
+        runner = HetznerBenchmarkRunner(server=mock_server, branch="develop")
+
+        completed = MagicMock(returncode=0, stdout="", stderr="")
+        with patch.object(runner, "_run_ssh_command", return_value=completed) as mock_run:
+            runner.push_results_to_repo(github_token="token")
+
+        commands = [call.args[0] for call in mock_run.call_args_list]
+        assert any(
+            "git push https://x-access-token:token@github.com/csp-community/csp-benchmarks.git HEAD:develop" in command for command in commands
+        )
+
 
 class TestHetznerCLI:
     """Test CLI functionality."""

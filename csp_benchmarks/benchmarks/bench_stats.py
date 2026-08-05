@@ -1,81 +1,54 @@
-"""
-Stats module benchmarks - ported from csp/benchmarks/stats.
-"""
+"""Benchmarks for CSP statistics operations."""
 
 from datetime import datetime, timedelta, timezone
-from typing import ClassVar
 
 import csp
 import numpy as np
+import pytest
 
 UTC = timezone(timedelta(0))
 
 
-class StatsBenchmarkSuite:
-    """
-    Benchmarks for csp.stats module functions.
+@pytest.fixture
+def stats_data():
+    def build(array_size, num_rows):
+        start_date = datetime(2020, 1, 1, tzinfo=UTC)
+        generator = np.random.default_rng(0)
+        data = [(start_date + timedelta(seconds=index), generator.normal(size=(array_size,))) for index in range(num_rows)]
+        return start_date, data
 
-    Tests statistical functions like median, quantile, and rank
-    operating on time series of numpy arrays.
-    """
-
-    params: ClassVar[tuple[list[str], list[int]]] = (["median", "quantile", "rank"], [100, 500, 1000])
-    param_names: ClassVar[list[str]] = ["function", "interval"]
-
-    # Additional args for specific functions
-    function_args: ClassVar[dict[str, dict[str, float]]] = {"quantile": {"quant": 0.95}}
-
-    def setup(self, function, interval):
-        self.start_date = datetime(2020, 1, 1, tzinfo=UTC)
-        self.num_rows = 1_000
-        self.array_size = 100
-        self.test_times = [self.start_date + timedelta(seconds=i) for i in range(self.num_rows)]
-        self.random_values = [np.random.normal(size=(self.array_size,)) for i in range(self.num_rows)]
-        self.data = list(zip(self.test_times, self.random_values))
-        self.interval = interval
-
-    def time_stats(self, function, interval):
-        """Time various stats functions."""
-
-        def g():
-            data = csp.curve(typ=np.ndarray, data=self.data)
-            value = getattr(csp.stats, function)(data, interval=self.interval, **self.function_args.get(function, {}))
-            csp.add_graph_output("final_value", value, tick_count=1)
-
-        csp.run(g, realtime=False, starttime=self.start_date, endtime=timedelta(seconds=self.num_rows))
+    return build
 
 
-class StatsScalingSuite:
-    """
-    Benchmarks for testing how stats functions scale with data size.
-    """
+@pytest.mark.benchmark(group="stats")
+@pytest.mark.parametrize("array_size", [100])
+@pytest.mark.parametrize("function", ["median", "quantile", "rank"])
+@pytest.mark.parametrize("interval", [100, 500, 1000])
+def test_stats(benchmark, stats_data, array_size, function, interval):
+    """Benchmark a CSP statistics function."""
+    num_rows = 1000
+    start_date, data = stats_data(array_size=array_size, num_rows=num_rows)
+    function_args = {"quantile": {"quant": 0.95}}
 
-    params: ClassVar[list[int]] = [10, 50, 100, 500]
-    param_names: ClassVar[list[str]] = ["array_size"]
+    def graph():
+        curve = csp.curve(typ=np.ndarray, data=data)
+        value = getattr(csp.stats, function)(curve, interval=interval, **function_args.get(function, {}))
+        csp.add_graph_output("final_value", value, tick_count=1)
 
-    def setup(self, array_size):
-        self.start_date = datetime(2020, 1, 1, tzinfo=UTC)
-        self.num_rows = 500
-        self.test_times = [self.start_date + timedelta(seconds=i) for i in range(self.num_rows)]
-        self.random_values = [np.random.normal(size=(array_size,)) for i in range(self.num_rows)]
-        self.data = list(zip(self.test_times, self.random_values))
+    benchmark(csp.run, graph, realtime=False, starttime=start_date, endtime=timedelta(seconds=num_rows))
 
-    def time_mean_scaling(self, array_size):
-        """Test how mean computation scales with array size."""
 
-        def g():
-            data = csp.curve(typ=np.ndarray, data=self.data)
-            value = csp.stats.mean(data, interval=100)
-            csp.add_graph_output("result", value, tick_count=1)
+@pytest.mark.benchmark(group="stats")
+@pytest.mark.parametrize("array_size", [10, 50, 100, 500])
+@pytest.mark.parametrize("function", ["mean", "stddev"])
+def test_stats_scaling(benchmark, stats_data, array_size, function):
+    """Benchmark statistics scaling with array size."""
+    num_rows = 500
+    start_date, data = stats_data(array_size=array_size, num_rows=num_rows)
 
-        csp.run(g, realtime=False, starttime=self.start_date, endtime=timedelta(seconds=self.num_rows))
+    def graph():
+        curve = csp.curve(typ=np.ndarray, data=data)
+        value = getattr(csp.stats, function)(curve, interval=100)
+        csp.add_graph_output("result", value, tick_count=1)
 
-    def time_stddev_scaling(self, array_size):
-        """Test how stddev computation scales with array size."""
-
-        def g():
-            data = csp.curve(typ=np.ndarray, data=self.data)
-            value = csp.stats.stddev(data, interval=100)
-            csp.add_graph_output("result", value, tick_count=1)
-
-        csp.run(g, realtime=False, starttime=self.start_date, endtime=timedelta(seconds=self.num_rows))
+    benchmark(csp.run, graph, realtime=False, starttime=start_date, endtime=timedelta(seconds=num_rows))

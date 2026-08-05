@@ -28,12 +28,12 @@ class BenchmarkConfig:
 
 class HetznerBenchmarkRunner:
     """
-    Runs ASV benchmarks on a Hetzner Cloud server.
+    Runs Benched benchmarks on a Hetzner Cloud server.
 
     This class handles:
     1. SSH connection to the server
     2. Setting up the benchmark environment
-    3. Running ASV benchmarks
+    3. Running Benched benchmarks
     4. Collecting and returning results
     """
 
@@ -71,8 +71,8 @@ class HetznerBenchmarkRunner:
         # Setup the environment
         self._setup_environment()
 
-        # Run ASV benchmarks
-        results = self._run_asv()
+        # Run Benched benchmarks
+        results = self._run_benched()
 
         # Collect results
         return self._collect_results(results)
@@ -188,57 +188,51 @@ class HetznerBenchmarkRunner:
             # Set up Python environment using uv and Makefile
             f"cd /root/csp-benchmarks && $HOME/.local/bin/uv venv .venv --python {self.config.python_version}",
             "cd /root/csp-benchmarks && PATH=$HOME/.local/bin:$PATH make develop",
-            # Initialize ASV machine config
-            "cp /root/csp-benchmarks/csp_benchmarks/asv-machine.json ~/.asv-machine.json",
-            "cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark-init",
         ]
 
         for cmd in commands:
             self._run_ssh_command(cmd)
 
-        # Store machine name for use in _run_asv
+        # Store machine name for the benchmark result metadata
         self._machine_name = machine_name
         logger.info(f"Environment setup complete (machine: {machine_name})")
 
-    def _run_asv(self) -> str:
-        """Run ASV benchmarks and return the output."""
-        logger.info("Running ASV benchmarks...")
+    def _run_benched(self) -> str:
+        """Run Benched benchmarks and return the output."""
+        logger.info("Running Benched benchmarks...")
 
         # Use the machine name determined during setup
         machine_arg = f"MACHINE={self._machine_name}" if hasattr(self, "_machine_name") else ""
 
-        # Use Makefile target which handles config paths and commit hash
+        # Use the Makefile target so local and remote invocations stay aligned
         cmd = f"cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark {machine_arg}"
         result = self._run_ssh_command(cmd, check=False)
 
-        asv_output = result.stdout + result.stderr
+        benched_output = result.stdout + result.stderr
 
-        # Log ASV output for debugging
         if result.returncode != 0:
-            logger.warning(f"ASV exited with code {result.returncode}")
-        logger.info(f"ASV output (last 2000 chars):\n{asv_output[-2000:]}")
+            logger.warning(f"Benched exited with code {result.returncode}")
+        logger.info(f"Benched output (last 2000 chars):\n{benched_output[-2000:]}")
 
         # List files created in the machine results directory
         if hasattr(self, "_machine_name"):
-            machine_results_path = f"/root/csp-benchmarks/csp_benchmarks/results/{self._machine_name}/"
+            machine_results_path = f"/root/csp-benchmarks/csp_benchmarks/benched-results/{self._machine_name}/"
             list_result = self._run_ssh_command(f"ls -la {machine_results_path} || echo 'No results directory'", check=False)
             logger.info(f"Machine results directory contents:\n{list_result.stdout}")
 
-        return asv_output
+        return benched_output
 
-    def _collect_results(self, asv_output: str) -> dict:
+    def _collect_results(self, benched_output: str) -> dict:
         """Collect benchmark results from the remote server."""
         logger.info("Collecting benchmark results...")
 
-        # Results are relative to the ASV config file location (csp_benchmarks/asv.conf.json)
-        # So results_dir: "results" means /root/csp-benchmarks/csp_benchmarks/results/
-        results_path = "/root/csp-benchmarks/csp_benchmarks/results/"
+        results_path = "/root/csp-benchmarks/csp_benchmarks/benched-results/"
 
         # Check if results directory exists
         check_result = self._run_ssh_command(f"ls -la {results_path} 2>&1 || echo 'NO_RESULTS'", check=False)
         if "NO_RESULTS" in check_result.stdout or "No such file" in check_result.stdout:
-            logger.warning("No results directory found - ASV may have failed to run")
-            logger.warning(f"ASV output: {asv_output}")
+            logger.warning("No results directory found - Benched may have failed to run")
+            logger.warning(f"Benched output: {benched_output}")
             return {
                 "server": {
                     "name": self.server.name,
@@ -246,7 +240,7 @@ class HetznerBenchmarkRunner:
                     "type": self.server.server_type.name,
                     "ip": self.server_ip,
                 },
-                "asv_output": asv_output,
+                "benched_output": benched_output,
                 "results_files": [],
                 "error": "No results directory found",
             }
@@ -267,7 +261,7 @@ class HetznerBenchmarkRunner:
                     "type": self.server.server_type.name,
                     "ip": self.server_ip,
                 },
-                "asv_output": asv_output,
+                "benched_output": benched_output,
                 "results_files": [],
             }
 
@@ -292,7 +286,7 @@ class HetznerBenchmarkRunner:
 
         # List files in results directory before committing (for debugging)
         list_result = self._run_ssh_command(
-            "find /root/csp-benchmarks/csp_benchmarks/results -name '*.json' | head -50",
+            "find /root/csp-benchmarks/csp_benchmarks/benched-results -name '*.json' | head -50",
             check=False,
         )
         logger.debug(f"Result files on server:\n{list_result.stdout}")
@@ -300,20 +294,18 @@ class HetznerBenchmarkRunner:
         commands = [
             "cd /root/csp-benchmarks && git config user.email 'benchmark-bot@example.com'",
             "cd /root/csp-benchmarks && git config user.name 'Benchmark Bot'",
-            # Transform results to use real CSP tag commit hashes (for proper x-axis display)
-            "cd /root/csp-benchmarks && . .venv/bin/activate && make benchmark-transform",
             # Use -A to ensure all new/modified files are staged
-            "cd /root/csp-benchmarks && git add -A csp_benchmarks/results/",
-            "cd /root/csp-benchmarks && git status --short csp_benchmarks/results/",
+            "cd /root/csp-benchmarks && git add -A csp_benchmarks/benched-results/",
+            "cd /root/csp-benchmarks && git status --short csp_benchmarks/benched-results/",
             "cd /root/csp-benchmarks && git commit -m 'Add benchmark results' || true",
         ]
 
         if github_token:
             # Use token for authentication
             push_url = self.config.benchmark_repo.replace("https://", f"https://x-access-token:{github_token}@")
-            commands.append(f"cd /root/csp-benchmarks && git push {push_url} HEAD:main")
+            commands.append(f"cd /root/csp-benchmarks && git push {push_url} HEAD:{self.branch}")
         else:
-            commands.append("cd /root/csp-benchmarks && git push origin main")
+            commands.append(f"cd /root/csp-benchmarks && git push origin HEAD:{self.branch}")
 
         for cmd in commands:
             result = self._run_ssh_command(cmd, check=False)
