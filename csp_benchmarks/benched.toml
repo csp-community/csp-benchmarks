@@ -1,0 +1,15 @@
+[project]
+name = "csp-benchmarks"
+
+[tool.benched]
+benchmark_paths = ["benchmarks"]
+results_dir = ".benched/results"
+
+[tool.benched.suite]
+name = "csp-benchmarks"
+repository = "https://github.com/csp-community/csp-benchmarks"
+
+[tool.benched.subject]
+name = "csp"
+distribution = "csp"
+repository = "https://github.com/Point72/csp"

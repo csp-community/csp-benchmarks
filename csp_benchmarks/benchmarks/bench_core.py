@@ -1,144 +1,135 @@
-"""
-Core CSP benchmarks - testing graph execution performance.
-"""
+"""Core CSP graph execution benchmarks."""
 
 from datetime import datetime, timedelta, timezone
-from typing import ClassVar
 
 import csp
+import pytest
 
 UTC = timezone(timedelta(0))
 
 
-class GraphExecutionSuite:
-    """
-    Benchmarks for basic csp graph execution.
-
-    These tests measure the overhead of running csp graphs with varying
-    numbers of nodes and ticks.
-    """
-
-    params: ClassVar[tuple[list[int], list[int]]] = ([10, 100, 1000], [100, 1000, 10000])
-    param_names: ClassVar[list[str]] = ["num_nodes", "num_ticks"]
-
-    def setup(self, num_nodes, num_ticks):
-        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
-        self.end_time = self.start_time + timedelta(seconds=num_ticks)
-
-    def time_linear_graph(self, num_nodes, num_ticks):
-        """Time a linear chain of nodes passing data through."""
-
-        @csp.node
-        def passthrough(x: csp.ts[float]) -> csp.ts[float]:
-            if csp.ticked(x):
-                return x
-
-        @csp.graph
-        def linear_graph():
-            # Create initial timer-based source
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-            current = timer
-
-            # Chain nodes together
-            for _ in range(num_nodes):
-                current = passthrough(current)
-
-            csp.add_graph_output("output", current)
-
-        csp.run(linear_graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_fan_out_graph(self, num_nodes, num_ticks):
-        """Time a graph with one source fanning out to many nodes."""
-
-        @csp.node
-        def consumer(x: csp.ts[float]) -> csp.ts[float]:
-            if csp.ticked(x):
-                return x * 2
-
-        @csp.graph
-        def fan_out_graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-
-            for i in range(num_nodes):
-                result = consumer(timer)
-                csp.add_graph_output(f"output_{i}", result)
-
-        csp.run(fan_out_graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_fan_in_graph(self, num_nodes, num_ticks):
-        """Time a graph with many sources merging into one."""
-
-        @csp.graph
-        def fan_in_graph():
-            sources = [csp.timer(timedelta(seconds=1), float(i)) for i in range(num_nodes)]
-            result = csp.merge(*sources)
-            csp.add_graph_output("output", result)
-
-        csp.run(fan_in_graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+@pytest.fixture
+def run_times(num_ticks):
+    start_time = datetime(2020, 1, 1, tzinfo=UTC)
+    return start_time, start_time + timedelta(seconds=num_ticks)
 
 
-class NodeOverheadSuite:
-    """
-    Benchmarks for measuring node invocation overhead.
-    """
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_nodes", [10, 100, 1000])
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000])
+def test_linear_graph(benchmark, run_times, num_nodes):
+    """Time a linear chain of nodes passing data through."""
 
-    params: ClassVar[list[int]] = [100, 1000, 10000, 100000]
-    param_names: ClassVar[list[str]] = ["num_ticks"]
+    @csp.node
+    def passthrough(x: csp.ts[float]) -> csp.ts[float]:
+        if csp.ticked(x):
+            return x
 
-    def setup(self, num_ticks):
-        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
-        self.end_time = self.start_time + timedelta(seconds=num_ticks)
+    @csp.graph
+    def linear_graph():
+        current = csp.timer(timedelta(seconds=1), 1.0)
+        for _ in range(num_nodes):
+            current = passthrough(current)
+        csp.add_graph_output("output", current)
 
-    def time_empty_node(self, num_ticks):
-        """Measure overhead of an empty node that just passes data."""
+    start_time, end_time = run_times
+    benchmark(csp.run, linear_graph, starttime=start_time, endtime=end_time, realtime=False)
 
-        @csp.node
-        def empty_node(x: csp.ts[float]) -> csp.ts[float]:
-            if csp.ticked(x):
-                return x
 
-        @csp.graph
-        def graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-            result = empty_node(timer)
-            csp.add_graph_output("output", result)
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_nodes", [10, 100, 1000])
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000])
+def test_fan_out_graph(benchmark, run_times, num_nodes):
+    """Time a graph with one source fanning out to many nodes."""
 
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+    @csp.node
+    def consumer(x: csp.ts[float]) -> csp.ts[float]:
+        if csp.ticked(x):
+            return x * 2
 
-    def time_compute_node(self, num_ticks):
-        """Measure overhead of a node doing simple computation."""
+    @csp.graph
+    def fan_out_graph():
+        timer = csp.timer(timedelta(seconds=1), 1.0)
+        for index in range(num_nodes):
+            csp.add_graph_output(f"output_{index}", consumer(timer))
 
-        @csp.node
-        def compute_node(x: csp.ts[float]) -> csp.ts[float]:
-            if csp.ticked(x):
-                return x * 2.0 + 1.0
+    start_time, end_time = run_times
+    benchmark(csp.run, fan_out_graph, starttime=start_time, endtime=end_time, realtime=False)
 
-        @csp.graph
-        def graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-            result = compute_node(timer)
-            csp.add_graph_output("output", result)
 
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_nodes", [10, 100, 1000])
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000])
+def test_fan_in_graph(benchmark, run_times, num_nodes):
+    """Time a graph with many sources merging into one."""
 
-    def time_stateful_node(self, num_ticks):
-        """Measure overhead of a stateful node."""
+    @csp.graph
+    def fan_in_graph():
+        sources = [csp.timer(timedelta(seconds=1), float(index)) for index in range(num_nodes)]
+        csp.add_graph_output("output", csp.merge(*sources))
 
-        @csp.node
-        def stateful_node(x: csp.ts[float]) -> csp.ts[float]:
-            with csp.state():
-                s_sum = 0.0
-                s_count = 0
+    start_time, end_time = run_times
+    benchmark(csp.run, fan_in_graph, starttime=start_time, endtime=end_time, realtime=False)
 
-            if csp.ticked(x):
-                s_sum += x
-                s_count += 1
-                return s_sum / s_count
 
-        @csp.graph
-        def graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-            result = stateful_node(timer)
-            csp.add_graph_output("output", result)
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000, 100000])
+def test_empty_node(benchmark, run_times):
+    """Measure overhead of an empty node that passes data through."""
 
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+    @csp.node
+    def empty_node(x: csp.ts[float]) -> csp.ts[float]:
+        if csp.ticked(x):
+            return x
+
+    @csp.graph
+    def graph():
+        timer = csp.timer(timedelta(seconds=1), 1.0)
+        csp.add_graph_output("output", empty_node(timer))
+
+    start_time, end_time = run_times
+    benchmark(csp.run, graph, starttime=start_time, endtime=end_time, realtime=False)
+
+
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000, 100000])
+def test_compute_node(benchmark, run_times):
+    """Measure overhead of a node doing simple computation."""
+
+    @csp.node
+    def compute_node(x: csp.ts[float]) -> csp.ts[float]:
+        if csp.ticked(x):
+            return x * 2.0 + 1.0
+
+    @csp.graph
+    def graph():
+        timer = csp.timer(timedelta(seconds=1), 1.0)
+        csp.add_graph_output("output", compute_node(timer))
+
+    start_time, end_time = run_times
+    benchmark(csp.run, graph, starttime=start_time, endtime=end_time, realtime=False)
+
+
+@pytest.mark.benchmark(group="core")
+@pytest.mark.parametrize("num_ticks", [100, 1000, 10000, 100000])
+def test_stateful_node(benchmark, run_times):
+    """Measure overhead of a stateful node."""
+
+    @csp.node
+    def stateful_node(x: csp.ts[float]) -> csp.ts[float]:
+        with csp.state():
+            s_sum = 0.0
+            s_count = 0
+
+        if csp.ticked(x):
+            s_sum += x
+            s_count += 1
+            return s_sum / s_count
+
+    @csp.graph
+    def graph():
+        timer = csp.timer(timedelta(seconds=1), 1.0)
+        csp.add_graph_output("output", stateful_node(timer))
+
+    start_time, end_time = run_times
+    benchmark(csp.run, graph, starttime=start_time, endtime=end_time, realtime=False)

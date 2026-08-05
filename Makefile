@@ -108,32 +108,29 @@ publish: dist  ## publish python assets
 ##############
 # BENCHMARKS #
 ##############
-.PHONY: benchmark benchmark-quick benchmark-local benchmark-debug benchmark-publish benchmark-view benchmark-transform
+.PHONY: benchmark benchmark-quick benchmark-list benchmark-local benchmark-publish benchmark-view benchmark-import-asv
 
-ASV_CONFIG := $(CURDIR)/csp_benchmarks/asv.conf.json
-ASV_PUBLISH_CONFIG := $(CURDIR)/csp_benchmarks/asv.publish.conf.json
-ASV_MACHINE_ARG := $(if $(MACHINE),--machine $(MACHINE),)
-
-benchmark-init: ## Initialize ASV
-	python -m asv machine --config $(ASV_CONFIG) --verbose --yes
+BENCHED_MACHINE_ARG := $(if $(MACHINE),--machine $(MACHINE),)
 
 benchmark: ## run benchmark
-	python -m asv run --python=same --config $(ASV_CONFIG) --verbose --set-commit-hash HEAD $(ASV_MACHINE_ARG)
+	python -m benched run $(BENCHED_MACHINE_ARG)
 
 benchmark-quick: ## run quick benchmark
-	python -m asv run --quick --python=same --config $(ASV_CONFIG) --verbose --set-commit-hash HEAD $(ASV_MACHINE_ARG)
+	python -m benched run --quick $(BENCHED_MACHINE_ARG)
 
-benchmark-local: benchmark
-	python -m pdb -m asv.benchmark run csp_benchmarks/benchmarks ${BENCHMARK_NAME} "{}" debug_profile.txt debug_results.txt; \
+benchmark-list: ## list collected benchmarks
+	python -m benched list
 
-benchmark-transform: ## transform results to use real CSP tag commit hashes
-	python csp_benchmarks/transform_results.py
+benchmark-local: benchmark ## run benchmarks in current Python environment
 
 benchmark-publish:  ## generate viewable website of benchmark results
-	python -m asv publish --config $(ASV_PUBLISH_CONFIG)
+	python -m benched report --format html --output build/benchmarks
 
 benchmark-view: benchmark-publish  ## view the website of benchmark results
-	python -m asv preview --config $(ASV_PUBLISH_CONFIG)
+	python -m benched serve build/benchmarks --port 8000 --open
+
+benchmark-import-asv: ## import historical ASV results once
+	python -m benched import-asv csp_benchmarks/results --results-dir csp_benchmarks/benched-results --asv-config csp_benchmarks/asv.conf.json --suite-name csp-benchmarks --subject-name csp --subject-version-param csp
 
 #########
 # CLEAN #

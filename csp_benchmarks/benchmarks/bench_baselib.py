@@ -1,127 +1,71 @@
-"""
-Baselib benchmarks - testing built-in csp operations.
-"""
+"""Benchmarks for built-in CSP operations."""
 
 from datetime import datetime, timedelta, timezone
-from typing import ClassVar
 
 import csp
+import pytest
 
 UTC = timezone(timedelta(0))
 
 
-class BaselibSuite:
-    """
-    Benchmarks for csp.baselib operations.
-    """
+@pytest.fixture
+def run_times(num_ticks):
+    start_time = datetime(2020, 1, 1, tzinfo=UTC)
+    return start_time, start_time + timedelta(seconds=num_ticks)
 
-    params: ClassVar[list[int]] = [1000, 10000, 100000]
-    param_names: ClassVar[list[str]] = ["num_ticks"]
 
-    def setup(self, num_ticks):
-        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
-        self.end_time = self.start_time + timedelta(seconds=num_ticks)
+@pytest.mark.benchmark(group="baselib")
+@pytest.mark.parametrize("num_ticks", [1000, 10000, 100000])
+@pytest.mark.parametrize("operation", ["filter", "sample", "delay", "merge", "flatten"])
+def test_baselib_operation(benchmark, run_times, operation):
+    """Benchmark one built-in CSP operation."""
 
-    def time_filter(self, num_ticks):
-        """Benchmark csp.filter operation."""
-
-        @csp.graph
-        def graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
+    @csp.graph
+    def graph():
+        timer = csp.timer(timedelta(seconds=1), 1.0)
+        if operation == "filter":
             counter = csp.count(timer)
-            # Filter to only even counts
-            is_even = csp.apply(counter, lambda x: x % 2 == 0, bool)
-            filtered = csp.filter(is_even, timer)
-            csp.add_graph_output("output", filtered)
+            is_even = csp.apply(counter, lambda value: value % 2 == 0, bool)
+            result = csp.filter(is_even, timer)
+        elif operation == "sample":
+            result = csp.sample(csp.timer(timedelta(seconds=10), True), timer)
+        elif operation == "delay":
+            result = csp.delay(timer, timedelta(seconds=5))
+        elif operation == "merge":
+            result = csp.merge(timer, csp.timer(timedelta(seconds=2), 2.0), csp.timer(timedelta(seconds=3), 3.0))
+        else:
+            result = csp.flatten([timer, csp.timer(timedelta(seconds=2), 2.0), csp.timer(timedelta(seconds=3), 3.0)])
+        csp.add_graph_output("output", result)
 
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_sample(self, num_ticks):
-        """Benchmark csp.sample operation."""
-
-        @csp.graph
-        def graph():
-            fast_timer = csp.timer(timedelta(seconds=1), 1.0)
-            slow_trigger = csp.timer(timedelta(seconds=10), True)
-            sampled = csp.sample(slow_trigger, fast_timer)
-            csp.add_graph_output("output", sampled)
-
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_delay(self, num_ticks):
-        """Benchmark csp.delay operation."""
-
-        @csp.graph
-        def graph():
-            timer = csp.timer(timedelta(seconds=1), 1.0)
-            delayed = csp.delay(timer, timedelta(seconds=5))
-            csp.add_graph_output("output", delayed)
-
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_merge(self, num_ticks):
-        """Benchmark csp.merge operation."""
-
-        @csp.graph
-        def graph():
-            t1 = csp.timer(timedelta(seconds=1), 1.0)
-            t2 = csp.timer(timedelta(seconds=2), 2.0)
-            t3 = csp.timer(timedelta(seconds=3), 3.0)
-            merged = csp.merge(t1, t2, t3)
-            csp.add_graph_output("output", merged)
-
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_flatten(self, num_ticks):
-        """Benchmark csp.flatten operation."""
-
-        @csp.graph
-        def graph():
-            timer1 = csp.timer(timedelta(seconds=1), 1.0)
-            timer2 = csp.timer(timedelta(seconds=2), 2.0)
-            timer3 = csp.timer(timedelta(seconds=3), 3.0)
-            flattened = csp.flatten([timer1, timer2, timer3])
-            csp.add_graph_output("output", flattened)
-
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+    start_time, end_time = run_times
+    benchmark(csp.run, graph, starttime=start_time, endtime=end_time, realtime=False)
 
 
-class CurveSuite:
-    """
-    Benchmarks for csp.curve - loading historical data.
-    """
+@pytest.fixture
+def curve_case(num_points):
+    start_time = datetime(2020, 1, 1, tzinfo=UTC)
+    end_time = start_time + timedelta(seconds=num_points)
+    data = [(start_time + timedelta(seconds=index), float(index)) for index in range(num_points)]
+    return start_time, end_time, data
 
-    params: ClassVar[list[int]] = [100, 1000, 10000]
-    param_names: ClassVar[list[str]] = ["num_points"]
 
-    def setup(self, num_points):
-        self.start_time = datetime(2020, 1, 1, tzinfo=UTC)
-        self.end_time = self.start_time + timedelta(seconds=num_points)
-        # Pre-generate the curve data
-        self.data = [(self.start_time + timedelta(seconds=i), float(i)) for i in range(num_points)]
+@pytest.mark.benchmark(group="baselib")
+@pytest.mark.parametrize("num_points", [100, 1000, 10000])
+@pytest.mark.parametrize("processing", [False, True], ids=["load", "processing"])
+def test_curve(benchmark, curve_case, processing):
+    """Benchmark loading curve data, optionally with downstream processing."""
+    start_time, end_time, data = curve_case
 
-    def time_curve_load(self, num_points):
-        """Benchmark loading data via csp.curve."""
+    @csp.node
+    def process(x: csp.ts[float]) -> csp.ts[float]:
+        if csp.ticked(x):
+            return x * 2.0
 
-        @csp.graph
-        def graph():
-            data = csp.curve(float, self.data)
-            csp.add_graph_output("output", data)
+    @csp.graph
+    def graph():
+        result = csp.curve(float, data)
+        if processing:
+            result = process(result)
+        csp.add_graph_output("output", result)
 
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
-
-    def time_curve_with_processing(self, num_points):
-        """Benchmark loading and processing curve data."""
-
-        @csp.node
-        def process(x: csp.ts[float]) -> csp.ts[float]:
-            if csp.ticked(x):
-                return x * 2.0
-
-        @csp.graph
-        def graph():
-            data = csp.curve(float, self.data)
-            processed = process(data)
-            csp.add_graph_output("output", processed)
-
-        csp.run(graph, starttime=self.start_time, endtime=self.end_time, realtime=False)
+    benchmark(csp.run, graph, starttime=start_time, endtime=end_time, realtime=False)
