@@ -25,14 +25,14 @@
   },
   "machine": {
     "id": "hetzner-cx23",
-    "fingerprint": "ff7148bcbf54968885feb2fd7e5af3c02670927263035c824908c24659ed3e35",
+    "fingerprint": "09f234dbc31dbc6cdfb17dcda102af7c3120edcbaf8adfac4978cbf925cbbb0c",
     "metadata": {
       "system": "Linux",
       "release": "6.8.0-111-generic",
       "architecture": "x86_64",
       "processor": "x86_64",
       "cpu_count": 2,
-      "memory_gib": 3.5
+      "memory_gib": 4.0
     },
     "labels": {}
   },

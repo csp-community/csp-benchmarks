@@ -60,6 +60,9 @@ hetzner = [
 [project.scripts]
 csp-benchmarks = "csp_benchmarks.cli:main"
 
+[project.entry-points."benched.plugins"]
+csp-benchmarks = "csp_benchmarks.benched_plugin"
+
 [project.urls]
 Repository = "https://github.com/csp-benchmarks/csp-benchmarks"
 Homepage = "https://github.com/csp-benchmarks/csp-benchmarks"
