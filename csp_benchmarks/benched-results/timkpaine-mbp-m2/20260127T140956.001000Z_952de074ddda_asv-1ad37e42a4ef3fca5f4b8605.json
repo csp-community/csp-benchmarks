@@ -1,0 +1,3712 @@
+{
+  "schema_version": 1,
+  "run_id": "asv-1ad37e42a4ef3fca5f4b8605",
+  "started_at": "2026-01-27T14:09:56.001000+00:00",
+  "ended_at": "2026-01-27T14:12:54.940200+00:00",
+  "status": "success",
+  "exit_code": 0,
+  "suite": {
+    "name": "csp-benchmarks",
+    "repository": "https://github.com/csp-community/csp-benchmarks",
+    "version": null,
+    "revision": null,
+    "branch": null,
+    "dirty": null,
+    "labels": {}
+  },
+  "subject": {
+    "name": "csp",
+    "repository": "https://github.com/Point72/csp",
+    "version": "0.14.0",
+    "revision": "952de074ddda926bf4a881b5f13423d2a8373aad",
+    "branch": null,
+    "dirty": null,
+    "labels": {}
+  },
+  "machine": {
+    "id": "timkpaine-mbp-m2",
+    "fingerprint": "170e4a27a6d47881a6330a7f765186828056a37d03b533f0db02e283a77a22ea",
+    "metadata": {
+      "arch": "arm64",
+      "cpu": "Apple M2 (8 cores)",
+      "num_cpu": "8",
+      "os": "macOS",
+      "ram": "16GB",
+      "memory_gib": 16.0
+    },
+    "labels": {}
+  },
+  "environment": {
+    "fingerprint": "5db79a1b58b4ea46acc509a28eada92350139832b9996e4a10a73e41381446b1",
+    "python_implementation": "CPython",
+    "python_version": "3.11",
+    "platform": "macOS",
+    "architecture": "arm64",
+    "labels": {
+      "requirement:csp": "0.14.0"
+    }
+  },
+  "tool": {
+    "benched": "0.2.0",
+    "pytest": "not-applicable",
+    "pytest_benchmark": "not-applicable"
+  },
+  "measurements": [
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=1000&operation=%22delay%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[delay-1000]",
+      "name": "test_baselib_operation[delay-1000]",
+      "group": "baselib",
+      "parameter_id": "delay-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "delay"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "19d0e882be4ba12ee7bfff021c705c4fe5d5d7c448d6259c1b11f31f30ef69f7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.001021674950607121,
+        "mean": 0.001021674950607121,
+        "min": 0.001021674950607121,
+        "max": 0.001021674950607121,
+        "ops": 978.7848859422061,
+        "q25": 0.0010155,
+        "q75": 0.0010278,
+        "ci99_low": 0.0010105,
+        "ci99_high": 0.0010437,
+        "number": 10,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=10000&operation=%22delay%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[delay-10000]",
+      "name": "test_baselib_operation[delay-10000]",
+      "group": "baselib",
+      "parameter_id": "delay-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "delay"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "19d0e882be4ba12ee7bfff021c705c4fe5d5d7c448d6259c1b11f31f30ef69f7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0024274416849948467,
+        "mean": 0.0024274416849948467,
+        "min": 0.0024274416849948467,
+        "max": 0.0024274416849948467,
+        "ops": 411.9563432487248,
+        "q25": 0.0023772,
+        "q75": 0.0025916,
+        "ci99_low": 0.002348,
+        "ci99_high": 0.0027633,
+        "number": 5,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=100000&operation=%22delay%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[delay-100000]",
+      "name": "test_baselib_operation[delay-100000]",
+      "group": "baselib",
+      "parameter_id": "delay-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "delay"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "19d0e882be4ba12ee7bfff021c705c4fe5d5d7c448d6259c1b11f31f30ef69f7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.01736387552227825,
+        "mean": 0.01736387552227825,
+        "min": 0.01736387552227825,
+        "max": 0.01736387552227825,
+        "ops": 57.59082980737665,
+        "q25": 0.016962,
+        "q75": 0.017746,
+        "ci99_low": 0.01653,
+        "ci99_high": 0.018288,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=1000&operation=%22filter%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[filter-1000]",
+      "name": "test_baselib_operation[filter-1000]",
+      "group": "baselib",
+      "parameter_id": "filter-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "filter"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "2ac032303b2c487dd23100267f94df9048bcc1ff651a7c4f51eb55dc6382f7f0",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.001169912051409483,
+        "mean": 0.001169912051409483,
+        "min": 0.001169912051409483,
+        "max": 0.001169912051409483,
+        "ops": 854.765107167862,
+        "q25": 0.0011626,
+        "q75": 0.0011741,
+        "ci99_low": 0.0011519,
+        "ci99_high": 0.0013242,
+        "number": 9,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=10000&operation=%22filter%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[filter-10000]",
+      "name": "test_baselib_operation[filter-10000]",
+      "group": "baselib",
+      "parameter_id": "filter-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "filter"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "2ac032303b2c487dd23100267f94df9048bcc1ff651a7c4f51eb55dc6382f7f0",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.00314459900255315,
+        "mean": 0.00314459900255315,
+        "min": 0.00314459900255315,
+        "max": 0.00314459900255315,
+        "ops": 318.00557056339585,
+        "q25": 0.0027193,
+        "q75": 0.003714,
+        "ci99_low": 0.0026854,
+        "ci99_high": 0.0038572,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=100000&operation=%22filter%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[filter-100000]",
+      "name": "test_baselib_operation[filter-100000]",
+      "group": "baselib",
+      "parameter_id": "filter-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "filter"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "2ac032303b2c487dd23100267f94df9048bcc1ff651a7c4f51eb55dc6382f7f0",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.021655354066751897,
+        "mean": 0.021655354066751897,
+        "min": 0.021655354066751897,
+        "max": 0.021655354066751897,
+        "ops": 46.17795658835842,
+        "q25": 0.019515,
+        "q75": 0.023504,
+        "ci99_low": 0.01944,
+        "ci99_high": 0.023712,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=1000&operation=%22flatten%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[flatten-1000]",
+      "name": "test_baselib_operation[flatten-1000]",
+      "group": "baselib",
+      "parameter_id": "flatten-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "flatten"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fa5a18128762bf240524618223bb056b1b0919d1fce2cfe41c8258e8136b8c78",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0014716190053150058,
+        "mean": 0.0014716190053150058,
+        "min": 0.0014716190053150058,
+        "max": 0.0014716190053150058,
+        "ops": 679.5237057882017,
+        "q25": 0.0014571,
+        "q75": 0.0014795,
+        "ci99_low": 0.0014448,
+        "ci99_high": 0.0015554,
+        "number": 7,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=10000&operation=%22flatten%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[flatten-10000]",
+      "name": "test_baselib_operation[flatten-10000]",
+      "group": "baselib",
+      "parameter_id": "flatten-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "flatten"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fa5a18128762bf240524618223bb056b1b0919d1fce2cfe41c8258e8136b8c78",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.003708763998777916,
+        "mean": 0.003708763998777916,
+        "min": 0.003708763998777916,
+        "max": 0.003708763998777916,
+        "ops": 269.63160781584173,
+        "q25": 0.0036989,
+        "q75": 0.0037219,
+        "ci99_low": 0.0036796,
+        "ci99_high": 0.0037389,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=100000&operation=%22flatten%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[flatten-100000]",
+      "name": "test_baselib_operation[flatten-100000]",
+      "group": "baselib",
+      "parameter_id": "flatten-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "flatten"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fa5a18128762bf240524618223bb056b1b0919d1fce2cfe41c8258e8136b8c78",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.029012083483394235,
+        "mean": 0.029012083483394235,
+        "min": 0.029012083483394235,
+        "max": 0.029012083483394235,
+        "ops": 34.46839661041145,
+        "q25": 0.02885,
+        "q75": 0.030171,
+        "ci99_low": 0.028416,
+        "ci99_high": 0.03971,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=1000&operation=%22merge%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[merge-1000]",
+      "name": "test_baselib_operation[merge-1000]",
+      "group": "baselib",
+      "parameter_id": "merge-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "merge"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "b95dd5b7cf5acc86d9000280fa80ea137f6ab7c5a69d54b7e917f1fa2a835a76",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0012183564443451664,
+        "mean": 0.0012183564443451664,
+        "min": 0.0012183564443451664,
+        "max": 0.0012183564443451664,
+        "ops": 820.7778640162016,
+        "q25": 0.0012011,
+        "q75": 0.0012256,
+        "ci99_low": 0.0011977,
+        "ci99_high": 0.0012413,
+        "number": 9,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=10000&operation=%22merge%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[merge-10000]",
+      "name": "test_baselib_operation[merge-10000]",
+      "group": "baselib",
+      "parameter_id": "merge-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "merge"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "b95dd5b7cf5acc86d9000280fa80ea137f6ab7c5a69d54b7e917f1fa2a835a76",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0021523750037886202,
+        "mean": 0.0021523750037886202,
+        "min": 0.0021523750037886202,
+        "max": 0.0021523750037886202,
+        "ops": 464.6030539472887,
+        "q25": 0.0021478,
+        "q75": 0.0021641,
+        "ci99_low": 0.0021302,
+        "ci99_high": 0.0022415,
+        "number": 5,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=100000&operation=%22merge%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[merge-100000]",
+      "name": "test_baselib_operation[merge-100000]",
+      "group": "baselib",
+      "parameter_id": "merge-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "merge"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "b95dd5b7cf5acc86d9000280fa80ea137f6ab7c5a69d54b7e917f1fa2a835a76",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.012371625518426299,
+        "mean": 0.012371625518426299,
+        "min": 0.012371625518426299,
+        "max": 0.012371625518426299,
+        "ops": 80.83012200058917,
+        "q25": 0.012311,
+        "q75": 0.012555,
+        "ci99_low": 0.012248,
+        "ci99_high": 0.01283,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=1000&operation=%22sample%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[sample-1000]",
+      "name": "test_baselib_operation[sample-1000]",
+      "group": "baselib",
+      "parameter_id": "sample-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "sample"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "463c8df0cdca5a9a74576fa6bab255dba9b4a5b0986e564b2139552d1e29d100",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0010003049074756827,
+        "mean": 0.0010003049074756827,
+        "min": 0.0010003049074756827,
+        "max": 0.0010003049074756827,
+        "ops": 999.6951854645478,
+        "q25": 0.0009968,
+        "q75": 0.0010035,
+        "ci99_low": 0.00098004,
+        "ci99_high": 0.0010272,
+        "number": 11,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=10000&operation=%22sample%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[sample-10000]",
+      "name": "test_baselib_operation[sample-10000]",
+      "group": "baselib",
+      "parameter_id": "sample-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "sample"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "463c8df0cdca5a9a74576fa6bab255dba9b4a5b0986e564b2139552d1e29d100",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0013549687500926666,
+        "mean": 0.0013549687500926666,
+        "min": 0.0013549687500926666,
+        "max": 0.0013549687500926666,
+        "ops": 738.0244008812822,
+        "q25": 0.0013533,
+        "q75": 0.0014214,
+        "ci99_low": 0.001313,
+        "ci99_high": 0.001465,
+        "number": 8,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation|num_ticks=100000&operation=%22sample%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_baselib_operation[sample-100000]",
+      "name": "test_baselib_operation[sample-100000]",
+      "group": "baselib",
+      "parameter_id": "sample-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "sample"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "463c8df0cdca5a9a74576fa6bab255dba9b4a5b0986e564b2139552d1e29d100",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.004885569350638737,
+        "mean": 0.004885569350638737,
+        "min": 0.004885569350638737,
+        "max": 0.004885569350638737,
+        "ops": 204.68443455198533,
+        "q25": 0.0046815,
+        "q75": 0.0049229,
+        "ci99_low": 0.0045399,
+        "ci99_high": 0.0050779,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=100&processing=false",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[load-100]",
+      "name": "test_curve[load-100]",
+      "group": "baselib",
+      "parameter_id": "load-100",
+      "parameters": {
+        "num_points": 100,
+        "processing": false
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "a2b95a799a0966c31fa0830dc3152f85c9d04560cdcfb5f5e1f07cd0d2742ac7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0011400473621589217,
+        "mean": 0.0011400473621589217,
+        "min": 0.0011400473621589217,
+        "max": 0.0011400473621589217,
+        "ops": 877.1565403267875,
+        "q25": 0.0010697,
+        "q75": 0.001291,
+        "ci99_low": 0.0010126,
+        "ci99_high": 0.0062791,
+        "number": 11,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=1000&processing=false",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[load-1000]",
+      "name": "test_curve[load-1000]",
+      "group": "baselib",
+      "parameter_id": "load-1000",
+      "parameters": {
+        "num_points": 1000,
+        "processing": false
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "a2b95a799a0966c31fa0830dc3152f85c9d04560cdcfb5f5e1f07cd0d2742ac7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.004283756832592189,
+        "mean": 0.004283756832592189,
+        "min": 0.004283756832592189,
+        "max": 0.004283756832592189,
+        "ops": 233.43995447913403,
+        "q25": 0.0042667,
+        "q75": 0.004306,
+        "ci99_low": 0.0042447,
+        "ci99_high": 0.0043201,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=10000&processing=false",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[load-10000]",
+      "name": "test_curve[load-10000]",
+      "group": "baselib",
+      "parameter_id": "load-10000",
+      "parameters": {
+        "num_points": 10000,
+        "processing": false
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "a2b95a799a0966c31fa0830dc3152f85c9d04560cdcfb5f5e1f07cd0d2742ac7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.03772366646444425,
+        "mean": 0.03772366646444425,
+        "min": 0.03772366646444425,
+        "max": 0.03772366646444425,
+        "ops": 26.508557988193743,
+        "q25": 0.037102,
+        "q75": 0.038659,
+        "ci99_low": 0.036931,
+        "ci99_high": 0.041437,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=100&processing=true",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[processing-100]",
+      "name": "test_curve[processing-100]",
+      "group": "baselib",
+      "parameter_id": "processing-100",
+      "parameters": {
+        "num_points": 100,
+        "processing": true
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "15b394c06356a66e8e8e2bdd2047acdb77369d8b622fcd0aec6fd3176b73cfa6",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0019300172474080077,
+        "mean": 0.0019300172474080077,
+        "min": 0.0019300172474080077,
+        "max": 0.0019300172474080077,
+        "ops": 518.1300847663352,
+        "q25": 0.0018899,
+        "q75": 0.0021014,
+        "ci99_low": 0.0018808,
+        "ci99_high": 0.0025071,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=1000&processing=true",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[processing-1000]",
+      "name": "test_curve[processing-1000]",
+      "group": "baselib",
+      "parameter_id": "processing-1000",
+      "parameters": {
+        "num_points": 1000,
+        "processing": true
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "15b394c06356a66e8e8e2bdd2047acdb77369d8b622fcd0aec6fd3176b73cfa6",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.005297885509207845,
+        "mean": 0.005297885509207845,
+        "min": 0.005297885509207845,
+        "max": 0.005297885509207845,
+        "ops": 188.75455089808517,
+        "q25": 0.0052442,
+        "q75": 0.005453,
+        "ci99_low": 0.0052156,
+        "ci99_high": 0.0058212,
+        "number": 2,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve|num_points=10000&processing=true",
+      "nodeid": "csp_benchmarks/benchmarks/bench_baselib.py::test_curve[processing-10000]",
+      "name": "test_curve[processing-10000]",
+      "group": "baselib",
+      "parameter_id": "processing-10000",
+      "parameters": {
+        "num_points": 10000,
+        "processing": true
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "15b394c06356a66e8e8e2bdd2047acdb77369d8b622fcd0aec6fd3176b73cfa6",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.039031145512126386,
+        "mean": 0.039031145512126386,
+        "min": 0.039031145512126386,
+        "max": 0.039031145512126386,
+        "ops": 25.62056498416925,
+        "q25": 0.038663,
+        "q75": 0.040055,
+        "ci99_low": 0.038509,
+        "ci99_high": 0.048951,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=10&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[100-10]",
+      "name": "test_fan_in_graph[100-10]",
+      "group": "core",
+      "parameter_id": "100-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=10&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[1000-10]",
+      "name": "test_fan_in_graph[1000-10]",
+      "group": "core",
+      "parameter_id": "1000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=10&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[10000-10]",
+      "name": "test_fan_in_graph[10000-10]",
+      "group": "core",
+      "parameter_id": "10000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=100&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[100-100]",
+      "name": "test_fan_in_graph[100-100]",
+      "group": "core",
+      "parameter_id": "100-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=100&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[1000-100]",
+      "name": "test_fan_in_graph[1000-100]",
+      "group": "core",
+      "parameter_id": "1000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=100&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[10000-100]",
+      "name": "test_fan_in_graph[10000-100]",
+      "group": "core",
+      "parameter_id": "10000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=1000&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[100-1000]",
+      "name": "test_fan_in_graph[100-1000]",
+      "group": "core",
+      "parameter_id": "100-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=1000&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[1000-1000]",
+      "name": "test_fan_in_graph[1000-1000]",
+      "group": "core",
+      "parameter_id": "1000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph|num_nodes=1000&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_in_graph[10000-1000]",
+      "name": "test_fan_in_graph[10000-1000]",
+      "group": "core",
+      "parameter_id": "10000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "f20ad5171a51ecb7f63676aed81eca99e2fba21ae4111c7bc1a0a5522eccb7ec",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": null,
+        "mean": null,
+        "min": null,
+        "max": null,
+        "ops": null
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=10&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[100-10]",
+      "name": "test_fan_out_graph[100-10]",
+      "group": "core",
+      "parameter_id": "100-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0019381736541011683,
+        "mean": 0.0019381736541011683,
+        "min": 0.0019381736541011683,
+        "max": 0.0019381736541011683,
+        "ops": 515.9496404690074,
+        "q25": 0.0018835,
+        "q75": 0.0020552,
+        "ci99_low": 0.0018786,
+        "ci99_high": 0.0020799,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=10&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[1000-10]",
+      "name": "test_fan_out_graph[1000-10]",
+      "group": "core",
+      "parameter_id": "1000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0025199321244144812,
+        "mean": 0.0025199321244144812,
+        "min": 0.0025199321244144812,
+        "max": 0.0025199321244144812,
+        "ops": 396.8360855085948,
+        "q25": 0.0024923,
+        "q75": 0.0025721,
+        "ci99_low": 0.0024741,
+        "ci99_high": 0.0026766,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=10&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[10000-10]",
+      "name": "test_fan_out_graph[10000-10]",
+      "group": "core",
+      "parameter_id": "10000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.009776958235306665,
+        "mean": 0.009776958235306665,
+        "min": 0.009776958235306665,
+        "max": 0.009776958235306665,
+        "ops": 102.28130016847044,
+        "q25": 0.0096721,
+        "q75": 0.0098398,
+        "ci99_low": 0.0096173,
+        "ci99_high": 0.00986,
+        "number": 2,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=100&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[100-100]",
+      "name": "test_fan_out_graph[100-100]",
+      "group": "core",
+      "parameter_id": "100-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.004208347333284716,
+        "mean": 0.004208347333284716,
+        "min": 0.004208347333284716,
+        "max": 0.004208347333284716,
+        "ops": 237.62297187087836,
+        "q25": 0.0039742,
+        "q75": 0.0044971,
+        "ci99_low": 0.0039493,
+        "ci99_high": 0.0047362,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=100&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[1000-100]",
+      "name": "test_fan_out_graph[1000-100]",
+      "group": "core",
+      "parameter_id": "1000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.011208792042452842,
+        "mean": 0.011208792042452842,
+        "min": 0.011208792042452842,
+        "max": 0.011208792042452842,
+        "ops": 89.21567963903165,
+        "q25": 0.010959,
+        "q75": 0.011901,
+        "ci99_low": 0.010673,
+        "ci99_high": 0.012856,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=100&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[10000-100]",
+      "name": "test_fan_out_graph[10000-100]",
+      "group": "core",
+      "parameter_id": "10000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.07895702047972009,
+        "mean": 0.07895702047972009,
+        "min": 0.07895702047972009,
+        "max": 0.07895702047972009,
+        "ops": 12.665118236786146,
+        "q25": 0.078493,
+        "q75": 0.081363,
+        "ci99_low": 0.078174,
+        "ci99_high": 0.08298,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=1000&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[100-1000]",
+      "name": "test_fan_out_graph[100-1000]",
+      "group": "core",
+      "parameter_id": "100-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.026735874998848885,
+        "mean": 0.026735874998848885,
+        "min": 0.026735874998848885,
+        "max": 0.026735874998848885,
+        "ops": 37.40292771577721,
+        "q25": 0.025786,
+        "q75": 0.027944,
+        "ci99_low": 0.025638,
+        "ci99_high": 0.028204,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=1000&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[1000-1000]",
+      "name": "test_fan_out_graph[1000-1000]",
+      "group": "core",
+      "parameter_id": "1000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.09611016698181629,
+        "mean": 0.09611016698181629,
+        "min": 0.09611016698181629,
+        "max": 0.09611016698181629,
+        "ops": 10.404726486316443,
+        "q25": 0.095708,
+        "q75": 0.097995,
+        "ci99_low": 0.093305,
+        "ci99_high": 0.11444,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph|num_nodes=1000&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_fan_out_graph[10000-1000]",
+      "name": "test_fan_out_graph[10000-1000]",
+      "group": "core",
+      "parameter_id": "10000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "9170ff83de39d13f62716cfa4a64c1e0258b307ab61e4aba448090637f5d6787",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.8458349169814028,
+        "mean": 0.8458349169814028,
+        "min": 0.8458349169814028,
+        "max": 0.8458349169814028,
+        "ops": 1.182263796307651,
+        "q25": 0.78531,
+        "q75": 0.90884,
+        "ci99_low": 0.77157,
+        "ci99_high": 1.4096,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=10&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[100-10]",
+      "name": "test_linear_graph[100-10]",
+      "group": "core",
+      "parameter_id": "100-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0018890485904800394,
+        "mean": 0.0018890485904800394,
+        "min": 0.0018890485904800394,
+        "max": 0.0018890485904800394,
+        "ops": 529.3670078364066,
+        "q25": 0.0018599,
+        "q75": 0.0019204,
+        "ci99_low": 0.001853,
+        "ci99_high": 0.0019682,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=10&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[1000-10]",
+      "name": "test_linear_graph[1000-10]",
+      "group": "core",
+      "parameter_id": "1000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.002378770906943828,
+        "mean": 0.002378770906943828,
+        "min": 0.002378770906943828,
+        "max": 0.002378770906943828,
+        "ops": 420.38516491055015,
+        "q25": 0.0023614,
+        "q75": 0.0024052,
+        "ci99_low": 0.0023548,
+        "ci99_high": 0.0024233,
+        "number": 5,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=10&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[10000-10]",
+      "name": "test_linear_graph[10000-10]",
+      "group": "core",
+      "parameter_id": "10000-10",
+      "parameters": {
+        "num_nodes": 10,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0077114582527428865,
+        "mean": 0.0077114582527428865,
+        "min": 0.0077114582527428865,
+        "max": 0.0077114582527428865,
+        "ops": 129.67715926417813,
+        "q25": 0.0076101,
+        "q75": 0.0077593,
+        "ci99_low": 0.0075635,
+        "ci99_high": 0.0078167,
+        "number": 2,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=100&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[100-100]",
+      "name": "test_linear_graph[100-100]",
+      "group": "core",
+      "parameter_id": "100-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0036771805219662688,
+        "mean": 0.0036771805219662688,
+        "min": 0.0036771805219662688,
+        "max": 0.0036771805219662688,
+        "ops": 271.9474864033268,
+        "q25": 0.003668,
+        "q75": 0.0036874,
+        "ci99_low": 0.0036316,
+        "ci99_high": 0.0038857,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=100&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[1000-100]",
+      "name": "test_linear_graph[1000-100]",
+      "group": "core",
+      "parameter_id": "1000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.009452562488149852,
+        "mean": 0.009452562488149852,
+        "min": 0.009452562488149852,
+        "max": 0.009452562488149852,
+        "ops": 105.79141912615167,
+        "q25": 0.0092645,
+        "q75": 0.010838,
+        "ci99_low": 0.0086328,
+        "ci99_high": 0.019095,
+        "number": 2,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=100&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[10000-100]",
+      "name": "test_linear_graph[10000-100]",
+      "group": "core",
+      "parameter_id": "10000-100",
+      "parameters": {
+        "num_nodes": 100,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.06065081199631095,
+        "mean": 0.06065081199631095,
+        "min": 0.06065081199631095,
+        "max": 0.06065081199631095,
+        "ops": 16.487825423686402,
+        "q25": 0.056101,
+        "q75": 0.068265,
+        "ci99_low": 0.055388,
+        "ci99_high": 0.084532,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=1000&num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[100-1000]",
+      "name": "test_linear_graph[100-1000]",
+      "group": "core",
+      "parameter_id": "100-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02145060448674485,
+        "mean": 0.02145060448674485,
+        "min": 0.02145060448674485,
+        "max": 0.02145060448674485,
+        "ops": 46.61873284820194,
+        "q25": 0.021108,
+        "q75": 0.021809,
+        "ci99_low": 0.020954,
+        "ci99_high": 0.022154,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=1000&num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[1000-1000]",
+      "name": "test_linear_graph[1000-1000]",
+      "group": "core",
+      "parameter_id": "1000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.06781379203312099,
+        "mean": 0.06781379203312099,
+        "min": 0.06781379203312099,
+        "max": 0.06781379203312099,
+        "ops": 14.74626281791747,
+        "q25": 0.06706,
+        "q75": 0.069659,
+        "ci99_low": 0.066629,
+        "ci99_high": 0.097936,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph|num_nodes=1000&num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_linear_graph[10000-1000]",
+      "name": "test_linear_graph[10000-1000]",
+      "group": "core",
+      "parameter_id": "10000-1000",
+      "parameters": {
+        "num_nodes": 1000,
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "16f29d60ddd6c1503e096d45daa90600b03c55c0e756ede26db02f1381b61353",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.5452812084695324,
+        "mean": 0.5452812084695324,
+        "min": 0.5452812084695324,
+        "max": 0.5452812084695324,
+        "ops": 1.8339161234012615,
+        "q25": 0.52217,
+        "q75": 0.59007,
+        "ci99_low": 0.51813,
+        "ci99_high": 0.62499,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node|num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node[100]",
+      "name": "test_compute_node[100]",
+      "group": "core",
+      "parameter_id": "100",
+      "parameters": {
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "858886ca5cb8f2df8500af61e6a2958fb8e5a39519fc294ae26982ea2bd75426",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0016211249333407196,
+        "mean": 0.0016211249333407196,
+        "min": 0.0016211249333407196,
+        "max": 0.0016211249333407196,
+        "ops": 616.8556040522172,
+        "q25": 0.0016185,
+        "q75": 0.0016348,
+        "ci99_low": 0.0016048,
+        "ci99_high": 0.0016638,
+        "number": 7,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node|num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node[1000]",
+      "name": "test_compute_node[1000]",
+      "group": "core",
+      "parameter_id": "1000",
+      "parameters": {
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "858886ca5cb8f2df8500af61e6a2958fb8e5a39519fc294ae26982ea2bd75426",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0018465139243441322,
+        "mean": 0.0018465139243441322,
+        "min": 0.0018465139243441322,
+        "max": 0.0018465139243441322,
+        "ops": 541.5610393272244,
+        "q25": 0.0017523,
+        "q75": 0.0019494,
+        "ci99_low": 0.0017342,
+        "ci99_high": 0.0019551,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node|num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node[10000]",
+      "name": "test_compute_node[10000]",
+      "group": "core",
+      "parameter_id": "10000",
+      "parameters": {
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "858886ca5cb8f2df8500af61e6a2958fb8e5a39519fc294ae26982ea2bd75426",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0032034531323006377,
+        "mean": 0.0032034531323006377,
+        "min": 0.0032034531323006377,
+        "max": 0.0032034531323006377,
+        "ops": 312.1631435518539,
+        "q25": 0.003086,
+        "q75": 0.0034923,
+        "ci99_low": 0.0030295,
+        "ci99_high": 0.0039231,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node|num_ticks=100000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_compute_node[100000]",
+      "name": "test_compute_node[100000]",
+      "group": "core",
+      "parameter_id": "100000",
+      "parameters": {
+        "num_ticks": 100000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "858886ca5cb8f2df8500af61e6a2958fb8e5a39519fc294ae26982ea2bd75426",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.017566625028848648,
+        "mean": 0.017566625028848648,
+        "min": 0.017566625028848648,
+        "max": 0.017566625028848648,
+        "ops": 56.92613113547753,
+        "q25": 0.017054,
+        "q75": 0.021597,
+        "ci99_low": 0.016816,
+        "ci99_high": 0.022115,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node|num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node[100]",
+      "name": "test_empty_node[100]",
+      "group": "core",
+      "parameter_id": "100",
+      "parameters": {
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "53860a566ec08e931f0d20129835d4822466f665d9a5bf88b6350d4b33fce2ce",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0017196190643257328,
+        "mean": 0.0017196190643257328,
+        "min": 0.0017196190643257328,
+        "max": 0.0017196190643257328,
+        "ops": 581.5241414482124,
+        "q25": 0.0016072,
+        "q75": 0.0020827,
+        "ci99_low": 0.0015827,
+        "ci99_high": 0.0022339,
+        "number": 7,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node|num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node[1000]",
+      "name": "test_empty_node[1000]",
+      "group": "core",
+      "parameter_id": "1000",
+      "parameters": {
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "53860a566ec08e931f0d20129835d4822466f665d9a5bf88b6350d4b33fce2ce",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0018534860864747316,
+        "mean": 0.0018534860864747316,
+        "min": 0.0018534860864747316,
+        "max": 0.0018534860864747316,
+        "ops": 539.5238773558675,
+        "q25": 0.0017272,
+        "q75": 0.0019552,
+        "ci99_low": 0.0017027,
+        "ci99_high": 0.0021729,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node|num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node[10000]",
+      "name": "test_empty_node[10000]",
+      "group": "core",
+      "parameter_id": "10000",
+      "parameters": {
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "53860a566ec08e931f0d20129835d4822466f665d9a5bf88b6350d4b33fce2ce",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.002981036377605051,
+        "mean": 0.002981036377605051,
+        "min": 0.002981036377605051,
+        "max": 0.002981036377605051,
+        "ops": 335.453806438751,
+        "q25": 0.0028836,
+        "q75": 0.0032313,
+        "ci99_low": 0.0028659,
+        "ci99_high": 0.0034016,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node|num_ticks=100000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_empty_node[100000]",
+      "name": "test_empty_node[100000]",
+      "group": "core",
+      "parameter_id": "100000",
+      "parameters": {
+        "num_ticks": 100000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "53860a566ec08e931f0d20129835d4822466f665d9a5bf88b6350d4b33fce2ce",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.01657187449745834,
+        "mean": 0.01657187449745834,
+        "min": 0.01657187449745834,
+        "max": 0.01657187449745834,
+        "ops": 60.343203791060084,
+        "q25": 0.015721,
+        "q75": 0.017605,
+        "ci99_low": 0.01553,
+        "ci99_high": 0.022396,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node|num_ticks=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node[100]",
+      "name": "test_stateful_node[100]",
+      "group": "core",
+      "parameter_id": "100",
+      "parameters": {
+        "num_ticks": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "895bf6284b54fc326067ff8db4ea65fd0182014598c650ca0579139d40e6e1da",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0017544410075061023,
+        "mean": 0.0017544410075061023,
+        "min": 0.0017544410075061023,
+        "max": 0.0017544410075061023,
+        "ops": 569.9821172223266,
+        "q25": 0.0017363,
+        "q75": 0.0017661,
+        "ci99_low": 0.0017138,
+        "ci99_high": 0.00211,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node|num_ticks=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node[1000]",
+      "name": "test_stateful_node[1000]",
+      "group": "core",
+      "parameter_id": "1000",
+      "parameters": {
+        "num_ticks": 1000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "895bf6284b54fc326067ff8db4ea65fd0182014598c650ca0579139d40e6e1da",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0018656770892751713,
+        "mean": 0.0018656770892751713,
+        "min": 0.0018656770892751713,
+        "max": 0.0018656770892751713,
+        "ops": 535.9984349641701,
+        "q25": 0.0018548,
+        "q75": 0.0018769,
+        "ci99_low": 0.0018499,
+        "ci99_high": 0.0018892,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node|num_ticks=10000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node[10000]",
+      "name": "test_stateful_node[10000]",
+      "group": "core",
+      "parameter_id": "10000",
+      "parameters": {
+        "num_ticks": 10000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "895bf6284b54fc326067ff8db4ea65fd0182014598c650ca0579139d40e6e1da",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0035880415040689213,
+        "mean": 0.0035880415040689213,
+        "min": 0.0035880415040689213,
+        "max": 0.0035880415040689213,
+        "ops": 278.7035765517141,
+        "q25": 0.0033557,
+        "q75": 0.0059458,
+        "ci99_low": 0.0033315,
+        "ci99_high": 0.0094255,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node|num_ticks=100000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_core.py::test_stateful_node[100000]",
+      "name": "test_stateful_node[100000]",
+      "group": "core",
+      "parameter_id": "100000",
+      "parameters": {
+        "num_ticks": 100000
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "895bf6284b54fc326067ff8db4ea65fd0182014598c650ca0579139d40e6e1da",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02037506247870624,
+        "mean": 0.02037506247870624,
+        "min": 0.02037506247870624,
+        "max": 0.02037506247870624,
+        "ops": 49.079604101586895,
+        "q25": 0.01914,
+        "q75": 0.022417,
+        "ci99_low": 0.018597,
+        "ci99_high": 0.025021,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=1000&operation=%22accum%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[accum-1000]",
+      "name": "test_accumulator_operation[accum-1000]",
+      "group": "math",
+      "parameter_id": "accum-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "accum"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "053d4fafff0d5f3c5a0c305f83de58514fd6ebbd1f881d3dfbc963dc915c4b45",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0010302291749129918,
+        "mean": 0.0010302291749129918,
+        "min": 0.0010302291749129918,
+        "max": 0.0010302291749129918,
+        "ops": 970.6578151258968,
+        "q25": 0.00099422,
+        "q75": 0.0011424,
+        "ci99_low": 0.00098944,
+        "ci99_high": 0.0015326,
+        "number": 11,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=10000&operation=%22accum%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[accum-10000]",
+      "name": "test_accumulator_operation[accum-10000]",
+      "group": "math",
+      "parameter_id": "accum-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "accum"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "053d4fafff0d5f3c5a0c305f83de58514fd6ebbd1f881d3dfbc963dc915c4b45",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.002762593765510246,
+        "mean": 0.002762593765510246,
+        "min": 0.002762593765510246,
+        "max": 0.002762593765510246,
+        "ops": 361.97866385009445,
+        "q25": 0.0024379,
+        "q75": 0.0030711,
+        "ci99_low": 0.002316,
+        "ci99_high": 0.0031369,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=100000&operation=%22accum%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[accum-100000]",
+      "name": "test_accumulator_operation[accum-100000]",
+      "group": "math",
+      "parameter_id": "accum-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "accum"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "053d4fafff0d5f3c5a0c305f83de58514fd6ebbd1f881d3dfbc963dc915c4b45",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.017069729045033455,
+        "mean": 0.017069729045033455,
+        "min": 0.017069729045033455,
+        "max": 0.017069729045033455,
+        "ops": 58.58323804448181,
+        "q25": 0.015936,
+        "q75": 0.019393,
+        "ci99_low": 0.015882,
+        "ci99_high": 0.021962,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=1000&operation=%22count%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[count-1000]",
+      "name": "test_accumulator_operation[count-1000]",
+      "group": "math",
+      "parameter_id": "count-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "count"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "4665223ec8050f277cdca9b40de4a2223a8dc259374c58b69ca8f43d3f95243b",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0009322968738464018,
+        "mean": 0.0009322968738464018,
+        "min": 0.0009322968738464018,
+        "max": 0.0009322968738464018,
+        "ops": 1072.6197073623916,
+        "q25": 0.00087773,
+        "q75": 0.0010102,
+        "ci99_low": 0.00086218,
+        "ci99_high": 0.0011056,
+        "number": 12,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=10000&operation=%22count%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[count-10000]",
+      "name": "test_accumulator_operation[count-10000]",
+      "group": "math",
+      "parameter_id": "count-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "count"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "4665223ec8050f277cdca9b40de4a2223a8dc259374c58b69ca8f43d3f95243b",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.001810017420211807,
+        "mean": 0.001810017420211807,
+        "min": 0.001810017420211807,
+        "max": 0.001810017420211807,
+        "ops": 552.480870533821,
+        "q25": 0.0017405,
+        "q75": 0.0019389,
+        "ci99_low": 0.0017261,
+        "ci99_high": 0.0020284,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=100000&operation=%22count%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[count-100000]",
+      "name": "test_accumulator_operation[count-100000]",
+      "group": "math",
+      "parameter_id": "count-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "count"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "4665223ec8050f277cdca9b40de4a2223a8dc259374c58b69ca8f43d3f95243b",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.010918937448877841,
+        "mean": 0.010918937448877841,
+        "min": 0.010918937448877841,
+        "max": 0.010918937448877841,
+        "ops": 91.5840029931458,
+        "q25": 0.010869,
+        "q75": 0.011102,
+        "ci99_low": 0.010725,
+        "ci99_high": 0.011363,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=1000&operation=%22diff%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[diff-1000]",
+      "name": "test_accumulator_operation[diff-1000]",
+      "group": "math",
+      "parameter_id": "diff-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "diff"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "699e38b1a95f9e1abc3f697ccee00df476b6799a2f6cf5b53366c65c3ce15474",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0012953463665326126,
+        "mean": 0.0012953463665326126,
+        "min": 0.0012953463665326126,
+        "max": 0.0012953463665326126,
+        "ops": 771.9942911306443,
+        "q25": 0.0012846,
+        "q75": 0.0014795,
+        "ci99_low": 0.0012769,
+        "ci99_high": 0.0018717,
+        "number": 8,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=10000&operation=%22diff%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[diff-10000]",
+      "name": "test_accumulator_operation[diff-10000]",
+      "group": "math",
+      "parameter_id": "diff-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "diff"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "699e38b1a95f9e1abc3f697ccee00df476b6799a2f6cf5b53366c65c3ce15474",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0029476354975486174,
+        "mean": 0.0029476354975486174,
+        "min": 0.0029476354975486174,
+        "max": 0.0029476354975486174,
+        "ops": 339.25497261504813,
+        "q25": 0.0028046,
+        "q75": 0.0031721,
+        "ci99_low": 0.0027903,
+        "ci99_high": 0.0036281,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation|num_ticks=100000&operation=%22diff%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_accumulator_operation[diff-100000]",
+      "name": "test_accumulator_operation[diff-100000]",
+      "group": "math",
+      "parameter_id": "diff-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "diff"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "699e38b1a95f9e1abc3f697ccee00df476b6799a2f6cf5b53366c65c3ce15474",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02073564601596445,
+        "mean": 0.02073564601596445,
+        "min": 0.02073564601596445,
+        "max": 0.02073564601596445,
+        "ops": 48.22613190976044,
+        "q25": 0.020078,
+        "q75": 0.02178,
+        "ci99_low": 0.01962,
+        "ci99_high": 0.023298,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=1000&operation=%22abs%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[abs-1000]",
+      "name": "test_math_operation[abs-1000]",
+      "group": "math",
+      "parameter_id": "abs-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "abs"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "58605ed4f7c8d7adfd6a31e81bfb7bbd5df64286dccdae779410f0b03a8d7c13",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0008844826273464907,
+        "mean": 0.0008844826273464907,
+        "min": 0.0008844826273464907,
+        "max": 0.0008844826273464907,
+        "ops": 1130.604456302403,
+        "q25": 0.00087224,
+        "q75": 0.00092564,
+        "ci99_low": 0.00085752,
+        "ci99_high": 0.00096447,
+        "number": 12,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=10000&operation=%22abs%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[abs-10000]",
+      "name": "test_math_operation[abs-10000]",
+      "group": "math",
+      "parameter_id": "abs-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "abs"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "58605ed4f7c8d7adfd6a31e81bfb7bbd5df64286dccdae779410f0b03a8d7c13",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.001807645836379379,
+        "mean": 0.001807645836379379,
+        "min": 0.001807645836379379,
+        "max": 0.001807645836379379,
+        "ops": 553.2057109167735,
+        "q25": 0.0017047,
+        "q75": 0.0019404,
+        "ci99_low": 0.0016875,
+        "ci99_high": 0.002016,
+        "number": 6,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=100000&operation=%22abs%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[abs-100000]",
+      "name": "test_math_operation[abs-100000]",
+      "group": "math",
+      "parameter_id": "abs-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "abs"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "58605ed4f7c8d7adfd6a31e81bfb7bbd5df64286dccdae779410f0b03a8d7c13",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.011047333478927612,
+        "mean": 0.011047333478927612,
+        "min": 0.011047333478927612,
+        "max": 0.011047333478927612,
+        "ops": 90.51958121002355,
+        "q25": 0.01097,
+        "q75": 0.01124,
+        "ci99_low": 0.010894,
+        "ci99_high": 0.011798,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=1000&operation=%22arithmetic%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[arithmetic-1000]",
+      "name": "test_math_operation[arithmetic-1000]",
+      "group": "math",
+      "parameter_id": "arithmetic-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "arithmetic"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fe40304618e321d9b242a8f9b5086b7f73b6d8bf92366dd042dd88ec4000d666",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0015791636459263308,
+        "mean": 0.0015791636459263308,
+        "min": 0.0015791636459263308,
+        "max": 0.0015791636459263308,
+        "ops": 633.2465939040815,
+        "q25": 0.0015607,
+        "q75": 0.0016128,
+        "ci99_low": 0.0015411,
+        "ci99_high": 0.0016897,
+        "number": 7,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=10000&operation=%22arithmetic%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[arithmetic-10000]",
+      "name": "test_math_operation[arithmetic-10000]",
+      "group": "math",
+      "parameter_id": "arithmetic-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "arithmetic"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fe40304618e321d9b242a8f9b5086b7f73b6d8bf92366dd042dd88ec4000d666",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0038027638220228255,
+        "mean": 0.0038027638220228255,
+        "min": 0.0038027638220228255,
+        "max": 0.0038027638220228255,
+        "ops": 262.96663342822706,
+        "q25": 0.0036636,
+        "q75": 0.0042928,
+        "ci99_low": 0.0036402,
+        "ci99_high": 0.0057891,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=100000&operation=%22arithmetic%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[arithmetic-100000]",
+      "name": "test_math_operation[arithmetic-100000]",
+      "group": "math",
+      "parameter_id": "arithmetic-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "arithmetic"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "fe40304618e321d9b242a8f9b5086b7f73b6d8bf92366dd042dd88ec4000d666",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02957466646330431,
+        "mean": 0.02957466646330431,
+        "min": 0.02957466646330431,
+        "max": 0.02957466646330431,
+        "ops": 33.81272283292801,
+        "q25": 0.027614,
+        "q75": 0.032697,
+        "ci99_low": 0.026032,
+        "ci99_high": 0.033423,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=1000&operation=%22comparisons%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[comparisons-1000]",
+      "name": "test_math_operation[comparisons-1000]",
+      "group": "math",
+      "parameter_id": "comparisons-1000",
+      "parameters": {
+        "num_ticks": 1000,
+        "operation": "comparisons"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "13d0a24117b8584debae36984b7d6a999212d9133c5d5a5f4990cc80f75d5329",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0013878568133804947,
+        "mean": 0.0013878568133804947,
+        "min": 0.0013878568133804947,
+        "max": 0.0013878568133804947,
+        "ops": 720.5354258154584,
+        "q25": 0.0013801,
+        "q75": 0.0014394,
+        "ci99_low": 0.0013689,
+        "ci99_high": 0.0015338,
+        "number": 8,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=10000&operation=%22comparisons%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[comparisons-10000]",
+      "name": "test_math_operation[comparisons-10000]",
+      "group": "math",
+      "parameter_id": "comparisons-10000",
+      "parameters": {
+        "num_ticks": 10000,
+        "operation": "comparisons"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "13d0a24117b8584debae36984b7d6a999212d9133c5d5a5f4990cc80f75d5329",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.003568465161758165,
+        "mean": 0.003568465161758165,
+        "min": 0.003568465161758165,
+        "max": 0.003568465161758165,
+        "ops": 280.23252425625617,
+        "q25": 0.003557,
+        "q75": 0.0036999,
+        "ci99_low": 0.0035367,
+        "ci99_high": 0.0039163,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation|num_ticks=100000&operation=%22comparisons%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_math.py::test_math_operation[comparisons-100000]",
+      "name": "test_math_operation[comparisons-100000]",
+      "group": "math",
+      "parameter_id": "comparisons-100000",
+      "parameters": {
+        "num_ticks": 100000,
+        "operation": "comparisons"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "13d0a24117b8584debae36984b7d6a999212d9133c5d5a5f4990cc80f75d5329",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.027308437507599592,
+        "mean": 0.027308437507599592,
+        "min": 0.027308437507599592,
+        "max": 0.027308437507599592,
+        "ops": 36.61871902124435,
+        "q25": 0.027267,
+        "q75": 0.027481,
+        "ci99_low": 0.027062,
+        "ci99_high": 0.027831,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22median%22&interval=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[100-median-100]",
+      "name": "test_stats[100-median-100]",
+      "group": "stats",
+      "parameter_id": "100-median-100",
+      "parameters": {
+        "function": "median",
+        "interval": 100,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02976487495470792,
+        "mean": 0.02976487495470792,
+        "min": 0.02976487495470792,
+        "max": 0.02976487495470792,
+        "ops": 33.59664710574669,
+        "q25": 0.02727,
+        "q75": 0.034902,
+        "ci99_low": 0.027131,
+        "ci99_high": 0.035777,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22median%22&interval=500",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[500-median-100]",
+      "name": "test_stats[500-median-100]",
+      "group": "stats",
+      "parameter_id": "500-median-100",
+      "parameters": {
+        "function": "median",
+        "interval": 500,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.029655958467628807,
+        "mean": 0.029655958467628807,
+        "min": 0.029655958467628807,
+        "max": 0.029655958467628807,
+        "ops": 33.72003643354026,
+        "q25": 0.02912,
+        "q75": 0.030215,
+        "ci99_low": 0.028986,
+        "ci99_high": 0.03061,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22median%22&interval=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[1000-median-100]",
+      "name": "test_stats[1000-median-100]",
+      "group": "stats",
+      "parameter_id": "1000-median-100",
+      "parameters": {
+        "function": "median",
+        "interval": 1000,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.024480312480591238,
+        "mean": 0.024480312480591238,
+        "min": 0.024480312480591238,
+        "max": 0.024480312480591238,
+        "ops": 40.849151774219855,
+        "q25": 0.024311,
+        "q75": 0.025261,
+        "ci99_low": 0.024157,
+        "ci99_high": 0.027139,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22quantile%22&interval=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[100-quantile-100]",
+      "name": "test_stats[100-quantile-100]",
+      "group": "stats",
+      "parameter_id": "100-quantile-100",
+      "parameters": {
+        "function": "quantile",
+        "interval": 100,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.02662383351707831,
+        "mean": 0.02662383351707831,
+        "min": 0.02662383351707831,
+        "max": 0.02662383351707831,
+        "ops": 37.56033102289845,
+        "q25": 0.02631,
+        "q75": 0.027028,
+        "ci99_low": 0.026286,
+        "ci99_high": 0.032812,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22quantile%22&interval=500",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[500-quantile-100]",
+      "name": "test_stats[500-quantile-100]",
+      "group": "stats",
+      "parameter_id": "500-quantile-100",
+      "parameters": {
+        "function": "quantile",
+        "interval": 500,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.028228604001924396,
+        "mean": 0.028228604001924396,
+        "min": 0.028228604001924396,
+        "max": 0.028228604001924396,
+        "ops": 35.42506033709029,
+        "q25": 0.028152,
+        "q75": 0.028734,
+        "ci99_low": 0.027962,
+        "ci99_high": 0.029155,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22quantile%22&interval=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[1000-quantile-100]",
+      "name": "test_stats[1000-quantile-100]",
+      "group": "stats",
+      "parameter_id": "1000-quantile-100",
+      "parameters": {
+        "function": "quantile",
+        "interval": 1000,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.022816520475316793,
+        "mean": 0.022816520475316793,
+        "min": 0.022816520475316793,
+        "max": 0.022816520475316793,
+        "ops": 43.82789221002444,
+        "q25": 0.022654,
+        "q75": 0.0233,
+        "ci99_low": 0.022601,
+        "ci99_high": 0.026222,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22rank%22&interval=100",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[100-rank-100]",
+      "name": "test_stats[100-rank-100]",
+      "group": "stats",
+      "parameter_id": "100-rank-100",
+      "parameters": {
+        "function": "rank",
+        "interval": 100,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.028081354510504752,
+        "mean": 0.028081354510504752,
+        "min": 0.028081354510504752,
+        "max": 0.028081354510504752,
+        "ops": 35.61081783380204,
+        "q25": 0.028031,
+        "q75": 0.028194,
+        "ci99_low": 0.027892,
+        "ci99_high": 0.028555,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22rank%22&interval=500",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[500-rank-100]",
+      "name": "test_stats[500-rank-100]",
+      "group": "stats",
+      "parameter_id": "500-rank-100",
+      "parameters": {
+        "function": "rank",
+        "interval": 500,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.030649437510874122,
+        "mean": 0.030649437510874122,
+        "min": 0.030649437510874122,
+        "max": 0.030649437510874122,
+        "ops": 32.627026177730336,
+        "q25": 0.030532,
+        "q75": 0.030862,
+        "ci99_low": 0.030468,
+        "ci99_high": 0.031106,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats|array_size=100&function=%22rank%22&interval=1000",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats[1000-rank-100]",
+      "name": "test_stats[1000-rank-100]",
+      "group": "stats",
+      "parameter_id": "1000-rank-100",
+      "parameters": {
+        "function": "rank",
+        "interval": 1000,
+        "array_size": 100
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "97f646ccd75216b3274a64d0f06e7d065e03195063af9b53d175aa1771145124",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.026458187960088253,
+        "mean": 0.026458187960088253,
+        "min": 0.026458187960088253,
+        "max": 0.026458187960088253,
+        "ops": 37.79548325488064,
+        "q25": 0.026173,
+        "q75": 0.026676,
+        "ci99_low": 0.02598,
+        "ci99_high": 0.029308,
+        "number": 1,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=10&function=%22mean%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[mean-10]",
+      "name": "test_stats_scaling[mean-10]",
+      "group": "stats",
+      "parameter_id": "mean-10",
+      "parameters": {
+        "array_size": 10,
+        "function": "mean"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "db48f3b4109436ca651000c3c9c08a2b8aab52916bcd3a47618caa36d659599d",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.002882307264371775,
+        "mean": 0.002882307264371775,
+        "min": 0.002882307264371775,
+        "max": 0.002882307264371775,
+        "ops": 346.94427355508157,
+        "q25": 0.0027365,
+        "q75": 0.0029421,
+        "ci99_low": 0.0027088,
+        "ci99_high": 0.0031816,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=50&function=%22mean%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[mean-50]",
+      "name": "test_stats_scaling[mean-50]",
+      "group": "stats",
+      "parameter_id": "mean-50",
+      "parameters": {
+        "array_size": 50,
+        "function": "mean"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "db48f3b4109436ca651000c3c9c08a2b8aab52916bcd3a47618caa36d659599d",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0028802291344618425,
+        "mean": 0.0028802291344618425,
+        "min": 0.0028802291344618425,
+        "max": 0.0028802291344618425,
+        "ops": 347.19459921956707,
+        "q25": 0.0028442,
+        "q75": 0.0029208,
+        "ci99_low": 0.0028202,
+        "ci99_high": 0.0029375,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=100&function=%22mean%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[mean-100]",
+      "name": "test_stats_scaling[mean-100]",
+      "group": "stats",
+      "parameter_id": "mean-100",
+      "parameters": {
+        "array_size": 100,
+        "function": "mean"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "db48f3b4109436ca651000c3c9c08a2b8aab52916bcd3a47618caa36d659599d",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0030287447734735906,
+        "mean": 0.0030287447734735906,
+        "min": 0.0030287447734735906,
+        "max": 0.0030287447734735906,
+        "ops": 330.1697814745629,
+        "q25": 0.0030219,
+        "q75": 0.0030455,
+        "ci99_low": 0.0030204,
+        "ci99_high": 0.0030738,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=500&function=%22mean%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[mean-500]",
+      "name": "test_stats_scaling[mean-500]",
+      "group": "stats",
+      "parameter_id": "mean-500",
+      "parameters": {
+        "array_size": 500,
+        "function": "mean"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "db48f3b4109436ca651000c3c9c08a2b8aab52916bcd3a47618caa36d659599d",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0043945833458565176,
+        "mean": 0.0043945833458565176,
+        "min": 0.0043945833458565176,
+        "max": 0.0043945833458565176,
+        "ops": 227.5528579843323,
+        "q25": 0.0042973,
+        "q75": 0.0045177,
+        "ci99_low": 0.004248,
+        "ci99_high": 0.0057608,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=10&function=%22stddev%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[stddev-10]",
+      "name": "test_stats_scaling[stddev-10]",
+      "group": "stats",
+      "parameter_id": "stddev-10",
+      "parameters": {
+        "array_size": 10,
+        "function": "stddev"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "107661374da486d58d68e9d87d459a178b0a7a4fc9167d5d3eb4f94e5ae4e2c7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0031845156190684065,
+        "mean": 0.0031845156190684065,
+        "min": 0.0031845156190684065,
+        "max": 0.0031845156190684065,
+        "ops": 314.0194992331482,
+        "q25": 0.0031085,
+        "q75": 0.0032219,
+        "ci99_low": 0.0030113,
+        "ci99_high": 0.0032405,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=50&function=%22stddev%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[stddev-50]",
+      "name": "test_stats_scaling[stddev-50]",
+      "group": "stats",
+      "parameter_id": "stddev-50",
+      "parameters": {
+        "array_size": 50,
+        "function": "stddev"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "107661374da486d58d68e9d87d459a178b0a7a4fc9167d5d3eb4f94e5ae4e2c7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0031557916081510484,
+        "mean": 0.0031557916081510484,
+        "min": 0.0031557916081510484,
+        "max": 0.0031557916081510484,
+        "ops": 316.8777042872902,
+        "q25": 0.0031519,
+        "q75": 0.003193,
+        "ci99_low": 0.003139,
+        "ci99_high": 0.003262,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=100&function=%22stddev%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[stddev-100]",
+      "name": "test_stats_scaling[stddev-100]",
+      "group": "stats",
+      "parameter_id": "stddev-100",
+      "parameters": {
+        "array_size": 100,
+        "function": "stddev"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "107661374da486d58d68e9d87d459a178b0a7a4fc9167d5d3eb4f94e5ae4e2c7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.0034669634915189818,
+        "mean": 0.0034669634915189818,
+        "min": 0.0034669634915189818,
+        "max": 0.0034669634915189818,
+        "ops": 288.43684176260814,
+        "q25": 0.0033533,
+        "q75": 0.0036256,
+        "ci99_low": 0.003346,
+        "ci99_high": 0.0044899,
+        "number": 4,
+        "repeat": 10
+      },
+      "samples": null
+    },
+    {
+      "benchmark_id": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling|array_size=500&function=%22stddev%22",
+      "nodeid": "csp_benchmarks/benchmarks/bench_stats.py::test_stats_scaling[stddev-500]",
+      "name": "test_stats_scaling[stddev-500]",
+      "group": "stats",
+      "parameter_id": "stddev-500",
+      "parameters": {
+        "array_size": 500,
+        "function": "stddev"
+      },
+      "unit": "seconds",
+      "options": {
+        "min_run_count": 2,
+        "number": 0,
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "warmup_time": -1
+      },
+      "extra_info": {
+        "asv_benchmark_version": "107661374da486d58d68e9d87d459a178b0a7a4fc9167d5d3eb4f94e5ae4e2c7",
+        "asv_duration": null
+      },
+      "stats": {
+        "median": 0.005089201362958798,
+        "mean": 0.005089201362958798,
+        "min": 0.005089201362958798,
+        "max": 0.005089201362958798,
+        "ops": 196.49448482789302,
+        "q25": 0.0048916,
+        "q75": 0.0057639,
+        "ci99_low": 0.0048564,
+        "ci99_high": 0.0064742,
+        "number": 3,
+        "repeat": 10
+      },
+      "samples": null
+    }
+  ],
+  "provenance": {
+    "source_format": "asv",
+    "source_file": "csp_benchmarks/results/timkpaine-mbp-m2/952de074-virtualenv-py3.11.json",
+    "source_checksum": "sha256:1bb41f45bf980f977e05965455e83505236fde5018f5e202e444d0f6d38eceef",
+    "warnings": [
+      "9 ASV measurements have no result"
+    ]
+  }
+}

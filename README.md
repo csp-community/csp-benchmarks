@@ -93,21 +93,16 @@ Benched to create environments or install CSP versions.
 
 ## Import historical ASV results
 
-The ASV configuration and transformation script remain only for migrating existing
-history. Preview the conversion before writing Benched documents:
+The ASV configuration and result documents remain only for this repository's
+one-time migration. Importing them through the CSP mapping keeps historical samples
+on the same 95 benchmark identities used by the pytest suite:
 
 ```bash
-benched import-asv csp_benchmarks/results \
-  --results-dir csp_benchmarks/benched-results \
-  --asv-config csp_benchmarks/asv.conf.json \
-  --suite-name csp-benchmarks \
-  --subject-name csp \
-  --subject-version-param csp \
-  --dry-run
+make benchmark-import-asv
+make benchmark-publish
 ```
 
-Remove `--dry-run` after verifying suite, subject, machine, and parameter metadata.
-New benchmark execution never invokes ASV.
+The import is idempotent. New benchmark execution never invokes ASV.
 
 ## Results
 

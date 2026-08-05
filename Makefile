@@ -130,7 +130,7 @@ benchmark-view: benchmark-publish  ## view the website of benchmark results
 	python -m benched serve build/benchmarks --port 8000 --open
 
 benchmark-import-asv: ## import historical ASV results once
-	python -m benched import-asv csp_benchmarks/results --results-dir csp_benchmarks/benched-results --asv-config csp_benchmarks/asv.conf.json --suite-name csp-benchmarks --subject-name csp --subject-version-param csp
+	python -m csp_benchmarks.import_asv_history
 
 #########
 # CLEAN #
