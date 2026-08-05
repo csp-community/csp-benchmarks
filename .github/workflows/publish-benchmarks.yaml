@@ -1,0 +1,42 @@
+name: Publish Benchmarks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'csp_benchmarks/benched-results/**'
+      - '.github/workflows/publish-benchmarks.yaml'
+  workflow_dispatch:
+
+concurrency:
+  group: publish-benchmarks
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Install Benched
+        run: python -m pip install 'benched>=0.2.0'
+
+      - name: Generate HTML report
+        run: make benchmark-publish
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/benchmarks
