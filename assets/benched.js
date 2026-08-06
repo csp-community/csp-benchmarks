@@ -14891,6 +14891,7 @@ var BenchedReport = class extends HTMLElement {
   request;
   media;
   themeObserver;
+  inheritedChartStyle;
   theme = "light";
   handleMediaChange = (event) => {
     if (this.inheritsTheme()) {
@@ -14994,14 +14995,19 @@ var BenchedReport = class extends HTMLElement {
   }
   observeInheritedTheme() {
     this.themeObserver?.disconnect();
+    this.inheritedChartStyle = this.chartStyleSignature();
     this.themeObserver = new MutationObserver(() => {
       if (!this.inheritsTheme()) return;
       const theme = this.inheritedTheme();
-      if (theme === this.theme) {
-        if (this.report) this.render();
-      } else {
+      if (theme !== this.theme) {
         this.setTheme(theme);
+        this.inheritedChartStyle = this.chartStyleSignature();
+        return;
       }
+      const chartStyle = this.chartStyleSignature();
+      if (chartStyle === this.inheritedChartStyle) return;
+      this.inheritedChartStyle = chartStyle;
+      if (this.report) this.render();
     });
     for (let element = this.parentElement; element; element = element.parentElement) {
       this.themeObserver.observe(element, {
@@ -15009,6 +15015,14 @@ var BenchedReport = class extends HTMLElement {
         attributeFilter: ["class", "style", "data-theme"]
       });
     }
+  }
+  chartStyleSignature() {
+    const style = getComputedStyle(this);
+    return [
+      style.color,
+      style.getPropertyValue("--_benched-grid-color"),
+      ...SERIES_COLORS.map(([property]) => style.getPropertyValue(property))
+    ].join("\0");
   }
   applyTheme() {
     this.classList.toggle("wa-dark", this.theme === "dark");
@@ -15548,6 +15562,8 @@ var BenchedReport = class extends HTMLElement {
     const chart = ae(chartContainer, {
       autoSize: true,
       height: 480,
+      handleScale: false,
+      handleScroll: false,
       layout: {
         attributionLogo: false,
         background: { type: $i.Solid, color: "transparent" },
@@ -15723,6 +15739,8 @@ var BenchedReport = class extends HTMLElement {
       const chart = ae(chartContainer, {
         autoSize: true,
         height: 240,
+        handleScale: false,
+        handleScroll: false,
         layout: {
           attributionLogo: false,
           background: { type: $i.Solid, color: "transparent" },
