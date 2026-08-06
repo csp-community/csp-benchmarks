@@ -29,7 +29,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "benched>=0.2.0",
+    "benched>=0.4.0",
     "csp",
     "numpy",
 ]
