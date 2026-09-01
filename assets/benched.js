@@ -14775,7 +14775,14 @@ var Ce = { type: "Line", isBuiltIn: true, defaultOptions: { color: "#2196f3", li
 var qr = { ...e10, color: "#2196f3" };
 
 // src/ts/index.ts
-var METRICS = ["median", "mean", "min", "max", "ops"];
+var METRICS = [
+  "median",
+  "mean",
+  "min",
+  "max",
+  "ops",
+  "peak_memory"
+];
 var VIEWS = ["overview", "trend", "comparison"];
 var CONTROLS = [
   "view",
@@ -14888,6 +14895,8 @@ var BenchedReport = class extends HTMLElement {
   report;
   charts = /* @__PURE__ */ new Map();
   chartResizeObserver;
+  chartVisibilityObserver;
+  chartRenderers = /* @__PURE__ */ new Map();
   request;
   media;
   themeObserver;
@@ -15736,37 +15745,39 @@ var BenchedReport = class extends HTMLElement {
       card.append(header, chartContainer);
       grid.append(card);
       if (data.length === 0) continue;
-      const chart = ae(chartContainer, {
-        autoSize: true,
-        height: 240,
-        handleScale: false,
-        handleScroll: false,
-        layout: {
-          attributionLogo: false,
-          background: { type: $i.Solid, color: "transparent" },
-          textColor: style.color
-        },
-        grid: {
-          vertLines: {
-            color: style.getPropertyValue("--_benched-grid-color").trim() || "#d8dee9"
+      this.renderChartWhenVisible(chartContainer, () => {
+        const chart = ae(chartContainer, {
+          autoSize: true,
+          height: 240,
+          handleScale: false,
+          handleScroll: false,
+          layout: {
+            attributionLogo: false,
+            background: { type: $i.Solid, color: "transparent" },
+            textColor: style.color
           },
-          horzLines: {
-            color: style.getPropertyValue("--_benched-grid-color").trim() || "#d8dee9"
-          }
-        },
-        localization: this.xAxis === "version" ? {
-          timeFormatter: (time) => axisLabels.get(Number(time)) ?? "unknown"
-        } : void 0,
-        timeScale: this.xAxis === "version" ? {
-          tickMarkFormatter: (time) => axisLabels.get(Number(time)) ?? ""
-        } : void 0
+          grid: {
+            vertLines: {
+              color: style.getPropertyValue("--_benched-grid-color").trim() || "#d8dee9"
+            },
+            horzLines: {
+              color: style.getPropertyValue("--_benched-grid-color").trim() || "#d8dee9"
+            }
+          },
+          localization: this.xAxis === "version" ? {
+            timeFormatter: (time) => axisLabels.get(Number(time)) ?? "unknown"
+          } : void 0,
+          timeScale: this.xAxis === "version" ? {
+            tickMarkFormatter: (time) => axisLabels.get(Number(time)) ?? ""
+          } : void 0
+        });
+        const line = chart.addSeries(Ce, {
+          color,
+          priceFormat: chartPriceFormat(data.map((point) => point.value))
+        });
+        line.setData(data);
+        this.trackChart(chartContainer, chart);
       });
-      const line = chart.addSeries(Ce, {
-        color,
-        priceFormat: chartPriceFormat(data.map((point) => point.value))
-      });
-      line.setData(data);
-      this.trackChart(chartContainer, chart);
     }
   }
   renderComparison(container) {
@@ -15821,7 +15832,38 @@ var BenchedReport = class extends HTMLElement {
       });
     });
   }
+  renderChartWhenVisible(container, renderChart) {
+    if (!("IntersectionObserver" in window)) {
+      renderChart();
+      return;
+    }
+    this.chartRenderers.set(container, renderChart);
+    this.chartVisibilityObserver ??= new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const target = entry.target;
+          if (entry.isIntersecting) {
+            if (!this.charts.has(target)) this.chartRenderers.get(target)?.();
+          } else {
+            this.removeTrackedChart(target);
+          }
+        }
+      },
+      { rootMargin: "480px 0px" }
+    );
+    this.chartVisibilityObserver.observe(container);
+  }
+  removeTrackedChart(container) {
+    const chart = this.charts.get(container);
+    if (!chart) return;
+    this.chartResizeObserver?.unobserve(container);
+    chart.remove();
+    this.charts.delete(container);
+  }
   removeChart() {
+    this.chartVisibilityObserver?.disconnect();
+    this.chartVisibilityObserver = void 0;
+    this.chartRenderers.clear();
     this.chartResizeObserver?.disconnect();
     this.chartResizeObserver = void 0;
     for (const chart of this.charts.values()) chart.remove();
