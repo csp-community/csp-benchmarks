@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T14:50:55.524614+00:00",
+  "generated_at": "2026-10-01T13:12:52.578751+00:00",
   "source_run_ids": [
     "asv-d99e06af65fd7bf76f3e0e05",
     "asv-d70b4e34d0664d64890c74da",
@@ -47,7 +47,8 @@
     "3ae42d17678b4307a3a93dba1ccf91c9",
     "81292f557f6948f0acda0a00f7b1dbdc",
     "939ac763ca5d47749ab5cdec5af710eb",
-    "571d8749e12b45b1b2fc2f51bbad7274"
+    "571d8749e12b45b1b2fc2f51bbad7274",
+    "d16a5769eaf549fda348e63d971e0903"
   ],
   "runs": [
     {
@@ -2159,6 +2160,50 @@
         "architecture": "x86_64",
         "labels": {}
       }
+    },
+    {
+      "run_id": "d16a5769eaf549fda348e63d971e0903",
+      "started_at": "2026-10-01T13:10:11.747559+00:00",
+      "status": "success",
+      "suite": {
+        "name": "csp-benchmarks",
+        "repository": "https://github.com/csp-community/csp-benchmarks",
+        "version": "0.1.0",
+        "revision": "4d22c3ab6317906152e207259ca9d126b21b8f66",
+        "branch": "main",
+        "dirty": false,
+        "labels": {}
+      },
+      "subject": {
+        "name": "csp",
+        "repository": "https://github.com/Point72/csp",
+        "version": "0.19.0",
+        "revision": null,
+        "branch": null,
+        "dirty": null,
+        "labels": {}
+      },
+      "machine": {
+        "id": "hetzner-cx23",
+        "fingerprint": "e00bfc9243334b51d1d3ffb3b196a7738a0c611aa9f42e935605ad5c922fa222",
+        "metadata": {
+          "architecture": "x86_64",
+          "cpu_count": 2,
+          "memory_gib": 4.0,
+          "processor": "x86_64",
+          "release": "6.8.0-138-generic",
+          "system": "Linux"
+        },
+        "labels": {}
+      },
+      "environment": {
+        "fingerprint": "7b2a34fce5d0298e6ae8dd0629f52731f8b4c9367e6c1321be0c1110ad45179c",
+        "python_implementation": "CPython",
+        "python_version": "3.11.16",
+        "platform": "Linux",
+        "architecture": "x86_64",
+        "labels": {}
+      }
     }
   ],
   "benchmarks": [
@@ -2678,6 +2723,17 @@
             "ops": 368.20929645927885,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0029451475000144,
+            "mean": 0.0027536083652713824,
+            "min": 0.0016640979999920091,
+            "max": 0.0039751549999778035,
+            "ops": 363.1598496765333,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -2701,6 +2757,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -3221,6 +3288,17 @@
             "ops": 277.09965334836005,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0027447549999806142,
+            "mean": 0.0027541501719752933,
+            "min": 0.0016650840000238532,
+            "max": 0.0047805649999759225,
+            "ops": 363.0884075151189,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -3244,6 +3322,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -3764,6 +3853,17 @@
             "ops": 251.6935900202312,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.00437312799999745,
+            "mean": 0.00472098742477757,
+            "min": 0.002967812999997932,
+            "max": 0.006705913000018882,
+            "ops": 211.82009398110506,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -3787,6 +3887,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -4307,6 +4418,17 @@
             "ops": 327.6423119705568,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.00234081899998273,
+            "mean": 0.0025740847142877465,
+            "min": 0.0018188209999721039,
+            "max": 0.0046670119999703275,
+            "ops": 388.48760277755724,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -4330,6 +4452,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -4850,6 +4983,17 @@
             "ops": 376.1663379277192,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.001895766000018284,
+            "mean": 0.0019121505273624597,
+            "min": 0.001287898999976278,
+            "max": 0.002937760999998318,
+            "ops": 522.9713799673283,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -4873,6 +5017,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -5393,6 +5548,17 @@
             "ops": 111.79877811950456,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.009641673000004403,
+            "mean": 0.010120363533337064,
+            "min": 0.006030086999999185,
+            "max": 0.015583005999985744,
+            "ops": 98.81067974544018,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -5416,6 +5582,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -5936,6 +6113,17 @@
             "ops": 78.23670376571162,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.012248833999990438,
+            "mean": 0.012395137225227601,
+            "min": 0.006351294000012331,
+            "max": 0.0919755860000464,
+            "ops": 80.67679944395596,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -5959,6 +6147,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -6479,6 +6678,17 @@
             "ops": 50.534366009727854,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.018994697999971777,
+            "mean": 0.019618972186044418,
+            "min": 0.01315669500002059,
+            "max": 0.02930992200003857,
+            "ops": 50.971069764364664,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -6502,6 +6712,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -7022,6 +7243,17 @@
             "ops": 113.38911971507544,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.008488373000005822,
+            "mean": 0.008892002228571982,
+            "min": 0.005585540000026867,
+            "max": 0.01403407100002596,
+            "ops": 112.46061059080455,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -7045,6 +7277,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -7565,6 +7808,17 @@
             "ops": 172.30607821965975,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.004756332999988899,
+            "mean": 0.0045319529122826545,
+            "min": 0.0025612399999772606,
+            "max": 0.006315941000025305,
+            "ops": 220.6554258959235,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -7588,6 +7842,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -8108,6 +8373,17 @@
             "ops": 12.64900881216689,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.08809831899998244,
+            "mean": 0.08589567754544512,
+            "min": 0.0632861339999522,
+            "max": 0.11192915999998831,
+            "ops": 11.642029361383482,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -8131,6 +8407,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -8651,6 +8938,17 @@
             "ops": 10.668195679885459,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0857485050000264,
+            "mean": 0.08855848438460831,
+            "min": 0.0634694500000137,
+            "max": 0.12012036499999112,
+            "ops": 11.291972835228451,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -8674,6 +8972,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -9194,6 +9503,17 @@
             "ops": 7.6347871805200125,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.1349342384999943,
+            "mean": 0.14515639570000188,
+            "min": 0.10346418199998197,
+            "max": 0.203433925000013,
+            "ops": 6.889121179797846,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -9217,6 +9537,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -9737,6 +10068,17 @@
             "ops": 15.924018566642511,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.069704212500028,
+            "mean": 0.07098946200001421,
+            "min": 0.047950648999972145,
+            "max": 0.09510909000005086,
+            "ops": 14.086597810810282,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -9760,6 +10102,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -10280,6 +10633,17 @@
             "ops": 40.735473720851054,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0240677504999951,
+            "mean": 0.02311646198148449,
+            "min": 0.012338489000001118,
+            "max": 0.03552249400001983,
+            "ops": 43.25921504774245,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -10303,6 +10667,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -10823,6 +11198,17 @@
             "ops": 937.091525999937,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0012855609999746775,
+            "mean": 0.0012578842848857982,
+            "min": 0.0007473310000136735,
+            "max": 0.002032419000045138,
+            "ops": 794.9856851028144,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -10846,6 +11232,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -11366,6 +11763,17 @@
             "ops": 669.9658990212425,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0017994724999823575,
+            "mean": 0.0017627183815005075,
+            "min": 0.0010186960000169165,
+            "max": 0.002384515000017018,
+            "ops": 567.30559486692,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -11389,6 +11797,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -11909,6 +12328,17 @@
             "ops": 195.526289875714,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.005820677499997373,
+            "mean": 0.006114608054057394,
+            "min": 0.0034022739999954865,
+            "max": 0.009478311999998823,
+            "ops": 163.54278003746168,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -11932,6 +12362,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -12452,6 +12893,17 @@
             "ops": 136.8580864282144,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.005976947000021937,
+            "mean": 0.0063220704485955894,
+            "min": 0.0035965639999631094,
+            "max": 0.010712669999975333,
+            "ops": 158.1760292187418,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -12475,6 +12927,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -12995,6 +13458,17 @@
             "ops": 17.08348834135015,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.05847456150002017,
+            "mean": 0.059732100833339054,
+            "min": 0.04876459600001226,
+            "max": 0.07934674699998823,
+            "ops": 16.741416860427197,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -13018,6 +13492,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -13538,6 +14023,17 @@
             "ops": 12.501149676043218,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.05138852600001087,
+            "mean": 0.05768281542857575,
+            "min": 0.04189464000000953,
+            "max": 0.14306160699999282,
+            "ops": 17.336185700544107,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -13561,6 +14057,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -14078,6 +14585,17 @@
             "min": 0.0009045470000046407,
             "max": 0.002961884999990616,
             "ops": 747.6027760852492,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0012890419999962432,
+            "mean": 0.0013083606965379054,
+            "min": 0.0008755619999760711,
+            "max": 0.0038494660000196745,
+            "ops": 764.3152248811292,
             "peak_memory": null
           }
         }
@@ -14598,6 +15116,17 @@
             "ops": 465.7419096123983,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.002577013999996325,
+            "mean": 0.002482849858227273,
+            "min": 0.0014587510000296788,
+            "max": 0.0035438559999647623,
+            "ops": 402.76297686159273,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -15114,6 +15643,17 @@
             "min": 0.005566203000000769,
             "max": 0.019414631000017835,
             "ops": 91.8228128903593,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.012562183000000005,
+            "mean": 0.011904658655737421,
+            "min": 0.007206823999979406,
+            "max": 0.01583915200001229,
+            "ops": 84.00072853143524,
             "peak_memory": null
           }
         }
@@ -15634,6 +16174,17 @@
             "ops": 13.046738693542538,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.07036864650001462,
+            "mean": 0.07616253487500302,
+            "min": 0.04909485799998947,
+            "max": 0.11545311600002606,
+            "ops": 13.129815094011606,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -15656,6 +16207,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -15680,6 +16242,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -15703,6 +16276,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -15725,6 +16309,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -16242,6 +16837,17 @@
             "min": 0.001250977000012199,
             "max": 0.004982392999977492,
             "ops": 546.7356277585044,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0012569615000188605,
+            "mean": 0.001296666906250521,
+            "min": 0.0008918699999753699,
+            "max": 0.0042552340000270306,
+            "ops": 771.208083725703,
             "peak_memory": null
           }
         }
@@ -16762,6 +17368,17 @@
             "ops": 369.77566670177714,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.002672792999987905,
+            "mean": 0.002575326054380746,
+            "min": 0.0014989969999987807,
+            "max": 0.00353162499999371,
+            "ops": 388.3003467848099,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -17278,6 +17895,17 @@
             "min": 0.005493482000019867,
             "max": 0.017652659000020776,
             "ops": 93.63711498724136,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.01032457600001635,
+            "mean": 0.010165801768114241,
+            "min": 0.0057328959999836115,
+            "max": 0.014901750000035463,
+            "ops": 98.36902418622513,
             "peak_memory": null
           }
         }
@@ -17798,6 +18426,17 @@
             "ops": 14.026454822841792,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.07797601199996507,
+            "mean": 0.07491193273332707,
+            "min": 0.04444024800000079,
+            "max": 0.09863468499997907,
+            "ops": 13.349008142131629,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -17820,6 +18459,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -17844,6 +18494,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -17867,6 +18528,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -17889,6 +18561,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -18407,6 +19090,17 @@
             "min": 0.003946837000000869,
             "max": 0.007632499999999709,
             "ops": 174.0938069591686,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.005942576499990082,
+            "mean": 0.005932391168747486,
+            "min": 0.0038314310000373553,
+            "max": 0.007814131999964502,
+            "ops": 168.56609275330902,
             "peak_memory": null
           }
         }
@@ -18928,6 +19622,17 @@
             "ops": 188.53620260851187,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.005888506999980336,
+            "mean": 0.006079781036699829,
+            "min": 0.0041500750000409425,
+            "max": 0.008979732999989665,
+            "ops": 164.47960772988804,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -19447,6 +20152,17 @@
             "ops": 101.09817194222349,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.015574731999976166,
+            "mean": 0.015342849440002056,
+            "min": 0.010062145999995664,
+            "max": 0.019829118000018298,
+            "ops": 65.17694147429931,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -19470,6 +20186,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -19495,6 +20222,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -19518,6 +20256,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -20036,6 +20785,17 @@
             "min": 0.03164510499999551,
             "max": 0.06920609600001626,
             "ops": 21.484450835494787,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.04450868599997193,
+            "mean": 0.045103840086950266,
+            "min": 0.03362660599998435,
+            "max": 0.060674855000002026,
+            "ops": 22.17106122388294,
             "peak_memory": null
           }
         }
@@ -20557,6 +21317,17 @@
             "ops": 21.729940122271895,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.046498209999981555,
+            "mean": 0.04581187234781905,
+            "min": 0.03279073599998128,
+            "max": 0.0597791280000024,
+            "ops": 21.828402742583094,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -21076,6 +21847,17 @@
             "ops": 20.07124797152018,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.06527333150000914,
+            "mean": 0.0649504679999886,
+            "min": 0.05666247099998145,
+            "max": 0.06923349699997061,
+            "ops": 15.396347875432944,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -21099,6 +21881,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -21124,6 +21917,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -21147,6 +21951,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -21665,6 +22480,17 @@
             "min": 0.40826602100000287,
             "max": 0.5363181569999824,
             "ops": 2.0595821801423844,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.44473197700000355,
+            "mean": 0.45012256320000005,
+            "min": 0.41453876600002104,
+            "max": 0.5066256119999935,
+            "ops": 2.2216171366545705,
             "peak_memory": null
           }
         }
@@ -22186,6 +23012,17 @@
             "ops": 2.2479615386980485,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.5014543679999974,
+            "mean": 0.49353513439998553,
+            "min": 0.4154374409999946,
+            "max": 0.5614589179999712,
+            "ops": 2.0261981980588843,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -22705,6 +23542,17 @@
             "ops": 1.7093377883498884,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.4986555000000408,
+            "mean": 0.5262296658000082,
+            "min": 0.4196750290000182,
+            "max": 0.6681985289999943,
+            "ops": 1.9003109573454693,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -22728,6 +23576,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -22753,6 +23612,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -22776,6 +23646,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -23294,6 +24175,17 @@
             "min": 0.0016612350000002607,
             "max": 0.0036731579999980113,
             "ops": 401.7129309136228,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.00331598899998653,
+            "mean": 0.0033178771963608515,
+            "min": 0.002133655000022827,
+            "max": 0.004764559000022928,
+            "ops": 301.3975324634771,
             "peak_memory": null
           }
         }
@@ -23815,6 +24707,17 @@
             "ops": 129.1945126236973,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0059512440000162314,
+            "mean": 0.006388559906977313,
+            "min": 0.0038369920000036473,
+            "max": 0.01050413899997693,
+            "ops": 156.52979929136183,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -24334,6 +25237,17 @@
             "ops": 24.19201097699308,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.043246338000017204,
+            "mean": 0.04126456081481441,
+            "min": 0.024640285000032236,
+            "max": 0.0579338919999941,
+            "ops": 24.233869942000922,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -24357,6 +25271,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -24382,6 +25307,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -24405,6 +25341,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -24923,6 +25870,17 @@
             "min": 0.009701523000018142,
             "max": 0.02098508099999208,
             "ops": 67.64008015130561,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.020973742000023776,
+            "mean": 0.0223737771999999,
+            "min": 0.013180271999999604,
+            "max": 0.10504548599999453,
+            "ops": 44.69518003424136,
             "peak_memory": null
           }
         }
@@ -25444,6 +26402,17 @@
             "ops": 23.108612005444932,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.05892222950001269,
+            "mean": 0.05786184237499725,
+            "min": 0.04084454100001267,
+            "max": 0.06759032899998374,
+            "ops": 17.28254682108275,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -25963,6 +26932,17 @@
             "ops": 2.193540491879376,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.46052097800003367,
+            "mean": 0.4491162872000018,
+            "min": 0.3910646929999757,
+            "max": 0.48431340500002307,
+            "ops": 2.2265948229899686,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -25986,6 +26966,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -26011,6 +27002,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -26034,6 +27036,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -26552,6 +27565,17 @@
             "min": 0.1098380110000221,
             "max": 0.19233730599998466,
             "ops": 7.19825132263607,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.1507624595000152,
+            "mean": 0.159530106499993,
+            "min": 0.13154568899994956,
+            "max": 0.24139663299996528,
+            "ops": 6.268409279849907,
             "peak_memory": null
           }
         }
@@ -27073,6 +28097,17 @@
             "ops": 1.6320652640598414,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.5982373969999912,
+            "mean": 0.6053366503999882,
+            "min": 0.5229724089999763,
+            "max": 0.7082227679999846,
+            "ops": 1.6519733264774734,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -27592,6 +28627,17 @@
             "ops": 0.18920987685710958,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 4.767726933000006,
+            "mean": 4.805632937999997,
+            "min": 4.5128255000000195,
+            "max": 5.136267500999963,
+            "ops": 0.2080891347511404,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -27615,6 +28661,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -27640,6 +28697,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -27663,6 +28731,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -28181,6 +29260,17 @@
             "min": 0.001565214999999398,
             "max": 0.00706375600000797,
             "ops": 439.5162767132714,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.002501114000040161,
+            "mean": 0.002469663053906573,
+            "min": 0.0015411310000104095,
+            "max": 0.00362628299996004,
+            "ops": 404.91353604621315,
             "peak_memory": null
           }
         }
@@ -28702,6 +29792,17 @@
             "ops": 175.16790885459574,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.005658603000000539,
+            "mean": 0.005671575392242079,
+            "min": 0.0031722019999733675,
+            "max": 0.010423637000030794,
+            "ops": 176.31785365453484,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -29221,6 +30322,17 @@
             "ops": 32.4232064820524,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.033202014000039526,
+            "mean": 0.03635680944000342,
+            "min": 0.01985043700000233,
+            "max": 0.10263658000002351,
+            "ops": 27.50516383045701,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -29244,6 +30356,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -29269,6 +30392,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -29292,6 +30426,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -29810,6 +30955,17 @@
             "min": 0.007874189999995451,
             "max": 0.017199798999996574,
             "ops": 81.65433656755287,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.01014080199999512,
+            "mean": 0.010861706401961296,
+            "min": 0.007648966999965978,
+            "max": 0.017923812999981692,
+            "ops": 92.06656514113014,
             "peak_memory": null
           }
         }
@@ -30331,6 +31487,17 @@
             "ops": 24.346707683889687,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.038726602500020135,
+            "mean": 0.03639164029999904,
+            "min": 0.019520366999984162,
+            "max": 0.050935315999993236,
+            "ops": 27.478838319910146,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -30850,6 +32017,17 @@
             "ops": 4.765542981654592,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.22697428100002526,
+            "mean": 0.2162795353999968,
+            "min": 0.1599689509999962,
+            "max": 0.27990742800000135,
+            "ops": 4.6236459596168284,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -30873,6 +32051,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -30898,6 +32087,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -30921,6 +32121,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -31439,6 +32650,17 @@
             "min": 0.10191220400000134,
             "max": 0.21291353899999876,
             "ops": 7.956244105127428,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.10414113400000247,
+            "mean": 0.11878250625000437,
+            "min": 0.08114439700000275,
+            "max": 0.18177853899999263,
+            "ops": 8.41874811005651,
             "peak_memory": null
           }
         }
@@ -31960,6 +33182,17 @@
             "ops": 2.9291543458526057,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.34036534400001983,
+            "mean": 0.3222350310000138,
+            "min": 0.22888438199998973,
+            "max": 0.3965517710000199,
+            "ops": 3.10332491441614,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -32479,6 +33712,17 @@
             "ops": 0.4718694395636643,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 2.175594111999999,
+            "mean": 2.1566989946000037,
+            "min": 2.0839928340000142,
+            "max": 2.2225800790000108,
+            "ops": 0.4636715658994717,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -32502,6 +33746,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -32527,6 +33782,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -32550,6 +33816,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -33067,6 +34344,17 @@
             "min": 0.0010192560000064077,
             "max": 0.0022576610000442088,
             "ops": 644.5654882807537,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0017061300000023039,
+            "mean": 0.00168129581004602,
+            "min": 0.0009466569999858621,
+            "max": 0.00240187099996092,
+            "ops": 594.7793327175592,
             "peak_memory": null
           }
         }
@@ -33587,6 +34875,17 @@
             "ops": 369.3860047157222,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0019016715000361728,
+            "mean": 0.00224967695864547,
+            "min": 0.001457440000024235,
+            "max": 0.005623544999991736,
+            "ops": 444.50826424523626,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -34103,6 +35402,17 @@
             "min": 0.007205290000001696,
             "max": 0.0195840179999891,
             "ops": 84.68072118899087,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.013567324500002087,
+            "mean": 0.013847468614285877,
+            "min": 0.007440554999959659,
+            "max": 0.020530130999986795,
+            "ops": 72.21536497785164,
             "peak_memory": null
           }
         }
@@ -34623,6 +35933,17 @@
             "ops": 11.155666505084248,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0821632349999959,
+            "mean": 0.08036284590908012,
+            "min": 0.05921994399994901,
+            "max": 0.10151855999998816,
+            "ops": 12.443561308560017,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -34645,6 +35966,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -34669,6 +36001,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -34692,6 +36035,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -34714,6 +36068,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -35234,6 +36599,17 @@
             "ops": 353.1505331996848,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.002934726999967552,
+            "mean": 0.0029189642310224096,
+            "min": 0.0017784620000043105,
+            "max": 0.008226945999979307,
+            "ops": 342.58727440785924,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -35257,6 +36633,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -35777,6 +37164,17 @@
             "ops": 553.2728551326422,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0021066609999706998,
+            "mean": 0.002027048444177211,
+            "min": 0.0011904699999831792,
+            "max": 0.003238444000032814,
+            "ops": 493.32812092998836,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -35800,6 +37198,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -36320,6 +37729,17 @@
             "ops": 281.4194935784194,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0038796789999651082,
+            "mean": 0.003850651946340915,
+            "min": 0.002557658000000629,
+            "max": 0.005636634999973467,
+            "ops": 259.6962836254912,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -36343,6 +37763,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -36863,6 +38294,17 @@
             "ops": 91.13497526089152,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.009456946000000244,
+            "mean": 0.009813951438352994,
+            "min": 0.0061070390000281805,
+            "max": 0.016065149999974437,
+            "ops": 101.89575588197765,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -36886,6 +38328,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -37406,6 +38859,17 @@
             "ops": 161.16349095677722,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.008487019999989798,
+            "mean": 0.00819497321929936,
+            "min": 0.004758902999981274,
+            "max": 0.011587158999986968,
+            "ops": 122.02602415404799,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -37429,6 +38893,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -37949,6 +39424,17 @@
             "ops": 76.67097249898434,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.009978096999986974,
+            "mean": 0.011410202774648426,
+            "min": 0.007860526000001755,
+            "max": 0.020179458000029626,
+            "ops": 87.64086140711134,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -37972,6 +39458,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -38492,6 +39989,17 @@
             "ops": 13.0700039009458,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.07931548900000962,
+            "mean": 0.08059466341666639,
+            "min": 0.052372681999997894,
+            "max": 0.11079167500002995,
+            "ops": 12.407769418058109,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -38515,6 +40023,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -39035,6 +40554,17 @@
             "ops": 18.488014954341867,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.04940300200001957,
+            "mean": 0.050077068529420184,
+            "min": 0.034994316999984676,
+            "max": 0.06903261100001146,
+            "ops": 19.969220031569975,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -39058,6 +40588,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -39578,6 +41119,17 @@
             "ops": 11.479268944226556,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.10191294499998094,
+            "mean": 0.09668247737498348,
+            "min": 0.0809298889999468,
+            "max": 0.1146778519999998,
+            "ops": 10.34313587271347,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -39601,6 +41153,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -40121,6 +41684,17 @@
             "ops": 371.359632334286,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.002351988999976129,
+            "mean": 0.0022834639345786873,
+            "min": 0.0011982230000171512,
+            "max": 0.003230826999981673,
+            "ops": 437.93115575723164,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -40144,6 +41718,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -40664,6 +42249,17 @@
             "ops": 220.3897604125904,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.004376748000026964,
+            "mean": 0.004732672127514455,
+            "min": 0.0035034530000075392,
+            "max": 0.007481689999963237,
+            "ops": 211.2971220182938,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -40687,6 +42283,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -41207,6 +42814,17 @@
             "ops": 234.0148623113693,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.004143752499999209,
+            "mean": 0.004145449276667819,
+            "min": 0.0025301279999894177,
+            "max": 0.007228289000011046,
+            "ops": 241.22837677170102,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -41230,6 +42848,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -41750,6 +43379,17 @@
             "ops": 102.14156231327529,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0059162695000054555,
+            "mean": 0.006406032533331856,
+            "min": 0.004447014999982457,
+            "max": 0.012939927999980227,
+            "ops": 156.10286004587113,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -41773,6 +43413,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -42293,6 +43944,17 @@
             "ops": 60.60888013783297,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.01663822400001891,
+            "mean": 0.01855546416250107,
+            "min": 0.011488716999963344,
+            "max": 0.0326490809999882,
+            "ops": 53.89248100949749,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -42316,6 +43978,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -42836,6 +44509,17 @@
             "ops": 63.99998993964681,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.015772119000018847,
+            "mean": 0.015615202040818559,
+            "min": 0.010527201999991576,
+            "max": 0.025661006999996516,
+            "ops": 64.04015762242288,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -42859,6 +44543,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -43379,6 +45074,17 @@
             "ops": 18.170092068430083,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.050621822000039174,
+            "mean": 0.055069851882361784,
+            "min": 0.04124690200001169,
+            "max": 0.07791976900000464,
+            "ops": 18.15875594029495,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -43402,6 +45108,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -43922,6 +45639,17 @@
             "ops": 8.404912166866518,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.12691488600000866,
+            "mean": 0.13284519100000938,
+            "min": 0.11214773000000378,
+            "max": 0.16829839300004323,
+            "ops": 7.527558901247163,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -43945,6 +45673,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -44465,6 +46204,17 @@
             "ops": 8.011664669118025,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.10907987400000252,
+            "mean": 0.11106299183332642,
+            "min": 0.074267352999982,
+            "max": 0.15222024699994563,
+            "ops": 9.003899350205801,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -44488,6 +46238,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -45008,6 +46769,17 @@
             "ops": 108.45029476817629,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.007146771999998691,
+            "mean": 0.007210628809522185,
+            "min": 0.004609834999996565,
+            "max": 0.010676862999957848,
+            "ops": 138.68416006651512,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -45031,6 +46803,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -45551,6 +47334,17 @@
             "ops": 90.80457138927524,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.010840972500005819,
+            "mean": 0.010198924705887059,
+            "min": 0.006137959999989562,
+            "max": 0.012524882000036541,
+            "ops": 98.04955216727666,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -45574,6 +47368,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -46094,6 +47899,17 @@
             "ops": 112.01307520513106,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.007722244000035516,
+            "mean": 0.00754854672464697,
+            "min": 0.0051500189999842405,
+            "max": 0.011080826000011257,
+            "ops": 132.47583097483815,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -46117,6 +47933,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -46637,6 +48464,17 @@
             "ops": 82.12683801549942,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.010985478999998577,
+            "mean": 0.011056157028574057,
+            "min": 0.0074098129999811135,
+            "max": 0.01792601600004673,
+            "ops": 90.44734055563363,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -46660,6 +48498,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -47180,6 +49029,17 @@
             "ops": 118.70352084584414,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.007248119000053066,
+            "mean": 0.007238528504425614,
+            "min": 0.004798956000001908,
+            "max": 0.011139636999985214,
+            "ops": 138.14962521576078,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -47203,6 +49063,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -47723,6 +49594,17 @@
             "ops": 86.09201672173138,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.011772697499992546,
+            "mean": 0.011118883951616733,
+            "min": 0.007237998000050538,
+            "max": 0.015743609000026026,
+            "ops": 89.93708400514386,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -47746,6 +49628,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -48266,6 +50159,17 @@
             "ops": 83.49812604054335,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.01218267699999842,
+            "mean": 0.012342861345454863,
+            "min": 0.009361587000000782,
+            "max": 0.014344133999998121,
+            "ops": 81.01849093267504,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -48289,6 +50193,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -48809,6 +50724,17 @@
             "ops": 55.02788951833149,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.015785114999971483,
+            "mean": 0.016400455560975254,
+            "min": 0.01182134399999768,
+            "max": 0.02241793600001074,
+            "ops": 60.97391601605821,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -48832,6 +50758,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -49351,6 +51288,17 @@
             "min": 0.0593034650000277,
             "max": 0.09278215499995213,
             "ops": 13.173274953387308,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.06183425050002711,
+            "mean": 0.06273554831251005,
+            "min": 0.05482990500001961,
+            "max": 0.0759728330000371,
+            "ops": 15.939926037126718,
             "peak_memory": null
           }
         }
@@ -49873,6 +51821,17 @@
             "ops": 11.281027022648509,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.09256588300002022,
+            "mean": 0.100318961454558,
+            "min": 0.08437609399999246,
+            "max": 0.1781845240000166,
+            "ops": 9.968205267485502,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -49898,6 +51857,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -49922,6 +51892,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -50443,6 +52424,17 @@
             "ops": 9.905286728875053,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.09817180400000325,
+            "mean": 0.10096044727273258,
+            "min": 0.08313910599997598,
+            "max": 0.12114555600004451,
+            "ops": 9.904868956242037,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -50467,6 +52459,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -50986,6 +52989,17 @@
             "min": 0.06425640800000565,
             "max": 0.09196590600004129,
             "ops": 12.891966302174335,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0633362010000269,
+            "mean": 0.06151602694117574,
+            "min": 0.05251135999998269,
+            "max": 0.07334159599997747,
+            "ops": 16.25592629634945,
             "peak_memory": null
           }
         }
@@ -51508,6 +53522,17 @@
             "ops": 11.897063654786148,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0740899509999906,
+            "mean": 0.07648380379999367,
+            "min": 0.06471839499999987,
+            "max": 0.09499631799997132,
+            "ops": 13.074663527653717,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -51533,6 +53558,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -51557,6 +53593,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -52078,6 +54125,17 @@
             "ops": 9.6306951797315,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.08936544700003424,
+            "mean": 0.08616616144445288,
+            "min": 0.07261946400001307,
+            "max": 0.10204724999999826,
+            "ops": 11.605483907330038,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -52102,6 +54160,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -52621,6 +54690,17 @@
             "min": 0.0711014690000411,
             "max": 0.09291954700000815,
             "ops": 12.90430981970905,
+            "peak_memory": null
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.06036670550003009,
+            "mean": 0.06128323283333733,
+            "min": 0.05570622700003014,
+            "max": 0.07207512500002622,
+            "ops": 16.317677018109467,
             "peak_memory": null
           }
         }
@@ -53143,6 +55223,17 @@
             "ops": 10.916160524990271,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.08914086699996915,
+            "mean": 0.08539141730768471,
+            "min": 0.07060798599997042,
+            "max": 0.10235128300001861,
+            "ops": 11.710778805752485,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -53168,6 +55259,17 @@
             "ops": null,
             "peak_memory": 1631506432.0
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
+          }
         }
       ]
     },
@@ -53192,6 +55294,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
@@ -53713,6 +55826,17 @@
             "ops": 9.591893625194913,
             "peak_memory": null
           }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": 0.0805440790000489,
+            "mean": 0.08682684277777576,
+            "min": 0.0764218539999888,
+            "max": 0.10645742299999483,
+            "ops": 11.517175656834553,
+            "peak_memory": null
+          }
         }
       ]
     },
@@ -53737,6 +55861,17 @@
             "max": null,
             "ops": null,
             "peak_memory": 1631506432.0
+          }
+        },
+        {
+          "run_id": "d16a5769eaf549fda348e63d971e0903",
+          "metrics": {
+            "median": null,
+            "mean": null,
+            "min": null,
+            "max": null,
+            "ops": null,
+            "peak_memory": 1631358976.0
           }
         }
       ]
