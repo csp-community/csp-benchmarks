@@ -1,6 +1,8 @@
 """Tests for Hetzner Cloud integration."""
 
+import argparse
 import importlib.util
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -95,8 +97,42 @@ class TestHetznerServerManager:
         assert "python3" in script
         assert "cmake" in script
 
+    @patch("csp_benchmarks.hetzner.server.time.sleep")
+    @patch("hcloud.Client")
+    def test_creates_server_with_ssh_key_and_waits_until_running(self, mock_client_class, mock_sleep):
+        from csp_benchmarks.hetzner.server import HetznerServerManager, ServerConfig
+
+        client = mock_client_class.return_value
+        server = MagicMock()
+        server.id = 123
+        server.status = "running"
+        server.public_net.ipv4.ip = "1.2.3.4"
+        client.servers.create.return_value.server = server
+        client.servers.get_by_id.return_value = server
+        manager = HetznerServerManager(token="test-token", config=ServerConfig(ssh_key_name="benchmarks"))
+
+        assert manager.create_server() is server
+
+        assert client.servers.create.call_args.kwargs["ssh_keys"] == [client.ssh_keys.get_by_name.return_value]
+        client.ssh_keys.get_by_name.assert_called_once_with("benchmarks")
+        client.servers.get_by_id.assert_called_once_with(123)
+        mock_sleep.assert_called_once_with(30)
+
 
 class TestHetznerBenchmarkRunner:
+    @pytest.mark.parametrize("missing_network", [True, False])
+    def test_requires_public_ipv4(self, missing_network):
+        from csp_benchmarks.hetzner.runner import HetznerBenchmarkRunner
+
+        server = MagicMock()
+        if missing_network:
+            server.public_net = None
+        else:
+            server.public_net.ipv4 = None
+
+        with pytest.raises(ValueError, match="public IPv4 address"):
+            HetznerBenchmarkRunner(server=server)
+
     """Test HetznerBenchmarkRunner class."""
 
     def test_init(self):
@@ -215,3 +251,17 @@ class TestHetznerCLI:
             result = run_benchmarks(args)
 
         assert result == 1  # Should fail without token
+
+
+@patch("csp_benchmarks.hetzner.cli.HetznerServerManager")
+def test_cleanup_skips_servers_without_matching_names(mock_manager_class, monkeypatch):
+    from csp_benchmarks.hetzner.cli import cleanup_servers
+
+    monkeypatch.setenv("HCLOUD_TOKEN", "test-token")
+    matching = SimpleNamespace(name="csp-benchmark-owned")
+    manager = mock_manager_class.return_value
+    manager.client.servers.get_all.return_value = [SimpleNamespace(name=None), SimpleNamespace(name="other"), matching]
+
+    assert cleanup_servers(argparse.Namespace(token=None)) == 0
+
+    manager.delete_server.assert_called_once_with(matching)

@@ -40,6 +40,7 @@ develop = [
     "bump-my-version",
     "check-dist",
     "codespell",
+    "csp-benchmarks[hetzner]",
     "hatchling",
     "mdformat",
     "mdformat-frontmatter",
@@ -88,10 +89,7 @@ replace = 'version = "{new_version}"'
 branch = true
 omit = [
     "csp_benchmarks/tests/integration/*",
-<<<<<<< before updating
     "csp_benchmarks/benchmarks/*",  # benchmark workloads are exercised separately
-=======
->>>>>>> after updating
 ]
 
 [tool.coverage.report]
@@ -172,3 +170,9 @@ section-order = [
     "F401",
     "F403",
 ]
+
+[[tool.ty.overrides]]
+include = ["csp_benchmarks/benchmarks/bench_baselib.py", "csp_benchmarks/benchmarks/bench_core.py"]
+[tool.ty.overrides.rules]
+invalid-return-type = "ignore"
+unsupported-operator = "ignore"

@@ -59,6 +59,7 @@ def test_normalizes_python_executable_recorded_by_asv(tmp_path):
     mapped = map_run(run)
 
     assert mapped.environment.python_version == "3.11"
+    assert mapped.provenance.source_file is not None
     assert mapped.provenance.source_file.startswith("csp_benchmarks/results/")
     assert mapped.suite.revision is None
     assert mapped.subject.revision == run.suite.revision

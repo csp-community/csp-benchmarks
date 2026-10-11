@@ -57,6 +57,8 @@ class HetznerBenchmarkRunner:
         self.config = config or BenchmarkConfig()
         self.ssh_key_path = ssh_key_path
         self.branch = branch
+        if server.public_net is None or server.public_net.ipv4 is None:
+            raise ValueError("Hetzner benchmark server requires a public IPv4 address")
         self.server_ip = server.public_net.ipv4.ip
 
     def run_benchmarks(self) -> dict:
@@ -169,6 +171,7 @@ class HetznerBenchmarkRunner:
         self._wait_for_ssh()
 
         # Determine machine name based on server type
+        assert self.server.server_type is not None
         server_type = self.server.server_type.name
         machine_name = f"hetzner-{server_type}"
 
@@ -224,6 +227,8 @@ class HetznerBenchmarkRunner:
 
     def _collect_results(self, benched_output: str) -> dict:
         """Collect benchmark results from the remote server."""
+        server_type = self.server.server_type
+        assert server_type is not None
         logger.info("Collecting benchmark results...")
 
         results_path = "/root/csp-benchmarks/csp_benchmarks/benched-results/"
@@ -237,7 +242,7 @@ class HetznerBenchmarkRunner:
                 "server": {
                     "name": self.server.name,
                     "id": self.server.id,
-                    "type": self.server.server_type.name,
+                    "type": server_type.name,
                     "ip": self.server_ip,
                 },
                 "benched_output": benched_output,
@@ -258,7 +263,7 @@ class HetznerBenchmarkRunner:
                 "server": {
                     "name": self.server.name,
                     "id": self.server.id,
-                    "type": self.server.server_type.name,
+                    "type": server_type.name,
                     "ip": self.server_ip,
                 },
                 "benched_output": benched_output,
