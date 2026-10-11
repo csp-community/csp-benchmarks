@@ -42,6 +42,7 @@ develop = [
     "codespell",
     "hatchling",
     "mdformat",
+    "mdformat-frontmatter",
     "mdformat-tables>=1",
     "pytest",
     "pytest-cov",
@@ -87,7 +88,10 @@ replace = 'version = "{new_version}"'
 branch = true
 omit = [
     "csp_benchmarks/tests/integration/*",
+<<<<<<< before updating
     "csp_benchmarks/benchmarks/*",  # benchmark workloads are exercised separately
+=======
+>>>>>>> after updating
 ]
 
 [tool.coverage.report]
