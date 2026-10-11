@@ -3,9 +3,10 @@
 import hashlib
 import json
 from dataclasses import replace
-from types import SimpleNamespace
 
 import pytest
+from benched.config import load_config
+from benched.hooks import RunHookContext
 from benched.storage import read_runs
 
 from csp_benchmarks.benched_plugin import benched_enrich_run
@@ -20,7 +21,7 @@ def current_run():
 def test_normalizes_memory_aliases_and_fingerprint(current_run, recorded, expected):
     metadata = {**current_run.machine.metadata, "memory_gib": recorded}
     machine = replace(current_run.machine, fingerprint="original", metadata=metadata)
-    context = SimpleNamespace(run=replace(current_run, machine=machine))
+    context = RunHookContext(config=load_config(environ={}), run=replace(current_run, machine=machine))
 
     benched_enrich_run(context)
 
@@ -30,7 +31,7 @@ def test_normalizes_memory_aliases_and_fingerprint(current_run, recorded, expect
 
 
 def test_preserves_other_memory_buckets(current_run):
-    context = SimpleNamespace(run=current_run)
+    context = RunHookContext(config=load_config(environ={}), run=current_run)
 
     benched_enrich_run(context)
 

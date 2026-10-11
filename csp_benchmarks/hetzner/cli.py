@@ -100,7 +100,7 @@ def cleanup_servers(args: argparse.Namespace) -> int:
     deleted = 0
 
     for server in servers:
-        if server.name.startswith("csp-benchmark"):
+        if server.name is not None and server.name.startswith("csp-benchmark"):
             logger.info(f"Deleting server: {server.name}")
             manager.delete_server(server)
             deleted += 1

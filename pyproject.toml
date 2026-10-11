@@ -40,8 +40,10 @@ develop = [
     "bump-my-version",
     "check-dist",
     "codespell",
+    "csp-benchmarks[hetzner]",
     "hatchling",
     "mdformat",
+    "mdformat-frontmatter",
     "mdformat-tables>=1",
     "pytest",
     "pytest-cov",
@@ -168,3 +170,9 @@ section-order = [
     "F401",
     "F403",
 ]
+
+[[tool.ty.overrides]]
+include = ["csp_benchmarks/benchmarks/bench_baselib.py", "csp_benchmarks/benchmarks/bench_core.py"]
+[tool.ty.overrides.rules]
+invalid-return-type = "ignore"
+unsupported-operator = "ignore"

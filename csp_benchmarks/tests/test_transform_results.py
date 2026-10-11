@@ -104,6 +104,7 @@ class TestTransformResultFile:
         src = self._create_test_result(tmp_path, "01ce9cfc-virtualenv-py3.12-csp0.13.0.json", "0.13.0")
 
         new_path = transform_result_file(src, tmp_path)
+        assert new_path is not None
 
         with open(new_path) as f:
             data = json.load(f)
@@ -115,6 +116,7 @@ class TestTransformResultFile:
         src = self._create_test_result(tmp_path, "01ce9cfc-virtualenv-py3.12-csp0.13.0.json", "0.13.0")
 
         new_path = transform_result_file(src, tmp_path)
+        assert new_path is not None
 
         with open(new_path) as f:
             data = json.load(f)
@@ -127,6 +129,7 @@ class TestTransformResultFile:
         src = self._create_test_result(tmp_path, "01ce9cfc-virtualenv-py3.12-csp0.13.0.json", "0.13.0")
 
         new_path = transform_result_file(src, tmp_path)
+        assert new_path is not None
 
         with open(new_path) as f:
             data = json.load(f)
@@ -141,6 +144,7 @@ class TestTransformResultFile:
         src = self._create_test_result(tmp_path, "01ce9cfc-virtualenv-py3.12-csp0.13.0.json", "0.13.0")
 
         new_path = transform_result_file(src, tmp_path)
+        assert new_path is not None
 
         with open(new_path) as f:
             data = json.load(f)
