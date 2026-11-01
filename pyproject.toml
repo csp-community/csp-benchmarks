@@ -55,8 +55,8 @@ develop = [
 ]
 
 hetzner = [
-    "hcloud>=2.25.1",
-    "paramiko>=5.0.0",
+    "hcloud>=2.27.0",
+    "paramiko>=5.1.0",
 ]
 
 [project.scripts]
